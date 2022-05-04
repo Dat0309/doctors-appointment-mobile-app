@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
@@ -8,35 +8,39 @@ import { Router } from '@angular/router';
 })
 export class LoginFormPage implements OnInit {
 
-  constructor(public FormBuilder : FormBuilder, private router: Router,) { }
+  constructor(public formBuilder: FormBuilder, private router: Router,) { }
   ngOnInit() {
   }
-get email() {
-  return this.loginForm.get('email');
-}
-get password() {
-  return this.loginForm.get('password');
-}
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  get email() {
+    return this.loginForm.get('email');
+  }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  get password() {
+    return this.loginForm.get('password');
+  }
 
-public errorMessages = {
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public errorMessages = {
     email: [
-      	{ type: 'required', message: 'email is required' },
-      	{ type: 'pattern', message: 'Please enter a valid email number' }
+      { type: 'required', message: 'Không được bỏ trống Email' },
+      { type: 'pattern', message: 'Hãy nhập đúng định dạng Email' }
     ],
     password: [
-      { type: 'required', message: 'password is required' }
+      { type: 'required', message: 'Không được bỏ trống mật khẩu' }
     ]
   };
 
-loginForm = this.FormBuilder.group({
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  loginForm = this.formBuilder.group({
     email: ['', Validators.required],
-    password: ['', Validators.required],   
+    password: ['', Validators.required],
   });
-  
+
 
   public submit() {
-	  console.log(this.loginForm.value);
+    console.log(this.loginForm.value);
     this.router.navigate(['/find']);
-    
-	}
+
+  }
 }
