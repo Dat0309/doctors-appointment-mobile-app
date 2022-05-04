@@ -1,0 +1,65 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-label class="menu-tittle">
+          <img src="assets/images/adult-doctor.png" />
+          <ion-list-header>Dr-Reena Roy</ion-list-header>
+          <a [routerLink]="['/profile']"><ion-note>Complete Your Profile</ion-note></a>
+        </ion-label>
+        <ion-label class="menu-icon">
+          <ion-row>
+          <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>
+          <label>My Profile</label>
+           <a [routerLink]="['/profile']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+        <ion-label class="menu-icon">
+          <ion-row>
+          <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>
+          <label>My Appointment</label>
+           <a href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+        <ion-label class="menu-icon">
+          <ion-row>
+          <a [routerLink]="['/appointment-schedule']"><i class="fa fa-address-book" aria-hidden="true"></i></a>
+          <label> Set Appointment Schedule</label>
+           <a [routerLink]="['/appointment-schedule']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+         <ion-label class="menu-icon">
+          <ion-row>
+          <a [routerLink]="['/lab-test']"><i class="fa fa-flask" aria-hidden="true"></i></a>
+          <label>Lab</label>
+           <a [routerLink]="['/lab-test']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+         <ion-label class="menu-icon">
+          <ion-row>
+          <a [routerLink]="['/medical-shop']"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+          <label>Medical</label>
+           <a [routerLink]="['/medical-shop']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+         <ion-label class="menu-icon">
+          <ion-row>
+          <a [routerLink]="['/chat']"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+          <label>Message</label>
+           <a [routerLink]="['/chat']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+        <ion-label class="menu-icon">
+          <ion-row>
+          <a [routerLink]="['/login-form']"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+          <label>Log Out</label>
+           <a [routerLink]="['/login-form']"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+         </ion-row>
+        </ion-label>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
