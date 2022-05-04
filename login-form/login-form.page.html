@@ -1,0 +1,49 @@
+
+<ion-content>
+	<ion-label class="logo">
+      <ion-img src="assets/images/logo.png"></ion-img>
+  </ion-label>
+  <ion-label class="login-bac">
+  	<ion-img src="assets/images/safe-bac-img.png"></ion-img>
+  </ion-label>
+  		<ion-label>
+            <div class="social-icon">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i> </a>
+               
+                <a href="#"><span>Donthave an account ?</span></a>
+        		<a [routerLink]="['/signup']"><span>REGISTER</span></a>
+            </div>
+        </ion-label>
+<div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="field">
+          <span class="fa fa-envelope"></span>
+          <input type="email" required inputmode="email" formControlName="email" placeholder="Email id">
+          <label></label>
+        </div>
+                <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <span class="fa fa-lock"></span>
+          <input type="password" inputmode="password" formControlName="password" placeholder="Password">
+          <label></label>
+        </div>
+                <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="forgot-pass"><a [routerLink]="['/forgot']">Forgot Password?</a></div>
+        <button [disabled]="!loginForm.valid">LOGIN<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+      </form>
+  </div>
+</div>
+
+</ion-content>
+

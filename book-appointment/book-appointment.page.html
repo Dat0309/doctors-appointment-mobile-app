@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar>
+  	<ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+    	Book Appointment
+    </ion-title>
+    <a href="#"><img src="assets/images/arrow.png"></a>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+	<div class="cardio">
+<ion-label class="cardio-box">
+	<ion-row>
+		<ion-col>
+			<div class="adult-dr-img">
+			<img src="assets/images/adult-doctor.png">
+			
+					<div class="star-rating">
+			<span>Dr. Josepin Clara</span>
+			<p>Eye Specialist</p>
+		</div>
+		</div>
+		</ion-col>
+	</ion-row>
+</ion-label>
+</div>
+<div class="mr-top">
+<div class="calendar">
+  <div class="month"><a href="#" class="nav"><i class="fa fa-angle-left" aria-hidden="true"></i></a><div>December <span class="year">2019</span></div><a href="#" class="nav"><i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+  <div class="days">
+    <span>Mon</span>
+    <span>Tue</span>
+    <span>Wed</span>
+    <span>Thu</span>
+    <span>Fri</span>
+    <span>Sat</span>
+    <span>Sun</span>
+  </div>
+  </div>
+  <div class="dates">
+      <button>
+        <time>1</time>
+      </button>
+      <button>
+        <time>2</time>
+      </button>
+      <button>
+        <time>3</time>
+      </button>
+      <button>
+        <time>4</time>
+      </button>
+      <button>
+        <time>5</time>
+      </button>
+      <button>
+        <time>6</time>
+      </button>
+      <button>
+        <time>7</time>
+      </button>
+      <button>
+        <time>8</time>
+      </button>
+      <button>
+        <time>9</time>
+      </button>
+      <button>
+        <time>10</time>
+      </button>
+      <button>
+        <time>11</time>
+      </button>
+      <button>
+        <time>12</time>
+      </button>
+      <button>
+        <time>13</time>
+      </button>
+      <button>
+        <time>14</time>
+      </button>
+      <button>
+        <time>15</time>
+      </button>
+      <button>
+        <time>16</time>
+      </button>
+      <button>
+        <time>17</time>
+      </button>
+      <button class="today">
+        <time>18</time>
+      </button>
+      <button>
+        <time>19</time>
+      </button>
+      <button>
+        <time>20</time>
+      </button>
+      <button>
+        <time>21</time>
+      </button>
+      <button>
+        <time>22</time>
+      </button>
+      <button>
+        <time>23</time>
+      </button>
+      <button>
+        <time>24</time>
+      </button>
+      <button>
+        <time>25</time>
+      </button>
+      <button>
+        <time>26</time>
+      </button>
+      <button>
+        <time>27</time>
+      </button>
+      <button>
+        <time>28</time>
+      </button>
+      <button>
+        <time>29</time>
+      </button>
+      <button>
+        <time>30</time>
+      </button>
+      <button>
+        <time>31</time>
+      </button>
+  </div>
+</div>
+
+  <ion-label class="timeing">
+  	<ion-row>
+  		<span>10:00 AM</span>
+  		<span>12:00 PM</span>
+  		<span>2:00 PM</span>
+  	</ion-row>
+  </ion-label>
+
+  <ion-label class="appointment-for">
+  	<ion-row>
+  		<span>Appointment for..</span>
+  	</ion-row>
+  </ion-label>
+<div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="bookappointment" (ngSubmit)="submit()">
+        <div class="field">
+          <input type="text" required inputmode="name" formControlName="name" placeholder="Full Name">
+          <label></label>
+        </div>
+                 <div *ngFor="let error of errorMessages.name">
+          <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <input type="number" inputmode="number" formControlName="number" placeholder="Mobile Number">
+          <label></label>
+        </div>
+                 <div *ngFor="let error of errorMessages.number">
+          <ng-container *ngIf="number.hasError(error.type) && (number.dirty || number.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <ion-button [routerLink]="['/my-appointment']" [disabled]="!bookappointment.valid" class="book-appointment" type="submit" expand="block">Confirm Appointment</ion-button>
+      </form>
+  </div>
+</div>
+
+</ion-content>

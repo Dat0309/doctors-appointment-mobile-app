@@ -1,0 +1,91 @@
+.lab-box {
+ion-row {
+.star-rating {
+padding: 30px 10px;
+}
+	p{
+	width: 150px;
+	}
+}
+}
+.timing-lab{
+	width: 150px;
+    text-align: right;
+   padding: 35px 45px;
+span{
+	font-size: 10px;
+	font-family: "Poppins", sans-serif;
+	color: #254298;
+}    
+p{
+	    padding: 5px 41px;
+	    font-size: 10px;
+	    font-family: "Poppins", sans-serif;
+}    
+}
+.lab-map{
+	margin: 20px 0;
+}
+.Faclitiess-heading{
+	label{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    padding: 0 24px;	
+	}
+}
+.Faclitiess-tittle{
+    margin: 15px 20px;
+	span{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #474747;
+    border-radius: 0;
+    box-shadow: 0px 0px 5px 0px #ccc;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+	}
+	span:hover{
+		color:#fff;
+		background-color: #254298;
+	}
+}
+
+.Faclitiess-tittle1{
+	margin: 20px 20px;
+	span{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #474747;
+    border-radius: 0;
+    box-shadow: 0px 0px 5px 0px #ccc;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+	}
+	span:hover{
+		color:#fff;
+		background-color: #254298;
+	}	
+}
+.lab-btn{
+.my-button {
+    background: #fff;
+    border-radius: 4px;
+    width: 134px;
+    margin: 0 20px;
+    color: #000;
+    height: 40px;
+}
+	
+}
+.my-button:hover{
+   background: #254298 !important;
+    color: #fff !important;
+    border:none;
+    outline: none;
+}

@@ -1,0 +1,76 @@
+
+<ion-content>
+	<ion-label class="logo">
+      <ion-img src="assets/images/logo.png"></ion-img>
+  </ion-label>
+  <ion-label class="login-bac">
+  	<ion-img src="assets/images/safe-bac-img.png"></ion-img>
+  </ion-label>
+  		<ion-label>
+            <div class="social-icon">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i> </a>
+               
+                <a [routerLink]="['/login-form']"><span>Sign With</span></a>
+            </div>
+        </ion-label>
+<div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="signupForm" (ngSubmit)="submit()">
+        <div class="field">
+          <span class="fa fa-address-card"></span>
+          <input type="text" required inputmode="text" formControlName="firstname" placeholder="First Name">
+          <label></label>
+        </div>
+              <div *ngFor="let error of errorMessages.firstname">
+          <ng-container *ngIf="firstname.hasError(error.type) && (firstname.dirty || firstname.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <span class="fa fa-address-card"></span>
+          <input type="text" inputmode="text" formControlName="lastname" placeholder="Last Name">
+          <label></label>
+        </div>
+              <div *ngFor="let error of errorMessages.lastname">
+          <ng-container *ngIf="lastname.hasError(error.type) && (lastname.dirty || lastname.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <span class="fa fa-phone"></span>
+          <input type="number" inputmode="number" formControlName="mobilenumber" placeholder="Mobile Number">
+          <label></label>
+        </div>
+             <div *ngFor="let error of errorMessages.mobilenumber">
+          <ng-container *ngIf="mobilenumber.hasError(error.type) && (mobilenumber.dirty || mobilenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <span class="fa fa-lock"></span>
+          <input type="password" inputmode="password" formControlName="password" placeholder="Password">
+          <label></label>
+        </div>
+                <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="field">
+          <span class="fa fa-lock"></span>
+          <input type="password" inputmode="confirmpassword" formControlName="confirmpassword" placeholder="Confirm Password">
+          <label></label>
+        </div>
+                     <div *ngFor="let error of errorMessages.confirmpassword">
+          <ng-container *ngIf="confirmpassword.hasError(error.type) && (confirmpassword.dirty || confirmpassword.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <button [disabled]="!signupForm.valid">SIGNUP<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+      </form>
+  </div>
+</div>
+
+</ion-content>
