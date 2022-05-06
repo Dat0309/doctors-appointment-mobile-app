@@ -18,7 +18,7 @@ userRouter.post(
         _id: user._id,
         name: user.name,
         email: user.email,
-        isAdmin: user.isAdmin,
+        role: user.role,
         token: generateToken(user._id),
         createdAt: user.createdAt,
       });
@@ -33,7 +33,7 @@ userRouter.post(
 userRouter.post(
   "/",
   asyncHandler(async (req, res) => {
-    const { name, email, password, telephone, avatar } = req.body;
+    const { email, password, role } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -43,21 +43,16 @@ userRouter.post(
     }
 
     const user = await User.create({
-      name,
       email,
       password,
-      telephone,
-      avatar,
+      role,
     });
 
     if (user) {
       res.status(201).json({
         _id: user._id,
-        name: user.name,
         email: user.email,
-        telephone: user.telephone,
-        avatar: user.avatar,
-        isAdmin: user.isAdmin,
+        role: user.role,
         token: generateToken(user._id),
       });
     } else {
@@ -77,11 +72,8 @@ userRouter.get(
     if (user) {
       res.json({
         _id: user._id,
-        name: user.name,
         email: user.email,
-        telephone: user.telephone,
-        avatar: user.avatar,
-        isAdmin: user.isAdmin,
+        role: user.role,
         createdAt: user.createdAt,
       });
     } else {
@@ -99,7 +91,6 @@ userRouter.put(
     const user = await User.findById(req.user._id);
 
     if (user) {
-      user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
       if (req.body.password) {
         user.password = req.body.password;
@@ -107,11 +98,8 @@ userRouter.put(
       const updatedUser = await user.save();
       res.json({
         _id: updatedUser._id,
-        name: updatedUser.name,
         email: updatedUser.email,
-        telephone: updatedUser.telephone,
-        avatar: updatedUser.avatar,
-        isAdmin: updatedUser.isAdmin,
+        role: updatedUser.role,
         createdAt: updatedUser.createdAt,
         token: generateToken(updatedUser._id),
       });
