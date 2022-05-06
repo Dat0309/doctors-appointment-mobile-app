@@ -16,23 +16,21 @@ const appointmentSchema = mongoose.Schema(
             required: true,
             ref: "Customer",
         },
-        location: {
-            province: {
-                type: String,
-                required: true,
-            },
-            district: {
-                type: String,
-                required: true,
-            },
-            ward: {
-                type: String,
-                required: true,
-            },
-            street: {
-                type: String,
-                required: true,
-            },
+        province: {
+            type: String,
+            required: true,
+        },
+        district: {
+            type: String,
+            required: true,
+        },
+        ward: {
+            type: String,
+            required: true,
+        },
+        street: {
+            type: String,
+            required: true,
         },
         contact: {
             type: String,
@@ -52,6 +50,6 @@ const appointmentSchema = mongoose.Schema(
     }
 );
 
-const Order = mongoose.model("Order", orderSchema);
+const Appointment = mongoose.model("Appointment", appointmentSchema);
 
-export default Order;
+export default Appointment;

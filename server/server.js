@@ -2,12 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDatabase from "./config/MongoDb.js";
 import ImportData from "./DataImport.js";
-import productRoute from "./Routes/ProductRoutes.js";
 import { errorHandler, notFound } from "./Middleware/Errors.js";
 import userRouter from "./Routes/UserRoutes.js";
-import orderRouter from "./Routes/orderRoutes.js";
-import discountRoute from "./Routes/discountRoutes.js";
-import categoriesRoute from "./Routes/categoriesRoutes.js";
+import doctorRoute from "./Routes/DoctorRoutes.js";
+import customerRoute from "./Routes/CustomerRoutes.js";
+import specializationRoute from "./Routes/SpecializationRoutes.js";
+import appointmentRouter from "./Routes/AppointmentRoutes.js";
+import companyRoute from "./Routes/CompanyRoutes.js";
 
 dotenv.config();
 connectDatabase();
@@ -16,11 +17,12 @@ app.use(express.json());
 
 // API
 app.use("/api/import", ImportData);
-app.use("/api/products", productRoute);
-app.use("/api/discount", discountRoute);
-app.use("/api/categories", categoriesRoute);
+app.use("/api/doctors", doctorRoute);
+app.use("/api/customers", customerRoute);
+app.use("/api/company", companyRoute);
+app.use("/api/specialization", specializationRoute);
 app.use("/api/users", userRouter);
-app.use("/api/orders", orderRouter);
+app.use("/api/appointment", appointmentRouter);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });

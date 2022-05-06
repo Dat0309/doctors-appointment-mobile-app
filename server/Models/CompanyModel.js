@@ -10,6 +10,10 @@ const companySchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        image: {
+            type: String,
+            required: true,
+        },
         province: {
             type: String,
             required: true,

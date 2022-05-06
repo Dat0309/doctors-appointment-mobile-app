@@ -20,31 +20,4 @@ ImportData.post(
   })
 );
 
-ImportData.post(
-  "/products",
-  asyncHandler(async (req, res) => {
-    await Product.deleteMany({});
-    const importProducts = await Product.insertMany(products);
-    res.send({ importProducts });
-  })
-);
-
-ImportData.post(
-  "/discount",
-  asyncHandler(async (req, res) => {
-    await Discount.deleteMany({});
-    const importDiscount = await Discount.insertMany(discounts);
-    res.send({ importDiscount });
-  })
-);
-
-ImportData.post(
-  "/categories",
-  asyncHandler(async (req, res) => {
-    await Categories.deleteMany({});
-    const importCategories = await Categories.insertMany(categories);
-    res.send({ importCategories });
-  })
-);
-
 export default ImportData;
