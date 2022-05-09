@@ -22,7 +22,7 @@ const companySchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        ward:{
+        ward: {
             type: String,
             required: true,
         },

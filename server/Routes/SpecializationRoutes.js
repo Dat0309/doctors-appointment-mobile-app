@@ -76,7 +76,7 @@ specializationRoute.post(
     protect,
     admin,
     asyncHandler(async (req, res) => {
-        const { name, description, image } = req.body;
+        const { name, description } = req.body;
         const specializationExist = await Specialization.findOne({ name });
         if (specializationExist) {
             res.status(400);
@@ -85,7 +85,6 @@ specializationRoute.post(
             const specialization = new Specialization({
                 name,
                 description,
-                image,
                 user: req.user._id,
             });
             if (specialization) {
@@ -105,12 +104,11 @@ specializationRoute.put(
     protect,
     admin,
     asyncHandler(async (req, res) => {
-        const { name, description, image } = req.body;
+        const { name, description } = req.body;
         const specialization = await Specialization.findById(req.params.id);
         if (specialization) {
             specialization.name = name || specialization.name;
             specialization.description = description || specialization.description;
-            specialization.image = image || specialization.image;
 
             const updatedSpecialization = await specialization.save();
             res.json(updatedSpecialization);
