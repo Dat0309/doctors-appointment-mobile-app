@@ -1,5 +1,6 @@
 const customers = [
     {
+        user_id: "6278db9d63f52e91c16f157e",
         first_name: "Đạt",
         last_name: "Đinh Trọng",
         date_of_birth: "03/09/2001",
@@ -10,9 +11,10 @@ const customers = [
         province: "Lâm Đồng",
         district: "Đà Lạt",
         ward: "Phường 8",
-        street: "Trần Khánh Dư"
+        street: "68 Đường Trần Khánh Dư"
     },
     {
+        user_id: "6278db9d63f52e91c16f1580",
         first_name: "Danh",
         last_name: "Nguyễn Việt Duy",
         date_of_birth: "21/12/2001",
@@ -26,6 +28,7 @@ const customers = [
         street: "Thái Phiên"
     },
     {
+        user_id: "6278db9d63f52e91c16f1582",
         first_name: "Cảnh",
         last_name: "Trần Minh",
         date_of_birth: "05/06/2000",
@@ -36,9 +39,10 @@ const customers = [
         province: "Lâm Đồng",
         district: "Đà Lạt",
         ward: "Phường 8",
-        street: "Trần Khánh Dư"
+        street: "68 Đường Trần Khánh Dư"
     },
     {
+        user_id: "6278db9d63f52e91c16f157f",
         first_name: "Huy",
         last_name: "Nguyễn Anh Nhật",
         date_of_birth: "14/07/2001",
@@ -52,6 +56,7 @@ const customers = [
         street: "Định An"
     },
     {
+        user_id: "6278db9d63f52e91c16f1581",
         first_name: "Tuấn",
         last_name: "Trương Quang",
         date_of_birth: "24/02/2001",

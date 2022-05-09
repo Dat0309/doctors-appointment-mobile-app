@@ -37,9 +37,11 @@ const customerSchema = mongoose.Schema(
         },
         facebook_id: {
             type: String,
+            default: "",
         },
         zalo_id: {
             type: String,
+            default: "",
         },
         province: {
             type: String,
@@ -59,11 +61,11 @@ const customerSchema = mongoose.Schema(
         },
         latitute: {
             type: String,
-            required: true,
+            default: "",
         },
         longtitute: {
             type: String,
-            required: true,
+            default: "",
         },
     },
     {
