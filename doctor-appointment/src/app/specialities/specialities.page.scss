@@ -1,0 +1,35 @@
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
+  font-family: Poppins;
+  font-weight: 500;
+}
+.feature {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 25px 10px 10px 40px;
+  padding: 5px;
+  height: 80px;
+  max-width: 80%;
+  text-align: center;
+  color: #26a8f1;
+  font-weight: 600;
+  border: 1px solid #1aa3f0;
+  * {
+    position: absolute;
+    top: 25%;
+  }
+  ion-icon {
+    top: 12%;
+    left: 30px;
+    font-size: 60px;
+    max-height: fit-content;
+  }
+  span {
+    text-align: right;
+    font-family: Poppins;
+    font-size: xx-large;
+    left: 170px;
+    max-width: auto;
+  }
+}
