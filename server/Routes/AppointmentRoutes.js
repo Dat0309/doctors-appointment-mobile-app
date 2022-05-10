@@ -89,7 +89,7 @@ appointmentRouter.get(
   protect,
   asyncHandler(async (req, res) => {
     const appointment = await Appointment.findById(req.params.id).populate(
-      "user",
+      "doctor",
       "name email"
     );
 
