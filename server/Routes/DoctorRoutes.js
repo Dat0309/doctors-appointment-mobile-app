@@ -119,7 +119,7 @@ doctorRoute.post(
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
             province, district, ward, street,
-            level_of_education, rating, numReviews, specializations, company_id } = req.body;
+            level_of_education, specializations, company_id } = req.body;
         const doctorExist = await Doctor.findOne({ user_id });
         if (doctorExist) {
             res.status(400);
@@ -139,8 +139,6 @@ doctorRoute.post(
                 ward,
                 street,
                 level_of_education,
-                rating,
-                numReviews,
                 specializations,
                 company_id,
                 user: req.user._id,
@@ -165,7 +163,8 @@ doctorRoute.put(
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
             province, district, ward, street,
-            level_of_education, rating, numReviews, specializations, company_id } = req.body;
+            level_of_education, specializations, company_id,
+            facebook_id, zalo_id} = req.body;
         const doctor = await Doctor.findById(req.params.id);
         if (doctor) {
             doctor.user_id = user_id || doctor.user_id;
@@ -185,6 +184,8 @@ doctorRoute.put(
             doctor.numReviews = numReviews || doctor.numReviews;
             doctor.specializations = specializations || doctor.specializations;
             doctor.company_id = company_id || doctor.company_id;
+            doctor.facebook_id = facebook_id || doctor.facebook_id;
+            doctor.zalo_id = zalo_id || doctor.zalo_id;
 
             const updateddoctor = await doctor.save();
             res.json(updateddoctor);

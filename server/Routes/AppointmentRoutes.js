@@ -12,6 +12,8 @@ appointmentRouter.post(
   asyncHandler(async (req, res) => {
     const {
       name,
+      doctor,
+      customer,
       province,
       district,
       ward,
@@ -28,8 +30,8 @@ appointmentRouter.post(
     } else {
       const appointment = new Appointment({
         name,
-        doctor: req.doctor._id,
-        customer: req.customer._id,
+        doctor,
+        customer,
         province,
         district,
         ward,
@@ -53,17 +55,31 @@ appointmentRouter.get(
   asyncHandler(async (req, res) => {
     const appointments = await Appointment.find({})
       .sort({ _id: -1 })
-      .populate("user", "id name email");
+      .populate("doctor", "id name email");
     res.json(appointments);
   })
 );
-// USER LOGIN APPOINTMENT
+// DOCTOR LOGIN APPOINTMENT
 appointmentRouter.get(
-  "/",
+  "/doctor/:id",
   protect,
   asyncHandler(async (req, res) => {
-    const appointment = await Appointment.find({ user: req.user._id }).sort({ _id: -1 });
-    res.json(appointment);
+    const doctor_id = req.params.id;
+    const appointment = await Appointment.find({ "doctor": doctor_id })
+      .sort({ _id: -1 });
+    res.json({ appointment });
+  })
+);
+
+// CUSTOMER LOGIN APPOINTMENT
+appointmentRouter.get(
+  "/customer/:id",
+  protect,
+  asyncHandler(async (req, res) => {
+    const customer_id = req.params.id;
+    const appointment = await Appointment.find({ "customer": customer_id })
+      .sort({ _id: -1 });
+    res.json({ appointment });
   })
 );
 
