@@ -103,6 +103,14 @@ const routes: Routes = [
   {
     path: 'feedback',
     loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule)
+  },
+  {
+    path: 'homepage',
+    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
+  },
+  {
+    path: 'specialities',
+    loadChildren: () => import('./specialities/specialities.module').then( m => m.SpecialitiesPageModule)
   }
 ];
 

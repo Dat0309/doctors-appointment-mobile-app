@@ -12,7 +12,31 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>
+              <a [routerLink]="['/homepage']"
+                ><i class="fa fa-home-page" aria-hidden="true"></i
+              ></a>
+              <label>Home</label>
+              <a [routerLink]="['/homepage']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a [routerLink]="['/homepage']"
+                ><i class="fa fa-home-page" aria-hidden="true"></i
+              ></a>
+              <label>Specialities</label>
+              <a [routerLink]="['/specialities']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a href="#"
+                ><i class="fa fa-calendar-check-o" aria-hidden="true"></i
+              ></a>
               <label>My Profile</label>
               <a [routerLink]="['/profile']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -21,7 +45,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a href="#"><i class="fa fa-address-book" aria-hidden="true"></i></a>
+              <a href="#"
+                ><i class="fa fa-address-book" aria-hidden="true"></i
+              ></a>
               <label>My Appointment</label>
               <a href="#">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -30,7 +56,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/appointment-schedule']"><i class="fa fa-address-book" aria-hidden="true"></i></a>
+              <a [routerLink]="['/appointment-schedule']"
+                ><i class="fa fa-address-book" aria-hidden="true"></i
+              ></a>
               <label> Set Appointment Schedule</label>
               <a [routerLink]="['/appointment-schedule']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -39,7 +67,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/lab-test']"><i class="fa fa-flask" aria-hidden="true"></i></a>
+              <a [routerLink]="['/lab-test']"
+                ><i class="fa fa-flask" aria-hidden="true"></i
+              ></a>
               <label>Lab</label>
               <a [routerLink]="['/lab-test']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -48,7 +78,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/medical-shop']"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+              <a [routerLink]="['/medical-shop']"
+                ><i class="fa fa-medkit" aria-hidden="true"></i
+              ></a>
               <label>Medical</label>
               <a [routerLink]="['/medical-shop']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -57,7 +89,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/chat']"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+              <a [routerLink]="['/chat']"
+                ><i class="fa fa-comments-o" aria-hidden="true"></i
+              ></a>
               <label>Message</label>
               <a [routerLink]="['/chat']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -66,7 +100,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/login-form']"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+              <a [routerLink]="['/login-form']"
+                ><i class="fa fa-sign-out" aria-hidden="true"></i
+              ></a>
               <label>Log Out</label>
               <a [routerLink]="['/login-form']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>

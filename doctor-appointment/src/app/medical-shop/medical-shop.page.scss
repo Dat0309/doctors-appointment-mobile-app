@@ -1,10 +1,73 @@
-.field-lab .field span {
-    right: 0;
-    font-size: 26px;
+// :root {
+//   --ion-safe-area-top: 20px;
+//   --ion-safe-area-bottom: 22px;
+// }
+// .field-lab .field span {
+//   right: 0;
+//   font-size: 26px;
+// }
+// .field-lab .field input {
+//   padding-left: 20px;
+// }
+// .field-lab .field label {
+//   left: 20px;
+// }
+ion-card {
+  border: 1px solid #1aa3f0;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 15px;
 }
-.field-lab .field input {
-    padding-left: 20px;
+:root {
+  --ion-grid-padding: 10px;
+  --ion-grid-width-lg: 20px;
 }
-.field-lab .field label {
-    left: 20px;
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
+}
+ion-searchbar {
+  margin-top: 10px;
+}
+img {
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+ion-col {
+  padding: 10px;
+  .avatar {
+    background: none;
+    padding: 0px;
+    width: fit-content;
+    height: fit-content;
+  }
+}
+.doctor-name {
+  margin-top: auto;
+  .doctor-name-card {
+    padding: 10px;
+    * {
+      padding: 2px;
+    }
+  }
+}
+
+.doctor-info {
+  height: 120px;
+}
+.description {
+  padding: 10px;
+  font-size: 12;
+  margin-left: 15px;
+}
+
+.ion-card-title {
+  font-size: 14px;
+}
+.ion-card-title {
+  font-size: 13px;
 }

@@ -1,118 +1,67 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>DANH SÁCH BÁC SĨ</ion-title>
+    <ion-title>HOME</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-row class="field-lab">
-    <div class="field">
-      <ion-searchbar placeholder="Nhập tên Bác sĩ">Tìm kiếm</ion-searchbar>
-      <label>View in Map</label>
-      <ion-button color="secondary">Tìm</ion-button>
-      <a href="#"><span class="fa fa-angle-right"></span></a>
-    </div>
-  </ion-row> -->
-  <!-- <ion-label class="lab-box">
-    <ion-row>
-      <ion-col>
-        <div class="adult-dr-img">
-          <img src="../assets/images/avt_doctor.jpeg" />
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-label> -->
-  <!-- <ion-label class="lab-box">
-    <ion-row>
-      <ion-col>
-        <div class="adult-dr-img">
-          <img src="assets/images/adult-doctor.png" />
+  <ion-card class="card-location" style="border-radius: 20px">
+    <ion-card-tittle class="your-location"
+      ><ion-icon name="compass"></ion-icon> Your Location</ion-card-tittle
+    >
+    <ion-card-content style="text-align: center">
+      Find the doctor nearest your location
+    <ion-searchbar
+      placeholder="Nhập tên Bác sĩ"
+      style="--border-radius: 8px"
+    ></ion-searchbar>
+  </ion-card>
 
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-label>
-  <ion-label class="lab-box">
+  <ion-item>
+    <ion-label style="color: #26a8f1">Common Specialities</ion-label>
+    <a href="/" style="text-decoration: none"
+      ><ion-note slot="end" color="gray">Viewall</ion-note></a
+    >
+  </ion-item>
+
+  <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="adult-dr-img">
-          <img src="assets/images/adult-doctor.png" />
-
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
+        <div>
+          <ion-card class="feature">
+            <ion-icon name="medkit-outline"></ion-icon> Diagnostic
+          </ion-card>
         </div>
       </ion-col>
-    </ion-row>
-  </ion-label>
-  <ion-label class="lab-box">
-    <ion-row>
       <ion-col>
-        <div class="adult-dr-img">
-          <img src="assets/images/adult-doctor.png" />
-
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
+        <div>
+          <ion-card class="feature"
+            ><ion-icon name="heart-outline"></ion-icon> Dental
+          </ion-card>
         </div>
       </ion-col>
-    </ion-row>
-  </ion-label>
-  <ion-label class="lab-box">
-    <ion-row>
       <ion-col>
-        <div class="adult-dr-img">
-          <img src="assets/images/adult-doctor.png" />
-
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
+        <div>
+          <ion-card class="feature">
+            <ion-icon name="bandage-outline"></ion-icon>Medicines
+          </ion-card>
         </div>
       </ion-col>
-    </ion-row>
-  </ion-label>
-  <ion-label class="lab-box">
-    <ion-row>
       <ion-col>
-        <div class="adult-dr-img">
-          <img src="assets/images/adult-doctor.png" />
-
-          <div class="star-rating">
-            <span>SMS Clinical Labs</span>
-            <p>1210 30th Dr.Renna,Jaipur</p>
-            <p><a href="#">200+ tests available</a></p>
-            <ion-button>Call Now</ion-button>
-          </div>
+        <div>
+          <ion-card class="feature"
+            ><ion-icon name="eye-outline"></ion-icon> Eyes
+          </ion-card>
         </div>
       </ion-col>
     </ion-row>
-  </ion-label> -->
-  <ion-searchbar placeholder="Nhập tên Bác sĩ"></ion-searchbar>
-  <ion-card>
+  </ion-grid>
+
+  <p class="special">Top rate</p>
+  <ion-card style="border: 1px solid #1aa3f0">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
@@ -133,7 +82,7 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card>
+  <ion-card style="border: 1px solid #1aa3f0">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
@@ -154,7 +103,7 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card>
+  <ion-card style="border: 1px solid #1aa3f0">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
@@ -175,7 +124,7 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card>
+  <ion-card style="border: 1px solid #1aa3f0">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
@@ -196,7 +145,7 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card>
+  <ion-card style="border: 1px solid #1aa3f0">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
@@ -217,12 +166,12 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card>
+  <ion-card class="doctor-info-all">
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
           <div class="avatar">
-            <img src="../assets/images/avt_doctor.jpeg" />
+            <img src="../assets/icon/Icon-doctor.png" />
           </div>
         </ion-col>
         <ion-col size="9" class="doctor-name">
