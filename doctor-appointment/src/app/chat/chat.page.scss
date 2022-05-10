@@ -1,0 +1,61 @@
+.field-lab .field span {
+    right: 0;
+    font-size: 26px;
+}
+.field-lab .field input {
+    padding-left: 20px;
+}
+.field-lab .field label {
+    left: 20px;
+}
+
+.lab-box {
+	ion-row{
+		background-color: inherit;
+		    margin: 5px 0;
+	}
+.star-rating {
+    padding: 10px 10px;
+span{
+    display: inline-block;
+    text-decoration: none;
+}    
+}
+	p{
+	width: 200px;
+	font-size: 10px;
+	}
+}
+.timing-lab{
+    width: 150px;
+    text-align: right;
+    padding: 15px 22px;
+span{
+	font-size: 10px;
+	font-family: "Poppins", sans-serif;
+	color: #000;
+}    
+p{
+	width: 14px;
+    font-size: 10px;
+    font-family: "Poppins", sans-serif;
+    background: #254298;
+    height: 14px;
+    border-radius: 50%;
+    color: #fff;
+    position: relative;
+    right: -50px;
+    display: flex;
+    justify-content: center;
+    top: 5px;
+}    
+}
+.border{
+	    border: 1px solid;
+    transform: rotate(180deg);
+    width: 240px;
+    position: relative;
+    left: 118px;
+    top: -20px;
+    color: #707070;
+}

@@ -1,0 +1,57 @@
+<ion-content>
+  <div id="header">
+    <h1>Đăng nhập</h1>
+    <img src="assets/images/logo.png" />
+  </div>
+
+  <div class="form-sec">
+    <div class="content">
+      <form class="form" action="#" [formGroup]="loginForm" (ngSubmit)="submit()">
+        <ion-item class="ion-margin-bottom">
+          <ion-input id="email" placeholder="Email" formControlName="email">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <ion-item class="ion-margin-bottom">
+          <ion-input id="password" placeholder="Mật khẩu" type="password" formControlName="password">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="forgot-pass"><a class="forgot-pass" [routerLink]="['/forgot']">Quên mật khẩu?</a></div>
+        <ion-button expand="block" shape="round" type="submit" [disabled]="!loginForm.valid">Đăng nhập</ion-button>
+      </form>
+    </div>
+  </div>
+
+  <ion-label>
+    <div class="social-icon" id="social-icon">
+      <a href="#"><i class="fa fa-facebook"><img src="assets/icon/facebook.png" /></i></a>
+      <a href="#"><i class="fa fa-twitter" aria-hidden="true"><img src="assets/icon/twitter.png" /></i></a>
+      <a href="#"><i class="fa fa-google-plus"><img src="assets/icon/google.png" /></i> </a>
+    </div>
+  </ion-label>
+
+  <ion-label class="register">
+    <span>Chưa có tài khoản?</span>
+      <a [routerLink]="['/signup']"><span>ĐĂNG KÝ</span></a>
+  </ion-label>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="ion-text-center">
+    <ion-text color="medium">
+      copyright © 2022 Doctor appointment app
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>

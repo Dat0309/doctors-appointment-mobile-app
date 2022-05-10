@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+         My Profile
+        </ion-title>
+        <a href="#"><img src="assets/images/arrow.png" /></a>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="custom-file">
+    <input type="file" class="custom-file-input" id="file" multiple onchange="javascript:updateList()">
+    <label class="custom-file-label" for="file">
+     <i class="fa fa-camera upload-button" aria-hidden="true"></i></label>
+</div>
+<ul id="fileList" class="file-list"></ul>
+<ion-label>
+<ion-row class="profile-img">
+	<img src="assets/images/adult-doctor.png" />
+</ion-row>
+</ion-label>
+<ion-list>
+	<form [formGroup]="profileform" (ngSubmit)="submit()">
+	<ion-item>
+  <ion-label position="floating" color="black">Name</ion-label>
+  <ion-input type="text" class="form-controll" required formControlName="name" inputmode="name" palceholder="Dr-Reena Roy" ></ion-input>
+	</ion-item>
+	         <div *ngFor="let error of errorMessages.name">
+          <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+		<ion-item>
+  <ion-label position="floating" color="black">Email ID</ion-label>
+  <ion-input type="text" class="form-controll" inputmode="email" required formControlName="email"></ion-input>
+	</ion-item>
+	         <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+
+                <ion-item>
+                <ion-label class="gender-btn" position="floating" color="black">Gender</ion-label>
+                    <ion-label><input type="radio" name="gender" value="male"> Male</ion-label>
+                    <ion-label class="female-btn"><input type="radio" name="gender" value="female"> Female</ion-label>
+                </ion-item>
+	         <div *ngFor="let error of errorMessages.gender">
+          <ng-container *ngIf="gender.hasError(error.type) && (gender.dirty || gender.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+			<ion-item>
+                <ion-label position="floating">Date of Birth</ion-label>
+                <ion-datetime  [dayShortNames]="customDayShortNames"
+                displayFormat="DDD. MMM DD, YYYY"
+                monthShortNames="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"> min="1994-03-14" max="2020-12-09"></ion-datetime>
+                </ion-item>
+	         <div *ngFor="let error of errorMessages.dateofbirth">
+          <ng-container *ngIf="dateofbirth.hasError(error.type) && (dateofbirth.dirty || dateofbirth.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+		<ion-item>
+  <ion-label position="floating" color="black">Adreess</ion-label>
+  <ion-input type="text" class="form-controll" inputmode="adreess" required formControlName="adreess"></ion-input>
+	</ion-item>
+	         <div *ngFor="let error of errorMessages.adreess">
+          <ng-container *ngIf="adreess.hasError(error.type) && (adreess.dirty || adreess.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+		<ion-item>
+  <ion-label position="floating" color="black">Blood Group</ion-label>
+  <ion-input type="text" class="form-controll" inputmode="bloodgroup" required formControlName="bloodgroup"></ion-input>
+	</ion-item>
+	         <div *ngFor="let error of errorMessages.bloodgroup">
+          <ng-container *ngIf="bloodgroup.hasError(error.type) && (bloodgroup.dirty || bloodgroup.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+		<ion-item>
+  <ion-label position="floating" color="black">Mobile Number</ion-label>
+  <ion-input type="number" class="form-controll" inputmode="number" required formControlName="number"></ion-input>
+	</ion-item>
+	         <div *ngFor="let error of errorMessages.number">
+          <ng-container *ngIf="number.hasError(error.type) && (number.dirty || number.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+	<ion-button [disabled]="!profileform.valid" class="book-appointment" type="submit" expand="block">Update Profile</ion-button>
+</form>
+</ion-list>
+</ion-content>

@@ -1,0 +1,65 @@
+ion-toolbar a {
+    margin: -24px 10px;
+}
+.Up-Appoint{
+	background-color: #fff;	
+	box-shadow: 0 20px 30px -25px rgba(0, 0, 0, 0.3);
+   margin: 20px 20px;
+    border-radius: 5px;
+    padding-top: 10px;
+     padding-bottom:10px;
+}
+.up-heading{
+    padding: 10px 20px 0px;
+ color: #000000;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+.up-appoint-time{
+	float: right;
+    display: inline-grid;
+    width: 100%;
+    text-align: center;
+label{
+  color: #474747;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+ }
+ span{
+  color: #254298;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-size:16px;
+ }   
+  p{
+  color: #474747;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+ }  
+}
+.star-rating{
+    width: 230px;
+    padding: 10px 10px;
+ span{
+  color: #000000;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+ }
+ p{
+  color: #474747;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+ }   
+}
+.saw-hos{
+	  color: #474747;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  padding: 5px 20px;
+}

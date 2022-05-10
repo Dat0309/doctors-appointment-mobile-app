@@ -1,0 +1,38 @@
+
+<ion-content>
+	<ion-label class="logo">
+      <ion-img src="assets/images/logo.png"></ion-img>
+  </ion-label>
+  <ion-label class="login-bac">
+  	<ion-img src="assets/images/safe-bac-img.png"></ion-img>
+  </ion-label>
+<div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="forgotForm" (ngSubmit)="submit()">
+        <div class="field">
+          <span class="fa fa-envelope"></span>
+          <input type="text" required inputmode="email" formControlName="email" placeholder="Email id">
+          <label></label>
+        </div>
+        <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <div class="forgot-pass"><a href="#">Or</a></div>
+        <div class="field">
+          <span class="fa fa-phone"></span>
+          <input type="number" inputmode="mobilenumber" formControlName="mobilenumber" placeholder="Mobile Number">
+          <label></label>
+        </div>
+        <div *ngFor="let error of errorMessages.mobilenumber">
+          <ng-container *ngIf="mobilenumber.hasError(error.type) && (mobilenumber.dirty || mobilenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <button [disabled]="!forgotForm.valid">FORGOT PASSWORD<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+      </form>
+  </div>
+</div>
+
+</ion-content>

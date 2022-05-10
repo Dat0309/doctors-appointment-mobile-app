@@ -1,0 +1,93 @@
+<ion-content>
+  <div id="header">
+    <h1>Đăng ký</h1>
+    <img src="assets/images/logo.png" />
+  </div>
+
+  <div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="signupForm" (ngSubmit)="submit()">
+        <ion-item class="ion-margin-bottom">
+          <ion-input inputmode="text" id="firstname" placeholder="Email" formControlName="email">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.email">
+          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input inputmode="text" id="firstname" placeholder="Họ lót" formControlName="firstname">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.firstname">
+          <ng-container *ngIf="firstname.hasError(error.type) && (firstname.dirty || firstname.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input inputmode="text" id="lastname" placeholder="Tên" formControlName="lastname">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.lastname">
+          <ng-container *ngIf="lastname.hasError(error.type) && (lastname.dirty || lastname.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input inputmode="number" id="phone" placeholder="Số điện thoại" formControlName="mobilenumber">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.mobilenumber">
+          <ng-container *ngIf="mobilenumber.hasError(error.type) && (mobilenumber.dirty || mobilenumber.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input type="password" inputmode="password" id="password" placeholder="Mật khẩu" formControlName="password">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.password">
+          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input type="password" inputmode="confirmpassword" id="password-confirm" placeholder="Xác nhận mật khẩu" formControlName="confirmpassword">
+
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.confirmpassword">
+          <ng-container
+            *ngIf="confirmpassword.hasError(error.type) && (confirmpassword.dirty || confirmpassword.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+        <button [disabled]="!signupForm.valid">SIGNUP<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <ion-label>
+    <div class="social-icon">
+      <a href="#"><i class="fa fa-facebook"><img src="assets/icon/facebook.png" /></i></a>
+      <a href="#"><i class="fa fa-twitter" aria-hidden="true"><img src="assets/icon/twitter.png" /></i></a>
+      <a href="#"><i class="fa fa-google-plus"><img src="assets/icon/google.png" /></i> </a>
+    </div>
+  </ion-label>
+  <ion-label>
+    <a [routerLink]="['/login-form']"><span>Quay lại đăng nhập</span></a>
+  </ion-label>
+
+</ion-content>

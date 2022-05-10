@@ -1,0 +1,30 @@
+ion-toolbar a {
+    font-size: 24px;
+    }
+svg{
+	fill: #fff;
+    margin: 0 5px;
+}
+.lab-box ion-row .star-rating span {
+    font-size: 12px;
+}
+ion-slides {
+  position: absolute;
+    bottom: 0;
+    }
+
+    .swiper-slide {
+      display: block;
+    }
+.swiper-zoom-container {
+
+  text-align:inherit;
+}
+ion-slide{
+	width: 100% !important;
+}
+.lab-box ion-row {
+    background-color: #fff;
+    margin: 20px 9px;
+    width: 56%;
+}
