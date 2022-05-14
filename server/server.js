@@ -10,6 +10,7 @@ import specializationRoute from "./Routes/SpecializationRoutes.js";
 import appointmentRouter from "./Routes/AppointmentRoutes.js";
 import companyRoute from "./Routes/CompanyRoutes.js";
 
+require("dotenv").config();
 dotenv.config();
 connectDatabase();
 const app = express();
