@@ -9,9 +9,15 @@ export class UserService {
 
   constructor(private http: HttpClientModule) { }
 
-  getProfile(){}
+  getProfile(){
 
-  getAllUsers(){}
+  }
 
-  update(){}
+  getAllUsers(){
+
+  }
+
+  update(){
+
+  }
 }
