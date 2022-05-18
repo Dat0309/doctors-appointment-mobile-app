@@ -1,65 +1,66 @@
-ion-toolbar a {
-    margin: -24px 10px;
+
+ion-card {
+  border: 1px solid #bfb6b6;
+  border-radius: 15px;
+  padding: 5px;
+  width: 90%;
+  height: 190px  ;
+  margin-left: 20px;
+  margin-top: 15px;
 }
-.Up-Appoint{
-	background-color: #fff;	
-	box-shadow: 0 20px 30px -25px rgba(0, 0, 0, 0.3);
-   margin: 20px 20px;
-    border-radius: 5px;
-    padding-top: 10px;
-     padding-bottom:10px;
+:root {
+  --ion-grid-padding: 10px;
+  --ion-grid-width-lg: 20px;
 }
-.up-heading{
-    padding: 10px 20px 0px;
- color: #000000;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
+}
+ion-searchbar {
+  margin-top: 10px;
+}
+img {
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+ion-col {
+  padding: 10px;
+  .avatar {
+    background: none;
+    padding: 0px;
+    width: fit-content;
+    height: fit-content;
+  }
+}
+.doctor-name {
+  margin-top: auto;
+  .doctor-name-card {
+    padding: 10px;
+    * {
+      padding: 2px;
+    }
+  }
+}
+
+.doctor-info {
+  height: 120px;
+}
+.description {
+  padding: 10px;
+  font-size: 12;
+  margin-left: 15px;
+}
+
+.ion-card-title {
   font-size: 14px;
 }
-.up-appoint-time{
-	float: right;
-    display: inline-grid;
-    width: 100%;
-    text-align: center;
-label{
-  color: #474747;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
- }
- span{
-  color: #254298;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  font-size:16px;
- }   
-  p{
-  color: #474747;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
- }  
+.ion-card-title {
+  font-size: 13px;
 }
-.star-rating{
-    width: 230px;
-    padding: 10px 10px;
- span{
-  color: #000000;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
- }
- p{
-  color: #474747;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 8px;
- }   
-}
-.saw-hos{
-	  color: #474747;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
-  padding: 5px 20px;
+.fa-star {
+  color: #ffc107;
 }

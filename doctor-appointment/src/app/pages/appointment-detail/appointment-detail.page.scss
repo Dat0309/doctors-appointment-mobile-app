@@ -1,75 +1,66 @@
-ion-toolbar a {
-    margin: -24px 10px;
-}
-.Up-Appoint{
-    padding-top: 10px;
-     padding-bottom:10px;
-.up-appoint-time{
-  padding: 15px 20px;
-  display: inline-grid;
-  width: 100%;
-  text-align: center;
 
-a{
-  color: #FF0000;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  text-decoration: none;
- } 
-}     
+ion-card {
+  border: 1px solid #bfb6b6;
+  border-radius: 15px;
+  padding: 5px;
+  width: 90%;
+  height: 140px  ;
+  margin-left: 20px;
+  margin-top: 15px;
 }
-.appoint-date{
-  a{
-   font-size: 30px;
-    padding: 0 15px;
-    color: #000;
-  }
-  .fa-map-marker{
-    padding: 0 5px;
-  }
-  .star-rating{
-    width: 157px;
-    padding: 0 15px;
- span{
-  color: #000000;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
- }
- p{
-  color: #474747;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
- }   
+:root {
+  --ion-grid-padding: 10px;
+  --ion-grid-width-lg: 20px;
 }
-.up-appoint-time{
-    display: inherit;
-    width: 100%;
-    text-align: right;
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
+}
+ion-searchbar {
+  margin-top: 10px;
+}
+img {
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 15px;
+  max-width: 100%;
+  height: auto;
+}
 
-a{
-  color: #244197;
-  position: relative;
-  left: -16px;
-  top: 2px;
- } 
+ion-col {
+  padding: 10px;
+  .avatar {
+    background: none;
+    padding: 0px;
+    width: fit-content;
+    height: fit-content;
+  }
 }
+.doctor-name {
+  margin-top: auto;
+  .doctor-name-card {
+    padding: 10px;
+    * {
+      padding: 2px;
+    }
+  }
 }
-.star-rating{
-    width: 230px;
-    padding: 10px 10px;
- span{
-  color: #000000;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
+
+.doctor-info {
+  height: 120px;
+}
+.description {
+  padding: 10px;
+  font-size: 12;
+  margin-left: 15px;
+}
+
+.ion-card-title {
   font-size: 14px;
- }
- p{
-  color: #474747;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  font-size: 8px;
- }   
+}
+.ion-card-title {
+  font-size: 13px;
+}
+.fa-star {
+  color: #ffc107;
 }

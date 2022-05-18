@@ -1,109 +1,43 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
-    <ion-toolbar>
-        <ion-title>feedback</ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>ĐÁNH GIÁ</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-        <ion-label class="doctor-background">
-    <img src="assets/images/lady-Doctor.png" />
-</ion-label>
-    <ion-card>
-        <ion-card-content>
-            <div class="fedback-clint">
-                <ion-col class="feedback-box">
-                    <div class="adult-dr-img">
-                        <img src="assets/images/adult-doctor.png" />
-                        <div class="star-rating">
-                            <span>Dr-Reena Roy</span>
-                            <p>Visited Eye treatment</p>
-                        </div>
-                    </div>
-                </ion-col>
-                <ion-col class="available-box">
-                    <span>
-                        5.0
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </span>
-                    <p>10-June-2020</p>
-                </ion-col>
-                <ion-col class="about-paragraf">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book.
-                    </p>
-                </ion-col>
+
+  <ion-list>
+    <ion-card [routerLink]="['/doctor-info']">
+      <ion-grid>
+        <ion-row class="doctor-info">
+          <ion-col size="3">
+            <div class="avatar">
+              <img src="../assets/icon/Icon-doctor.png" />
             </div>
-        </ion-card-content>
+          </ion-col>
+          <ion-col size="9" class="doctor-name">
+            <ion-card-content class="doctor-name-card">
+              <ion-card-title>Nguyen Van A</ion-card-title>
+              <ion-card-content>bác sĩ thật giỏi tôi rất tự hào về bác sĩ ở đà lạt</ion-card-content>
+              
+              <p class="fa-star">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </p>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card>
-        <ion-card>
-        <ion-card-content>
-            <div class="fedback-clint">
-                <ion-col class="feedback-box">
-                    <div class="adult-dr-img">
-                        <img src="assets/images/adult-doctor.png" />
-                        <div class="star-rating">
-                            <span>Dr-Reena Roy</span>
-                            <p>Visited Eye treatment</p>
-                        </div>
-                    </div>
-                </ion-col>
-                <ion-col class="available-box">
-                    <span>
-                        5.0
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </span>
-                    <p>10-June-2020</p>
-                </ion-col>
-                <ion-col class="about-paragraf">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book.
-                    </p>
-                </ion-col>
-            </div>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-        <ion-card-content>
-            <div class="fedback-clint">
-                <ion-col class="feedback-box">
-                    <div class="adult-dr-img">
-                        <img src="assets/images/adult-doctor.png" />
-                        <div class="star-rating">
-                            <span>Dr-Reena Roy</span>
-                            <p>Visited Eye treatment</p>
-                        </div>
-                    </div>
-                </ion-col>
-                <ion-col class="available-box">
-                    <span>
-                        5.0
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </span>
-                    <p>10-June-2020</p>
-                </ion-col>
-                <ion-col class="about-paragraf">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
-                        to make a type specimen book.
-                    </p>
-                </ion-col>
-            </div>
-        </ion-card-content>
-    </ion-card>
-    
-    <ion-button class="book-appointment" type="submit" expand="block">Give Feedback</ion-button>
+  </ion-list>
 </ion-content>
