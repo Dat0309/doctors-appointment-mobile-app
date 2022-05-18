@@ -1,0 +1,107 @@
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        margin-top: 100px;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10%;
+
+    }
+ 
+}
+ion-icon{
+    width: 30px;
+    height: 120px;
+}
+.Surname{
+    margin-left: 20px;
+    border-radius: 10px;
+    height: 50px;
+    width: 330px;
+   
+}
+.surname{
+   
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+   
+}
+.name{
+    margin-left: 30px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+  
+}
+.date{ 
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+   
+}
+.checkbox{
+    margin-top: 20px;
+    margin-left: 60px;
+    font-weight: 600;
+}
+.phone{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+   
+}
+.address{
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    height: 50px;
+    width: 330px;
+   
+}
+.road{
+   
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+   
+}
+.ward{
+    margin-left: 30px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+  
+}
+
+.button {
+    text-align: center;
+    margin: 25px auto;
+    
+}
+
+ion-button {
+    --border-radius: 12px;
+    width: 55%;
+    margin-top: 35px;
+    height: 45px;
+    font-size: 15px;
+    text-transform: initial;
+    font-weight: bold;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+    --box-shadow: none;
+    
+}

@@ -2,15 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
+
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
+
+
 })
 export class SignupPage implements OnInit {
-
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  selected_option: string;
   constructor(public formBuilder: FormBuilder, private router: Router,) { }
   ngOnInit() {
   }
+
   // eslint-disable-next-line @typescript-eslint/member-ordering
   get firstname() {
     return this.signupForm.get('firstname');

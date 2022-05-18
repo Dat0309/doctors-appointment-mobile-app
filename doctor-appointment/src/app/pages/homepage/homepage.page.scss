@@ -2,13 +2,16 @@ ion-header ion-toolbar {
   color: #fff;
   --background: #8dd1f8;
 }
+
 * {
   font-family: Poppins;
   font-weight: 500;
 }
+
 .ion-tittle {
   text-align: center;
 }
+
 .card-location {
   margin-top: 20px;
   text-align: left;
@@ -50,4 +53,10 @@ ion-icon {
 }
 .doctor-info-all {
   border: 1px solid #1aa3f0;
+}
+.menu-tittle {
+  img {
+    width: 100%;
+    height: auto;
+  }
 }

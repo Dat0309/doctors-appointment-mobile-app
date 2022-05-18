@@ -2,14 +2,15 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
 .form-sec .content .field {
     margin-bottom: 15px;
+
 }
+
 .form-sec .content {
     top: 36%;
 }
-
-
 
 ion-content {
     --background: #f5f5f3;
@@ -27,9 +28,11 @@ ion-content {
         }
 
         img {
-            width: 50px;
-            height: 50px;
+            margin-top: 100px;
+            width: 90px;
+            height: 90px;
             margin-bottom: 10%;
+
         }
     }
 
@@ -37,44 +40,61 @@ ion-content {
         margin-top: 15px;
         padding-left: 30px;
         padding-right: 30px;
-
-        ion-button{
-            margin-top: 35px;
-            height: 48px;
-            font-size: 18px;
-            text-transform: initial;
-            border-radius: 50px;
-            box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
-            --box-shadow: none;
-        }
-
-        
     }
 
-    #social-icon{
+    .button {
+        text-align: center;
+        margin: 25px auto;
+    }
+
+    ion-button {
+        --border-radius: 12px;
+        width: 55%;
+        margin-top: 35px;
+        height: 45px;
+        font-size: 15px;
+        text-transform: initial;
+        font-weight: bold;
+        box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+        --box-shadow: none;
+    }
+
+    #social-icon {
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        img{
+        img {
             width: 30px;
             height: 30px;
             margin-bottom: 10%;
         }
     }
 }
-
-ion-item {
-    border-radius: 50px;
-    height: 50px;
-    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+.labelSelect{
+    --placeholder-opacity: 1;
 }
 
-ion-input{
+ion-item {
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+ion-input {
     font-size: 15px;
     --padding-top: 20px;
-    --padding-bottom:15px;
+    --padding-bottom: 15px;
     --padding-start: 5px;
+}
+
+ion-label {
+    font-size: 15px;
+    font-weight: bold;
+    
 }
 
 a {
@@ -85,16 +105,16 @@ a {
     margin-left: 15px;
 }
 
-.error-message{
+.error-message {
     font-size: 10px;
     color: #d00909;
     margin-left: 10px;
 }
 
-.forgot-pass{
+.forgot-pass {
     color: #292929;
 }
 
-.register{
+.register {
     align-items: center;
 }
