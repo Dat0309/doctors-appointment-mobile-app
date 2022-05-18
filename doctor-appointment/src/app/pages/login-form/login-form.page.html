@@ -6,50 +6,70 @@
 
   <div class="form-sec">
     <div class="content">
-      <form class="form" action="#" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <form
+        class="form"
+        action="#"
+        [formGroup]="loginForm"
+        (ngSubmit)="submit()"
+      >
         <ion-item class="ion-margin-bottom-email">
           <ion-input id="email" placeholder="Email" formControlName="email">
-
           </ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.email">
-          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <ng-container
+            *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+          >
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
         <ion-item class="ion-margin-bottom-password">
-          <ion-input id="password" placeholder="Password" type="password" formControlName="password">
+          <ion-input
+            id="password"
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          >
           </ion-input>
         </ion-item>
         <div *ngFor="let error of errorMessages.password">
-          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+          <ng-container
+            *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+          >
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
-        <div class="forgot-pass"><a class="forgot-pass" [routerLink]="['/forgot']">Forgot Password?</a></div>
+        <div class="forgot-pass">
+          <a class="forgot-pass" [routerLink]="['/forgot']">Quên mật khấu?</a>
+        </div>
         <div class="button-login">
-          <ion-button expand="true" class="button" type="submit" [disabled]="!loginForm.valid">SIGN IN</ion-button>
+          <ion-button
+            expand="true"
+            class="button"
+            type="submit"
+            [disabled]="!loginForm.valid"
+            >Đăng nhập</ion-button
+          >
         </div>
       </form>
     </div>
   </div>
 
   <div class="social-icon" id="social-icon">
-    <a href="#"><i class="fa fa-facebook"><img src="assets/icon/facebook.png" /></i></a>
-    <a href="#"><i class="fa fa-twitter" aria-hidden="true"><img src="assets/icon/twitter.png" /></i></a>
-    <a href="#"><i class="fa fa-google-plus"><img src="assets/icon/google.png" /></i> </a>
+    <a href="#"
+      ><i class="fa fa-facebook"><img src="assets/icon/facebook.png" /></i
+    ></a>
+    <a href="#"
+      ><i class="fa fa-twitter" aria-hidden="true"
+        ><img src="assets/icon/twitter.png" /></i
+    ></a>
+    <a href="#"
+      ><i class="fa fa-google-plus"><img src="assets/icon/google.png" /></i>
+    </a>
   </div>
-
-
 
   <div class="register">
-    <span>Don't have no account?</span>
-    <a [routerLink]="['/signup']"><span>SIGN UP</span></a>
+    <span>Bạn chưa có tài khoản?</span>
+    <a [routerLink]="['/signup']"><span>Đăng ký</span></a>
   </div>
 </ion-content>
-
-<div class="footer">
-  <ion-text class="destext" color="medium">
-    Copyright © 2022 Doctor appointment app
-  </ion-text>
-</div>

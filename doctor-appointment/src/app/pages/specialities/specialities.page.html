@@ -8,10 +8,37 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="feature"
-    ><ion-icon name="eye-outline"></ion-icon> <span>Eyes</span>
-  </ion-card>
-  <ion-card class="feature"
+  <ion-list>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/007-stethoscope.png" />
+      <span>Tổng quát</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/clarity_eye-line.png" />
+      <span>Khúc xạ</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/004-teeth.png" />
+      <span>Nha khoa</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/ant-design_heart-outlined.png" />
+      <span>Tim mạch</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/012-medicine.png" />
+      <span>Dược</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/organic1 1.png" />
+      <span>Da liễu</span>
+    </ion-card>
+    <ion-card class="feature" [routerLink]="['/cardiologist']"
+      ><img src="../../../assets/icon/2x/Vector.png" />
+      <span>Thần kinh</span>
+    </ion-card>
+  </ion-list>
+  <!-- <ion-card class="feature"
     ><ion-icon name="bandage-outline"></ion-icon> <span>Dental</span>
   </ion-card>
   <ion-card class="feature"
@@ -31,5 +58,5 @@
   </ion-card>
   <ion-card class="feature"
     ><ion-icon name="medkit-outline"></ion-icon> <span>Diagnostic</span>
-  </ion-card>
+  </ion-card> -->
 </ion-content>

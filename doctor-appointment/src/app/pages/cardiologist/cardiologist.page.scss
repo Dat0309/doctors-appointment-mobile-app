@@ -1,7 +1,66 @@
-.star-rating{
-	a{
-    text-decoration: none;
-    display: inline-block;
-    color:#254298;
-	}
-}
+
+ion-card {
+    border: 1px solid #bfb6b6;
+    border-radius: 15px;
+    padding: 5px;
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+  :root {
+    --ion-grid-padding: 10px;
+    --ion-grid-width-lg: 20px;
+  }
+  ion-header ion-toolbar {
+    color: #fff;
+    --background: #8dd1f8;
+  }
+  ion-searchbar {
+    margin-top: 10px;
+  }
+  img {
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 15px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  ion-col {
+    padding: 10px;
+    .avatar {
+      background: none;
+      padding: 0px;
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+  .doctor-name {
+    margin-top: auto;
+    .doctor-name-card {
+      padding: 10px;
+      * {
+        padding: 2px;
+      }
+    }
+  }
+  
+  .doctor-info {
+    height: 120px;
+  }
+  .description {
+    padding: 10px;
+    font-size: 12;
+    margin-left: 15px;
+  }
+  
+  .ion-card-title {
+    font-size: 14px;
+  }
+  .ion-card-title {
+    font-size: 13px;
+  }
+  .fa-star {
+    color: #ffc107;
+  }
+  

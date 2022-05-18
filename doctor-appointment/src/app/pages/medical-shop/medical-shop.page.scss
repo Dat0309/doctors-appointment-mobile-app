@@ -1,19 +1,8 @@
-// :root {
-//   --ion-safe-area-top: 20px;
-//   --ion-safe-area-bottom: 22px;
-// }
-// .field-lab .field span {
-//   right: 0;
-//   font-size: 26px;
-// }
-// .field-lab .field input {
-//   padding-left: 20px;
-// }
-// .field-lab .field label {
-//   left: 20px;
-// }
+
 ion-card {
-  border: 1px solid #1aa3f0;
+  border: 1px solid #bfb6b6;
+  border-radius: 15px;
+  padding: 5px;
   width: 90%;
   margin-left: 20px;
   margin-top: 15px;
@@ -70,4 +59,7 @@ ion-col {
 }
 .ion-card-title {
   font-size: 13px;
+}
+.fa-star {
+  color: #ffc107;
 }

@@ -7,7 +7,9 @@ ion-header ion-toolbar {
   font-family: Poppins;
   font-weight: 500;
 }
-
+ion-searchbar {
+  color: black;
+}
 .ion-tittle {
   text-align: center;
 }
@@ -51,12 +53,25 @@ ion-icon {
   margin-left: 15px;
   font-weight: 600;
 }
-.doctor-info-all {
-  border: 1px solid #1aa3f0;
-}
 .menu-tittle {
   img {
     width: 100%;
     height: auto;
   }
+}
+.fa-star {
+  color: #ffc107;
+}
+
+ion-card {
+  border: 1px solid #bfb6b6;
+  border-radius: 15px;
+  padding: 5px;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.faculity {
+  height: 70%;
 }

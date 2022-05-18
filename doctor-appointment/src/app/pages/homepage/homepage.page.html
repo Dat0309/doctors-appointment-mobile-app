@@ -1,26 +1,36 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>HOME</ion-title>
+    <ion-title>Trang chủ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card class="card-location" style="border-radius: 20px">
-    <ion-card-header class="your-location">
-      <ion-icon name="compass"></ion-icon> Your Location
+    <ion-card-header class="your-location" style="color: #fff">
+      <ion-icon name="compass"></ion-icon> Vị trí của bạn
     </ion-card-header>
     <ion-card-content style="text-align: center">
-      Find the doctor nearest your location</ion-card-content>
-    <ion-searchbar placeholder="Nhập tên Bác sĩ" style="border-radius: 8px"></ion-searchbar>
+      Tìm bác sĩ gần nhất</ion-card-content
+    >
+    <ion-searchbar
+      placeholder="Nhập tên Bác sĩ"
+      style="border-radius: 8px"
+    ></ion-searchbar>
   </ion-card>
 
   <ion-item>
-    <ion-label style="color: #26a8f1">Common Specialities</ion-label>
+    <ion-label style="color: #26a8f1">Chuyên khoa nổi bật</ion-label>
     <a href="/" style="text-decoration: none">
-      <ion-note slot="end" color="gray">Viewall</ion-note>
+      <ion-note slot="end" color="gray" [routerLink]="['/specialities']"
+        >Tất cả</ion-note
+      >
     </a>
   </ion-item>
 
@@ -28,29 +38,49 @@
     <ion-row>
       <ion-col>
         <div>
-          <ion-card class="feature">
-            <ion-icon name="medkit-outline"></ion-icon> Diagnostic
+          <ion-card class="feature"
+            ><img
+              class="faculity"
+              src="../../../assets/icon/2x/007-stethoscope.png"
+              [routerLink]="['/cardiologist']"
+            />
+            <span>Tổng quát</span>
           </ion-card>
         </div>
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="feature">
-            <ion-icon name="heart-outline"></ion-icon> Dental
+          <ion-card class="feature"
+            ><img
+              class="faculity"
+              src="../../../assets/icon/2x/004-teeth.png"
+              [routerLink]="['/cardiologist']"
+            />
+            <span>Nha khoa</span>
           </ion-card>
         </div>
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="feature">
-            <ion-icon name="bandage-outline"></ion-icon>Medicines
+          <ion-card class="feature"
+            ><img
+              class="faculity"
+              src="../../../assets/icon/2x/ant-design_heart-outlined.png"
+              [routerLink]="['/cardiologist']"
+            />
+            <span>Tim mạch</span>
           </ion-card>
         </div>
       </ion-col>
       <ion-col>
         <div>
-          <ion-card class="feature">
-            <ion-icon name="eye-outline"></ion-icon> Eyes
+          <ion-card class="feature"
+            ><img
+              class="faculity"
+              src="../../../assets/icon/2x/clarity_eye-line.png"
+              [routerLink]="['/cardiologist']"
+            />
+            <span>Khúc xạ</span>
           </ion-card>
         </div>
       </ion-col>
@@ -58,9 +88,9 @@
   </ion-grid>
 
   <p class="special">Top rate</p>
-  <ion-card style="border: 1px solid #1aa3f0">
+  <ion-card [routerLink]="['/doctor-info']">
     <ion-grid>
-      <ion-row class="doctor-info">
+      <ion-row class="doctor-info-all">
         <ion-col size="3">
           <div class="avatar">
             <img src="../assets/icon/Icon-doctor.png" />
@@ -71,116 +101,15 @@
             <ion-card-title>Nguyen Van A</ion-card-title>
             <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
             <ion-card-subtitle>Tim Mach</ion-card-subtitle>
+            <p class="fa-star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
           </ion-card-content>
         </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card style="border: 1px solid #1aa3f0">
-    <ion-grid>
-      <ion-row class="doctor-info">
-        <ion-col size="3">
-          <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
-          </div>
-        </ion-col>
-        <ion-col size="9" class="doctor-name">
-          <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card style="border: 1px solid #1aa3f0">
-    <ion-grid>
-      <ion-row class="doctor-info">
-        <ion-col size="3">
-          <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
-          </div>
-        </ion-col>
-        <ion-col size="9" class="doctor-name">
-          <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card style="border: 1px solid #1aa3f0">
-    <ion-grid>
-      <ion-row class="doctor-info">
-        <ion-col size="3">
-          <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
-          </div>
-        </ion-col>
-        <ion-col size="9" class="doctor-name">
-          <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card style="border: 1px solid #1aa3f0">
-    <ion-grid>
-      <ion-row class="doctor-info">
-        <ion-col size="3">
-          <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
-          </div>
-        </ion-col>
-        <ion-col size="9" class="doctor-name">
-          <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card class="doctor-info-all">
-    <ion-grid>
-      <ion-row class="doctor-info">
-        <ion-col size="3">
-          <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
-          </div>
-        </ion-col>
-        <ion-col size="9" class="doctor-name">
-          <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-card-content class="description"> Mô tả ngắn... </ion-card-content>
       </ion-row>
     </ion-grid>
   </ion-card>
