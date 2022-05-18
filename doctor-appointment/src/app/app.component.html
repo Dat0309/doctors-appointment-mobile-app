@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-label class="menu-tittle">
-            <img src="assets/images/adult-doctor.jpg" />
+            <img src="assets/icon/Icon-doctor.png" />
             <ion-list-header>Dr-Reena Roy</ion-list-header>
             <a [routerLink]="['/profile']">
               <ion-note>Complete Your Profile</ion-note>
@@ -23,11 +23,33 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/homepage']"
+              <a [routerLink]="['/doctor-info']"
+                ><i class="fa fa-sign-out" aria-hidden="true"></i
+              ></a>
+              <label>Doctor info </label>
+              <a [routerLink]="['/doctor-info']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a [routerLink]="['/newhome']"
                 ><i class="fa fa-home-page" aria-hidden="true"></i
               ></a>
               <label>Specialities</label>
               <a [routerLink]="['/specialities']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a [routerLink]="['/medical-shop']"
+                ><i class="fa fa-medkit" aria-hidden="true"></i
+              ></a>
+              <label>Doctor List</label>
+              <a [routerLink]="['/medical-shop']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
@@ -76,17 +98,7 @@
               </a>
             </ion-row>
           </ion-label>
-          <ion-label class="menu-icon">
-            <ion-row>
-              <a [routerLink]="['/medical-shop']"
-                ><i class="fa fa-medkit" aria-hidden="true"></i
-              ></a>
-              <label>Medical</label>
-              <a [routerLink]="['/medical-shop']">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </a>
-            </ion-row>
-          </ion-label>
+
           <ion-label class="menu-icon">
             <ion-row>
               <a [routerLink]="['/chat']"
