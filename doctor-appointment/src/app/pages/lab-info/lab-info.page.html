@@ -5,71 +5,104 @@
 </ion-header>
 
 <ion-content>
-<ion-label class="lab-box">
-	<ion-row>
-		<ion-col>
-			<div class="adult-dr-img">
-					<img src="assets/images/adult-doctor.png">
-					
-				<div class="star-rating">
-					<span>SMS Clinical Labs</span>
-					<p>1210 30th Dr.Renna,Jaipur</p>
-				</div>
-			</div>
-		</ion-col>
-		<ion-col class="timing-lab">
-			<span>Timing</span>
-			<p>07:00 to 20:00</p>
-		</ion-col>
-	</ion-row>
-</ion-label>
-<ion-row class="field-lab">
-	<div class="field">
-		<span class="fa fa-search"></span>
-          <input type="text" required>
-          <label>Search for tests</label>
+  <!-- <ion-label class="lab-box">
+    <ion-row>
+      <ion-col>
+        <div class="adult-dr-img">
+          <img src="../../../assets/icon/Icon-doctor.png" />
+
+          <div class="star-rating">
+            <span>Phòng khám đa khoa</span>
+            <p>1 Phù Đổng Thiên Vương</p>
+          </div>
         </div>
-</ion-row>
-<ion-label>
-	<ion-row class="lab-map">
-		<label>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113874.29338099538!2d75.72051798115461!3d26.885346595295566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1593502550662!5m2!1sen!2sin" width="500" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-		</label>
-	</ion-row>
-</ion-label>
-<ion-label class="Faclitiess-heading">
-	<ion-row>
-	<label>Faclitiess</label>
-</ion-row>
-	<ion-row class="Faclitiess-tittle">
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-	</ion-row>
-		<ion-row class="Faclitiess-tittle1">
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-		
-		</ion-col>
-	</ion-row>
-</ion-label>
-<ion-row class="lab-btn">
-<ion-col>
-	<button class="my-button">Message</button>
-</ion-col>
-<ion-col>
-	<button class="my-button">Call Now</button>
-</ion-col>
-</ion-row>
+      </ion-col>
+      <ion-col class="timing-lab">
+        <span>Timing</span>
+        <p>07:00 to 20:00</p>
+      </ion-col>
+    </ion-row>
+  </ion-label>
+ -->
+  <ion-card [routerLink]="['/doctor-info']">
+    <ion-grid>
+      <ion-row class="doctor-info">
+        <ion-col size="3">
+          <div class="avatar">
+            <img src="../assets/icon/Icon-doctor.png" />
+          </div>
+        </ion-col>
+        <ion-col size="9" class="doctor-name">
+          <ion-card-content class="doctor-name-card">
+            <ion-card-title>Nguyen Van A</ion-card-title>
+            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
+            <ion-card-subtitle>1 Phù Đổng Thiên Vương</ion-card-subtitle>
+            <ion-card-subtitle>0123456781</ion-card-subtitle>
+            <p class="fa-star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-row class="field-lab">
+    <div class="field">
+      <span class="fa fa-search"></span>
+	  <input type="email" required placeholder="Tìm kiếm" />
+    </div>
+  </ion-row>
+  <ion-label>
+    <ion-row class="lab-map">
+      <label>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113874.29338099538!2d75.72051798115461!3d26.885346595295566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1593502550662!5m2!1sen!2sin"
+          width="500"
+          height="300"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
+      </label>
+    </ion-row>
+  </ion-label>
+  <ion-label class="Faclitiess-heading">
+    <ion-row>
+      <label>Chuyên khoa</label>
+    </ion-row>
+    <ion-row class="Faclitiess-tittle">
+      <ion-col>
+        <span>Tim mạch</span>
+      </ion-col>
+      <ion-col>
+        <span>Khám tim</span>
+      </ion-col>
+      <ion-col>
+        <span>Siêu âm tim</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="Faclitiess-tittle1">
+      <ion-col>
+        <span>Xét nghiệm</span>
+      </ion-col>
+      <ion-col>
+        <span>Card Accepted</span>
+      </ion-col>
+      <ion-col> </ion-col>
+    </ion-row>
+  </ion-label>
+  <ion-row class="lab-btn">
+    <ion-col>
+      <ion-button class="my-button">Nhắn tin</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="my-button">Gọi điện</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

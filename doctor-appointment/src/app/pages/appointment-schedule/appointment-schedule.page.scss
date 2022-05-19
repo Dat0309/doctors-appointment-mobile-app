@@ -1,53 +1,68 @@
 ion-toolbar a {
-    margin: -24px 10px;
+  margin: -24px 10px;
 }
-.hospital-name{
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    background: #fff;
-    padding: 10px;
-    margin: 10px 0;
-label{
-  color: #000000;
-  font-weight:500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  display: inline-block;
-}    
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
 }
-.form-sec .content {
-    top: 2%;
+.hospital-name {
+  font-weight: 600;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  label {
+    color: #26a8f1;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    display: inline-block;
+  }
 }
-.form-sec .field span {
-    right: 0;
-}
+// .form-sec .content {
+//     top: 2%;
+// }
+// .form-sec .field span {
+//     right: 0;
+// }
 .form-sec .field input {
-    padding-left: 30px;
+  padding-left: 30px;
+  margin-left: 85px;
+  width: 80%;
+  height: 30px;
+  border: solid 1px rgb(202, 202, 202);
+  border-radius: 8px;
 }
 .list-ios {
-    background: transparent;
-    position: relative;
-    left: 20px;
-    top: 75px;
+  background: transparent;
+  position: relative;
+  left: 20px;
+  top: 75px;
 }
-.timeing{
-	span{
-    box-shadow: 0 20px 30px -25px rgba(0, 0, 0, 0.3);
+.date {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.timeing {
+  span {
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
-    margin: 12px 5px;
+    margin: 12px 5px 0px 16px;
     height: 30px;
     text-align: center;
     justify-content: center;
     display: flex;
     align-items: center;
-        width: 75px;
+    width: 75px;
     font-size: 12px;
-	}
-		span:hover{
-  		background: #254298;
-  		color: #fff; 
-  	}
+    box-shadow: 2px 2px 2px #bfb6b6;
+  }
+  span:hover {
+    background: #254298;
+    color: #fff;
+  }
 }

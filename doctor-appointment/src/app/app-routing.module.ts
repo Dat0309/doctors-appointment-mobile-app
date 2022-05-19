@@ -102,10 +102,13 @@ const routes: Routes = [
   //   path: 'lab-test',
   //   loadChildren: () => import('./pages/lab-test/lab-test.module').then(m => m.LabTestPageModule)
   // },
-  // {
-  //   path: 'lab-info',
-  //   loadChildren: () => import('./pages/lab-info/lab-info.module').then(m => m.LabInfoPageModule)
-  // },
+  {
+    path: 'lab-info',
+    loadChildren: () =>
+      import('./pages/lab-info/lab-info.module').then(
+        (m) => m.LabInfoPageModule
+      ),
+  },
   {
     path: 'search-test',
     loadChildren: () =>
