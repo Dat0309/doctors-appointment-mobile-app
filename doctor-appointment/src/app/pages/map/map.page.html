@@ -1,59 +1,92 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
   <ion-toolbar>
-  	<ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-    	Map View
-
-    </ion-title>
-    <a href="#"><svg id="Capa_1" enable-background="new 0 0 413.348 413.348" height="15" viewBox="0 0 413.348 413.348" width="15" xmlns="http://www.w3.org/2000/svg"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"/></svg></a>
+    <ion-title> Map View </ion-title>
+    <a href="#"
+      ><svg
+        id="Capa_1"
+        enable-background="new 0 0 413.348 413.348"
+        height="15"
+        viewBox="0 0 413.348 413.348"
+        width="15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"
+        /></svg
+    ></a>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="cardio">
-<ion-label class="cardio-box">
-  <ion-row>
-    <ion-col>
-      <div class="adult-dr-img">
-      <img src="assets/images/adult-doctor.png">
-      
-          <div class="star-rating">
-      <span>Dr. Josepin Clara</span>
-      <p>MBBS, DNB - Ophthalmology,</p>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-    </div>
-    <i class="fa fa-heart" aria-hidden="true"></i>
-    </div>
-    </ion-col>
-    <div class="hosipital">
-    <ion-col>
-      <p>Mansrovar,jaipur</p>
-      <span>2 km</span>
-    </ion-col>  
-  </div>
-  <div class="Experience-sec">
-    <ion-col>
-      <p>Experience</p>
-      <span class="yrs">15 yrs</span>
-    </ion-col>
-    <ion-col>
-      <p>Fees</p>
-      <span>$30</span>
-    </ion-col>
-    <ion-col>
-      <p>Ratings</p>
-      <span>4.6</span>
-    </ion-col>
-  </div>
-  </ion-row>
-</ion-label>
-</div>
- <ion-label><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14231.530456913268!2d75.79528355000001!3d26.9072203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1588938266681!5m2!1sen!2sin" width="100%" height="100%" frameborder="0" style="border:0;display: inline-block;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  <!-- <div class="cardio">
+    <ion-label class="cardio-box">
+      <ion-row>
+        <ion-col>
+          <div class="adult-dr-img">
+            <img src="../../../assets/icon/Icon-doctor.png" />
+
+            <div class="star-rating">
+              <span>Nguyen Van A</span>
+              <p>Tim mach</p>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+          </div>
+        </ion-col>
+        <div class="hosipital">
+          <ion-col>
+            <p>Bệnh viện đa khoa</p>
+            <span>2 km</span>
+          </ion-col>
+        </div>
+      </ion-row>
+    </ion-label>
+  </div> -->
+  <ion-card [routerLink]="['/doctor-info']">
+    <ion-grid>
+      <ion-row class="doctor-info">
+        <ion-col size="3">
+          <div class="avatar">
+            <img src="../assets/icon/Icon-doctor.png" />
+          </div>
+        </ion-col>
+        <ion-col size="9" class="doctor-name">
+          <ion-card-content class="doctor-name-card">
+            <ion-card-title>Nguyen Van A</ion-card-title>
+            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
+            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
+            <p class="fa-star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-label
+    ><iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14231.530456913268!2d75.79528355000001!3d26.9072203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1588938266681!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      style="border: 0; display: inline-block"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
   </ion-label>
 </ion-content>

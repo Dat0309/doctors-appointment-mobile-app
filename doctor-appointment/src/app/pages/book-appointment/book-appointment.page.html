@@ -1,45 +1,63 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
   <ion-toolbar>
-  	<ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-    	Book Appointment
-    </ion-title>
-    <a href="#"><img src="assets/images/arrow.png"></a>
+    <ion-title> Đặt lịch hẹn </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-	<div class="cardio">
-<ion-label class="cardio-box">
-	<ion-row>
-		<ion-col>
-			<div class="adult-dr-img">
-			<img src="assets/images/adult-doctor.png">
-			
-					<div class="star-rating">
-			<span>Dr. Josepin Clara</span>
-			<p>Eye Specialist</p>
-		</div>
-		</div>
-		</ion-col>
-	</ion-row>
-</ion-label>
-</div>
-<div class="mr-top">
-<div class="calendar">
-  <div class="month"><a href="#" class="nav"><i class="fa fa-angle-left" aria-hidden="true"></i></a><div>December <span class="year">2019</span></div><a href="#" class="nav"><i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-  <div class="days">
-    <span>Mon</span>
-    <span>Tue</span>
-    <span>Wed</span>
-    <span>Thu</span>
-    <span>Fri</span>
-    <span>Sat</span>
-    <span>Sun</span>
-  </div>
-  </div>
-  <div class="dates">
+  <ion-card [routerLink]="['/doctor-info']">
+    <ion-grid>
+      <ion-row class="doctor-info">
+        <ion-col size="3">
+          <div class="avatar">
+            <img src="../assets/icon/Icon-doctor.png" />
+          </div>
+        </ion-col>
+        <ion-col size="9" class="doctor-name">
+          <ion-card-content class="doctor-name-card">
+            <ion-card-title>Nguyen Van A</ion-card-title>
+            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
+            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
+            <p class="fa-star">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </p>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <div class="mr-top">
+    <div class="calendar">
+      <div class="month">
+        <a href="#" class="nav"
+          ><i class="fa fa-angle-left" aria-hidden="true"></i
+        ></a>
+        <div>December <span class="year">2019</span></div>
+        <a href="#" class="nav"
+          ><i class="fa fa-angle-right" aria-hidden="true"></i
+        ></a>
+      </div>
+      <div class="days">
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+        <span>Sun</span>
+      </div>
+    </div>
+    <div class="dates">
       <button>
         <time>1</time>
       </button>
@@ -133,23 +151,17 @@
       <button>
         <time>31</time>
       </button>
+    </div>
   </div>
-</div>
 
   <ion-label class="timeing">
-  	<ion-row>
-  		<span>10:00 AM</span>
-  		<span>12:00 PM</span>
-  		<span>2:00 PM</span>
-  	</ion-row>
+    <ion-row>
+      <span>10:00 AM</span>
+      <span>12:00 PM</span>
+      <span>2:00 PM</span>
+    </ion-row>
   </ion-label>
-
-  <ion-label class="appointment-for">
-  	<ion-row>
-  		<span>Appointment for..</span>
-  	</ion-row>
-  </ion-label>
-<div class="form-sec">
+  <!-- <div class="form-sec">
     <div class="content">
       <form action="#" [formGroup]="bookappointment" (ngSubmit)="submit()">
         <div class="field">
@@ -161,6 +173,7 @@
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
+
         <div class="field">
           <input type="number" inputmode="number" formControlName="number" placeholder="Mobile Number">
           <label></label>
@@ -173,6 +186,15 @@
         <ion-button [routerLink]="['/my-appointment']" [disabled]="!bookappointment.valid" class="book-appointment" type="submit" expand="block">Confirm Appointment</ion-button>
       </form>
   </div>
-</div>
+</div> -->
 
+  <ion-item>
+    <ion-label position="floating">Tên</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Số điện thoại</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+  <ion-button expand="block">BOOK</ion-button>
 </ion-content>

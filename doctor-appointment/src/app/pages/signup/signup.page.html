@@ -28,13 +28,19 @@
           </ng-container>
         </div> -->
         <ion-item class="ion-margin-bottom">
-          <ion-input inputmode="text" id="firstname" placeholder="Email" formControlName="email">
-
+          <ion-input
+            inputmode="text"
+            id="firstname"
+            placeholder="Email"
+            formControlName="email"
+          >
           </ion-input>
         </ion-item>
-        <div *ngFor="let error of errorMessages.email">
-          <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
-            <small class="error-message">{{error.message}}</small>
+        <div *ngFor="let error of errorMessages.email" class="error">
+          <ng-container
+            *ngIf="email.hasError(error.type) && (email.dirty || email.touched)"
+          >
+            <p class="error-message">{{error.message}}</p>
           </ng-container>
         </div>
 
@@ -49,33 +55,33 @@
           </ng-container>
         </div> -->
 
-
-
-
         <ion-item class="ion-margin-bottom">
-          <ion-input type="password" inputmode="password" id="password" placeholder="Mật khẩu"
-            formControlName="password">
-
+          <ion-input
+            type="password"
+            inputmode="password"
+            id="password"
+            placeholder="Mật khẩu"
+            formControlName="password"
+          >
           </ion-input>
         </ion-item>
-        <div *ngFor="let error of errorMessages.password">
-          <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
-            <small class="error-message">{{error.message}}</small>
+        <div *ngFor="let error of errorMessages.password" class="error">
+          <ng-container
+            *ngIf="password.hasError(error.type) && (password.dirty || password.touched)"
+          >
+            <p class="error-message">{{error.message}}</p>
           </ng-container>
         </div>
         <ion-item>
           <div class="labelSelect">
-            <ion-label style="color: rgb(114, 111, 111);">
-              Bạn là :
-            </ion-label>
+            <ion-label style="color: rgb(114, 111, 111)"> Bạn là : </ion-label>
           </div>
 
-          <ion-select placeholder=" Chọn " [(ngModel)]="selected_option">
+          <ion-select placeholder=" Chọn " [(mgModel)]="selected_option">
             <ion-select-option value="Bác sĩ">Bác sĩ</ion-select-option>
             <ion-select-option value="Bệnh nhân">Bệnh nhân </ion-select-option>
           </ion-select>
         </ion-item>
-
 
         <!-- <ion-item class="ion-margin-bottom">
           <ion-input type="password" inputmode="confirmpassword" id="password-confirm" placeholder="Xác nhận mật khẩu" formControlName="confirmpassword">
@@ -90,15 +96,14 @@
         </div> -->
         <!-- <button [disabled]="!signupForm.valid">SIGNUP<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> -->
         <div class="button">
-          <ion-button [disabled]="!signupForm.valid">SIGN UP<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <ion-button [disabled]="!signupForm.valid"
+            >Đăng ký<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </ion-button>
         </div>
-
-
       </form>
-      <ion-label class="register" style="margin-left: 90px;">
-        <span>Already a user ? </span>
-        <a [routerLink]="['/login']"><span>Sign Up</span></a>
+      <ion-label class="register" style="margin-left: 90px">
+        <span>Bạn đã có tài khoản? </span>
+        <a [routerLink]="['/login']"><span>Đăng nhập</span></a>
       </ion-label>
     </div>
   </div>
@@ -113,5 +118,4 @@
   <!-- <ion-label>
     <a [routerLink]="['/login-form']"><span>Quay lại đăng nhập</span></a>
   </ion-label> -->
-
 </ion-content>

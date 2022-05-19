@@ -1,110 +1,39 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-         My Appointments
-        </ion-title>
-        <a href="#"><img src="assets/images/arrow.png" /></a>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>LỊCH CỦA TÔI</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-label>
-<ion-row>
-	<label class="up-heading">Upcoming Appointments</label>
-</ion-row>
-<ion-row class="Up-Appoint">
-	<ion-col>
-		 <div class="adult-dr-img">
-            <img src="assets/images/adult-doctor.png" />
-                <div class="star-rating">
-                    <span>Dr-Reena Roy</span>
-                    <p>Visited Eye treatment</p>
-                </div>
+  
+
+  <ion-list>
+    <ion-card [routerLink]="['/doctor-info']">
+      <ion-grid>
+        <ion-row class="doctor-info">
+          <ion-col size="3">
+            <div class="avatar">
+              <img src="../assets/icon/Icon-doctor.png" />
             </div>
-	</ion-col>
-	<ion-col class="up-appoint-time">
-		<label>Mon</label>
-		<span>15</span>
-		<p>01:00</p>
-	</ion-col>
-	<ion-col class="saw-hos">At Sawai Mansingh Hospital,Tonk Road,Jaipur</ion-col>
-</ion-row>
-<ion-row class="Up-Appoint">
-	<ion-col>
-		 <div class="adult-dr-img">
-            <img src="assets/images/adult-doctor.png" />
-                <div class="star-rating">
-                    <span>Dr-Reena Roy</span>
-                    <p>Visited Eye treatment</p>
-                </div>
-            </div>
-	</ion-col>
-	<ion-col class="up-appoint-time">
-		<label>Mon</label>
-		<span>15</span>
-		<p>01:00</p>
-	</ion-col>
-	<ion-col class="saw-hos">At Sawai Mansingh Hospital,Tonk Road,Jaipur</ion-col>
-</ion-row>
-<ion-row class="Up-Appoint">
-	<ion-col>
-		 <div class="adult-dr-img">
-            <img src="assets/images/adult-doctor.png" />
-                <div class="star-rating">
-                    <span>Dr-Reena Roy</span>
-                    <p>Visited Eye treatment</p>
-                </div>
-            </div>
-	</ion-col>
-	<ion-col class="up-appoint-time">
-		<label>Mon</label>
-		<span>15</span>
-		<p>01:00</p>
-	</ion-col>
-	<ion-col class="saw-hos">At Sawai Mansingh Hospital,Tonk Road,Jaipur</ion-col>
-</ion-row>
-</ion-label>
-<ion-label>
-<ion-row>
-	<label class="up-heading">Past Appointments</label>
-</ion-row>
-<ion-row class="Up-Appoint">
-	<ion-col>
-		 <div class="adult-dr-img">
-            <img src="assets/images/adult-doctor.png" />
-                <div class="star-rating">
-                    <span>Dr-Reena Roy</span>
-                    <p>Visited Eye treatment</p>
-                </div>
-            </div>
-	</ion-col>
-	<ion-col class="up-appoint-time">
-		<label>Mon</label>
-		<span>15</span>
-		<p>01:00</p>
-	</ion-col>
-	<ion-col class="saw-hos">At Sawai Mansingh Hospital,Tonk Road,Jaipur</ion-col>
-</ion-row>
-<ion-row class="Up-Appoint">
-	<ion-col>
-		 <div class="adult-dr-img">
-            <img src="assets/images/adult-doctor.png" />
-                <div class="star-rating">
-                    <span>Dr-Reena Roy</span>
-                    <p>Visited Eye treatment</p>
-                </div>
-            </div>
-	</ion-col>
-	<ion-col class="up-appoint-time">
-		<label>Mon</label>
-		<span>15</span>
-		<p>01:00</p>
-	</ion-col>
-	<ion-col class="saw-hos">At Sawai Mansingh Hospital,Tonk Road,Jaipur</ion-col>
-</ion-row>
-</ion-label>
-<ion-button [routerLink]="['/cardiologist']" class="book-appointment" type="submit" expand="block">More Detalis</ion-button>
+          </ion-col>
+          <ion-col size="9" class="doctor-name">
+            <ion-card-content class="doctor-name-card">
+              <ion-card-title>Nguyen Van A</ion-card-title>
+              <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
+              <ion-card-subtitle>Tim Mach</ion-card-subtitle>         
+			        <ion-card-subtitle>9H30 </ion-card-subtitle>
+              <ion-card-subtitle>20/05/2022</ion-card-subtitle>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
 </ion-content>

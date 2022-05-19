@@ -14,17 +14,17 @@ get email() {
   return this.forgotForm.get('email');
 }
 get mobilenumber() {
-  return this.forgotForm.get('mobilenumber');
+  return this.forgotForm.get('Số điện thoại');
 }
 
 public errorMessages = {
     email: [
-      	{ type: 'required', message: 'email is required' },
-      	{ type: 'pattern', message: 'Please enter a valid email number' }
+      	{ type: 'required', message: 'Yêu cầu nhập email' },
+      	{ type: 'pattern', message: 'Vui lòng nhập đúng số điện thoại' }
     ],
       mobilenumber: [
-      	{ type: 'required', message: 'Mobilenumber is required' },
-      	{ type: 'pattern', message: 'Please enter a valid mobilenumber number' }
+      	{ type: 'required', message: 'Yêu cầu nhập số điện thoại' },
+      	{ type: 'pattern', message: 'Vui lòng nhập đúng số điện thoại' }
     ],
   };
 

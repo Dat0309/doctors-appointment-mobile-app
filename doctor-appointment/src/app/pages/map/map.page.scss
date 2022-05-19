@@ -1,29 +1,43 @@
 ion-toolbar a {
-    font-size: 24px;
-    }
-svg{
-	fill: #fff;
-    margin: 0 5px;
+  font-size: 24px;
+}
+svg {
+  fill: #fff;
+  margin: 0 5px;
 }
 .cardio {
-    margin: 10px 8px;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    width: 360px;
-}    
-.fa-heart{
-	color: #FF6243;
+  margin: 10px 8px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 360px;
+  background-color: #fff;
+}
+.fa-heart {
+  color: #ff6243;
 }
 .Experience-sec p {
-    font-size: 12px;
+  font-size: 12px;
 }
 .hosipital span {
-    margin: -20px 30px;
+  margin: -20px 30px;
 }
-.Experience-sec {
-    border-bottom: none;
+
+img {
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 15px;
+  max-width: 100%;
+  height: auto;
 }
-.Experience-sec .yrs {
-    font-size: 12px;
+ion-card {
+  margin: 10px 8px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 350px;
+  background-color: #fff;
+  .fa-star {
+    color: #ffc107;
+  }
 }
