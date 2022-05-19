@@ -168,7 +168,7 @@ const routes: Routes = [
   },
   {
     path: 'splashsreen',
-    loadChildren: () => import('./splashsreen/splashsreen.module').then( m => m.SplashsreenPageModule)
+    loadChildren: () => import('./pages/splashsreen/splashsreen.module').then( m => m.SplashsreenPageModule)
   },
 
 ];

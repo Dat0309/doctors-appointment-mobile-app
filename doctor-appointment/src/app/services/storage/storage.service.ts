@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { escape } from 'querystring';
 import { Plugins } from '@capacitor/core';
 const { Storage } = Plugins;
 

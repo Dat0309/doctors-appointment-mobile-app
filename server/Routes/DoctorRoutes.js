@@ -5,6 +5,13 @@ import { admin, protect } from "./../Middleware/AuthMiddleware.js";
 
 const doctorRoute = express.Router();
 
+doctorRoute.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', ['*']);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 //GET ALLL DOCTOR
 doctorRoute.get(
     "/",
@@ -164,7 +171,7 @@ doctorRoute.put(
             description, telephone, avatar_url,
             province, district, ward, street,
             level_of_education, specializations, company_id,
-            facebook_id, zalo_id} = req.body;
+            facebook_id, zalo_id } = req.body;
         const doctor = await Doctor.findById(req.params.id);
         if (doctor) {
             doctor.user_id = user_id || doctor.user_id;

@@ -6,6 +6,13 @@ import User from "./../Models/UserModel.js";
 
 const userRouter = express.Router();
 
+userRouter.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', ['*']);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 // LOGIN
 userRouter.post(
   "/login",
