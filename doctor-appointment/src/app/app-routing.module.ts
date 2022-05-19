@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login-form',
+    redirectTo: 'splashsreen',
     pathMatch: 'full',
   },
   {
@@ -169,6 +169,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/doctors/doctors.module').then((m) => m.DoctorsPageModule),
   },
+  {
+    path: 'splashsreen',
+    loadChildren: () => import('./splashsreen/splashsreen.module').then( m => m.SplashsreenPageModule)
+  },
+
 ];
 
 @NgModule({
