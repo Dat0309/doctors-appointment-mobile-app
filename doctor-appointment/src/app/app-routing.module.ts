@@ -157,12 +157,12 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'user-signup',
+    path: 'user-signup/:id',
     loadChildren: () =>
       import('./pages/user/user.module').then((m) => m.UserPageModule),
   },
   {
-    path: 'doctors-signup',
+    path: 'doctors-signup/:id',
     loadChildren: () =>
       import('./pages/doctors/doctors.module').then((m) => m.DoctorsPageModule),
   },

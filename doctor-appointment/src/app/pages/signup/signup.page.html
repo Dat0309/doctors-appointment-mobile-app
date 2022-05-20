@@ -7,30 +7,10 @@
   <div class="form-sec">
     <div class="content">
       <form action="#" [formGroup]="signupForm" (ngSubmit)="submit()">
-        <!-- <ion-item class="ion-margin-bottom">
-          <ion-input inputmode="text" id="lastname" placeholder="Name" formControlName="lastname">
-
-          </ion-input>
-        </ion-item>
-        <div *ngFor="let error of errorMessages.lastname">
-          <ng-container *ngIf="lastname.hasError(error.type) && (lastname.dirty || lastname.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
-        <!-- <ion-item class="ion-margin-bottom">
-          <ion-input inputmode="number" id="phone" placeholder="Phone" formControlName="mobilenumber">
-
-          </ion-input>
-        </ion-item>
-        <div *ngFor="let error of errorMessages.mobilenumber">
-          <ng-container *ngIf="mobilenumber.hasError(error.type) && (mobilenumber.dirty || mobilenumber.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
         <ion-item class="ion-margin-bottom">
           <ion-input
             inputmode="text"
-            id="firstname"
+            id="email"
             placeholder="Email"
             formControlName="email"
           >
@@ -43,17 +23,6 @@
             <p class="error-message">{{error.message}}</p>
           </ng-container>
         </div>
-
-        <!-- <ion-item class="ion-margin-bottom">
-          <ion-input inputmode="text" id="firstname" placeholder="Họ lót" formControlName="firstname">
-
-          </ion-input>
-        </ion-item>
-        <div *ngFor="let error of errorMessages.firstname">
-          <ng-container *ngIf="firstname.hasError(error.type) && (firstname.dirty || firstname.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
 
         <ion-item class="ion-margin-bottom">
           <ion-input
@@ -72,32 +41,42 @@
             <p class="error-message">{{error.message}}</p>
           </ng-container>
         </div>
+
+        <ion-item class="ion-margin-bottom">
+          <ion-input
+            type="password"
+            inputmode="password"
+            id="confirmpassword"
+            placeholder="Xác nhận mật khẩu"
+            formControlName="confirmpassword"
+          >
+          </ion-input>
+        </ion-item>
+        <div *ngFor="let error of errorMessages.confirmpassword" class="error">
+          <ng-container
+            *ngIf="confirmpassword.hasError(error.type) && (confirmpassword.dirty || confirmpassword.touched)"
+          >
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
         <ion-item>
           <div class="labelSelect">
             <ion-label style="color: rgb(114, 111, 111)"> Bạn là : </ion-label>
           </div>
 
-          <ion-select placeholder=" Chọn " [(mgModel)]="selected_option">
+          <ion-select 
+            placeholder=" Chọn " 
+            formControlName="role">
             <ion-select-option value="Bác sĩ">Bác sĩ</ion-select-option>
             <ion-select-option value="Bệnh nhân">Bệnh nhân </ion-select-option>
           </ion-select>
         </ion-item>
 
-        <!-- <ion-item class="ion-margin-bottom">
-          <ion-input type="password" inputmode="confirmpassword" id="password-confirm" placeholder="Xác nhận mật khẩu" formControlName="confirmpassword">
-
-          </ion-input>
-        </ion-item>
-        <div *ngFor="let error of errorMessages.confirmpassword">
-          <ng-container
-            *ngIf="confirmpassword.hasError(error.type) && (confirmpassword.dirty || confirmpassword.touched)">
-            <small class="error-message">{{error.message}}</small>
-          </ng-container>
-        </div> -->
-        <!-- <button [disabled]="!signupForm.valid">SIGNUP<i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> -->
         <div class="button">
-          <ion-button [disabled]="!signupForm.valid"
-            >Đăng ký<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <ion-button 
+            [disabled]="!signupForm.valid"
+            type="submit"
+            >Tiếp tục<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </ion-button>
         </div>
       </form>
@@ -107,15 +86,4 @@
       </ion-label>
     </div>
   </div>
-
-  <!-- <ion-label>
-    <div class="social-icon">
-      <a href="#"><i class="fa fa-facebook"><img src="assets/icon/facebook.png" /></i></a>
-      <a href="#"><i class="fa fa-twitter" aria-hidden="true"><img src="assets/icon/twitter.png" /></i></a>
-      <a href="#"><i class="fa fa-google-plus"><img src="assets/icon/google.png" /></i> </a>
-    </div>
-  </ion-label> -->
-  <!-- <ion-label>
-    <a [routerLink]="['/login-form']"><span>Quay lại đăng nhập</span></a>
-  </ion-label> -->
 </ion-content>

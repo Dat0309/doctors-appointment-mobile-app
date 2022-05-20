@@ -1,71 +1,87 @@
-
 <ion-content>
   <div id="header">
     <!-- <h1>Đăng ký</h1> -->
-  <div>
-    <img src="assets/icon/avatar.png" />
-    <ion-icon name ="image-outline" slot="end"></ion-icon>
+    <div>
+      <img src="assets/icon/avatar.png" />
+      <ion-icon name="image-outline" slot="end"></ion-icon>
+    </div>
   </div>
+
+  <div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="doctorSignupForm" (ngSubmit)="submit()">
+        <div class="Surname">
+
+          <ion-item class="ion-margin-bottom">
+            <ion-input 
+              class="surname" 
+              inputmode="text" 
+              id="surname" 
+              placeholder="Họ"
+              formControlName="surname">
+            </ion-input>
+
+            <ion-input 
+              class="name" 
+              inputmode="text" 
+              id="name" 
+              placeholder="Tên"
+              formControlName="name">
+            </ion-input>
+          </ion-item>
+
+        </div>
+
+        <div class="date">
+          <ion-input inputmode="text" id="date" placeholder="Ngày sinh">
+          </ion-input>
+        </div>
+
+        <div class="checkbox">
+          <ion-checkbox></ion-checkbox>
+          <ion-label> Nam</ion-label>
+          <ion-checkbox style="margin-left: 110px;"></ion-checkbox>
+          <ion-label style="margin-left: 10px;"> Nữ</ion-label>
+        </div>
+
+        <div class="phone">
+          <ion-input inputmode="text" id="phone" placeholder="Số điện thoại">
+          </ion-input>
+        </div>
+
+        <div class="address">
+
+          <ion-item class="ion-margin-bottom">
+            <ion-input class="road" inputmode="text" id="road" placeholder="Đường">
+            </ion-input>
+
+            <ion-input class="ward" inputmode="text" id="ward" placeholder="Phường">
+            </ion-input>
+          </ion-item>
+
+        </div>
+
+        <div class="level">
+          <ion-input inputmode="text" id="level" placeholder="Trình độ">
+          </ion-input>
+        </div>
+        <div class="specialized">
+          <ion-input inputmode="text" id="specialized" placeholder="Chuyên ngành">
+          </ion-input>
+        </div>
+        <div class="workplace">
+          <ion-input inputmode="text" id="workplace" placeholder="Tên nơi làm việc">
+          </ion-input>
+        </div>
+        <div class="description">
+          <ion-input inputmode="text" id="description" placeholder="Mô tả">
+          </ion-input>
+        </div>
+        <div class="button">
+          <ion-button>SIGN UP<i></i>
+          </ion-button>
+        </div>
+      </form>
+    </div>
   </div>
-<div class="Surname">
-  
-  <ion-item class="ion-margin-bottom">
-    <ion-input class="surname"  inputmode="text" id="Surname" placeholder="Họ" >
-    </ion-input>
-
-    <ion-input class="name" inputmode="text" id="name" placeholder="Tên" >
-    </ion-input>
-  </ion-item>
- 
-</div>
-
-<div class="date">
-  <ion-input inputmode="text" id="date" placeholder="Ngày sinh" >
-  </ion-input>
-</div>
-
-  <div class="checkbox">  
-    <ion-checkbox></ion-checkbox>  
-    <ion-label> Nam</ion-label>  
-    <ion-checkbox style="margin-left: 110px;" ></ion-checkbox>  
-    <ion-label style="margin-left: 10px;"> Nữ</ion-label>  
-  </div>  
-
-<div class="phone">
-  <ion-input inputmode="text" id="phobe" placeholder="Số điện thoại" >
-  </ion-input>
-</div>
-
-<div class="address">
-  
-  <ion-item class="ion-margin-bottom">
-    <ion-input class="road"  inputmode="text" id="road" placeholder="Đường" >
-    </ion-input>
-
-    <ion-input class="ward" inputmode="text" id="Ward" placeholder="Phường" >
-    </ion-input>
-  </ion-item>
- 
-</div>
-
-<div class="level">
-  <ion-input inputmode="text" id="level" placeholder="Trình độ" >
-  </ion-input>
-</div>
-<div class="specialized">
-  <ion-input inputmode="text" id="specialized" placeholder="Chuyên ngành" >
-  </ion-input>
-</div>
-<div class="workplace">
-  <ion-input inputmode="text" id="workplace" placeholder="Tên nơi làm việc" >
-  </ion-input>
-</div>
-<div class="description">
-  <ion-input inputmode="text" id="description" placeholder="Mô tả" >
-  </ion-input>
-</div>
-<div class="button">
-  <ion-button >SIGN UP<i ></i>
-  </ion-button>
-</div>
 </ion-content>

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -28,17 +29,19 @@ export class AuthService {
     return check;
   }
 
-  async register(postData: any): Promise<boolean> {
-    let check = true;
+  async register(postData: any): Promise<any> {
+    let id = '';
     await this.fetchAPI.post('/users', postData).then(
       (res) => {
-        if (res.status === 200) {
+        if (res.status === 201) {
+          id = res.data._id;
+          console.log('successful create user');
         } else {
-          check = false;
+          id = '';
         }
       }
     );
-    return check;
+    return id;
   }
 
   logout() {
