@@ -1,0 +1,15 @@
+.feature {
+    display: flex;
+    padding: 15px;
+    border-radius: 10px;
+    
+    .text-category{
+        padding-top: 10px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      padding-left: 50px;
+      color: var(--ion-color-primary);
+
+    }
+}

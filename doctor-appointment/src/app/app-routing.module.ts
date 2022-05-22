@@ -1,10 +1,14 @@
+import { CardcategorylistComponent } from './components/cardcategorylist/cardcategorylist.component';
+import { CardcategoryitemComponent } from './components/cardcategoryitem/cardcategoryitem.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'splashsreen',
+    // redirectTo: 'splashsreen',
+    // redirectTo: 'homepage',
+    redirectTo: 'specialities',
     pathMatch: 'full',
   },
   {
@@ -47,7 +51,7 @@ const routes: Routes = [
   //   loadChildren: () => import('./pages/find-doctor/find-doctor.module').then(m => m.FindDoctorPageModule)
   // },
   {
-    path: 'cardiologist',
+    path: 'cardiologist/:id',
     loadChildren: () =>
       import('./pages/cardiologist/cardiologist.module').then(
         (m) => m.CardiologistPageModule

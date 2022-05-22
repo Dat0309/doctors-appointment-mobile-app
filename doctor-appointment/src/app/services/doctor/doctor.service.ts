@@ -22,7 +22,7 @@ export class Doctor {
   ward: string;
   street: string;
   level_of_education: string;
-  doctorss: Specialization;
+  specializations: Specialization[];
   company_id: string;
 }
 
@@ -53,6 +53,8 @@ export class DoctorService {
         catchError(this.handleError<Doctor[]>(`Get doctors id=${id}`))
       );
   }
+
+  
 
   delete(id: string): Observable<Doctor[]> {
     return this.http.delete<Doctor[]>(`${this.apiUrl}/doctors/${id}`, this.httpOptions)

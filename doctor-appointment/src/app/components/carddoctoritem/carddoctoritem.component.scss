@@ -1,0 +1,48 @@
+ion-card {
+    border-radius: 15px;
+    ion-card-content {
+        display: flex;
+        padding: 10px;
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .info {
+            margin-left: 10px;
+
+            .doctor-name {
+                font-family: 'Quicksand', sans-serif;
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--ion-color-textname);
+
+            }
+
+            .hospital-name {
+                font-family: 'Quicksand', sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--ion-color-textname);
+
+            }
+
+            .specialized-name {
+                font-family: 'Quicksand', sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--ion-color-textname);
+
+            }
+            .star {
+                padding-top: 3px;
+                color: var(--ion-color-warning);
+            }
+
+        }
+    }
+}
