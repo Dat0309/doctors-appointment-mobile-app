@@ -66,7 +66,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'doctor-info', //xoa id
+    path: 'doctor-info/:id', //xoa id
     loadChildren: () =>
       import('./pages/doctor-info/doctor-info.module').then(
         (m) => m.DoctorInfoPageModule

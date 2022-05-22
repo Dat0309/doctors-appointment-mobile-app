@@ -1,8 +1,11 @@
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
+import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
 
 @Component({
   selector: 'app-doctors',
@@ -10,117 +13,158 @@ import { DoctorService } from 'src/app/services/doctor/doctor.service';
   styleUrls: ['./doctors.page.scss'],
 })
 export class DoctorsPage implements OnInit {
+  specializationList: Specialization[] = [];
+
+  postData = {
+    user_id: this.getId,
+    last_name: '',
+    first_name: '',
+    date_of_birth: '',
+    genre: '',
+    telephone: '',
+    avatar_url: 'https://media.istockphoto.com/vectors/doctor-icon-or-avatar-physician-with-stethoscope-medicine-symbol-vector-id1150502263?k=20&m=1150502263&s=612x612&w=0&h=s2_jO-vB7I_Jd5UqFIacb5hpXrTFjOFpOTABRiVg40A=',
+    province: 'Lâm Đồng',
+    district: 'Đà Lạt',
+    street: '',
+    ward: '',
+    level_of_education: '',
+    specializations: '',
+    company_id: '',
+    description: '',
+  };
 
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
     private dotorService: DoctorService,
-  ) { }
+    private specializationService: SpecializationService,
+    private activateRoute: ActivatedRoute,
+  ) {
+    this.getSpecializations();
+  }
 
   ngOnInit() {
   }
 
-  get surname() {
-    return this.doctorSignupForm.get('surname');
+  get getId(){
+    return this.activateRoute.snapshot.paramMap.get('id');
   }
 
-  get name() {
-    return this.doctorSignupForm.get('name');
+  get first_name(){
+    return this.doctorSignupForm.get('first_name');
   }
 
-  get date() {
-    return this.doctorSignupForm.get('date');
+  get last_name(){
+    return this.doctorSignupForm.get('last_name');
   }
 
-  get gender() {
-    return this.doctorSignupForm.get('gender');
+  get date_of_birth(){
+    return this.doctorSignupForm.get('date_of_birth');
   }
 
-  get phone() {
-    return this.doctorSignupForm.get('phone');
+  get genre(){
+    return this.doctorSignupForm.get('genre');
   }
 
-  get street() {
+  get telephone(){
+    return this.doctorSignupForm.get('telephone');
+  }
+
+  get street(){
     return this.doctorSignupForm.get('street');
   }
 
-  get ward() {
+  get ward(){
     return this.doctorSignupForm.get('ward');
   }
 
-  get level() {
-    return this.doctorSignupForm.get('level');
+  get level_of_education(){
+    return this.doctorSignupForm.get('level_of_education');
   }
 
-  get specialized() {
-    return this.doctorSignupForm.get('specialized');
+  get specializations(){
+    return this.doctorSignupForm.get('specializations');
   }
 
-  get company() {
-    return this.doctorSignupForm.get('company');
-  }
-
-  get description() {
+  get description(){
     return this.doctorSignupForm.get('description');
   }
 
+  public getSpecializations(){
+    return this.specializationService.getAll().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.specializationList = res.specialization;
+      }
+    );
+  }
+
   public errorMessages = {
-    surname: [{ type: 'required', message: 'Vui lòng nhập họ lót' }],
-    name: [{ type: 'required', message: 'Vui lòng nhập tên' }],
-    date: [{ type: 'required', message: 'Vui lòng nhập ngày sinh' }],
-    gender: [{ type: 'required', message: 'Vui lòng nhập giới tính' }],
-    phone: [{ type: 'required', message: 'Vui lòng nhập số điện thoại' }],
+    last_name: [{ type: 'required', message: 'Vui lòng nhập họ lót' }],
+    first_name: [{ type: 'required', message: 'Vui lòng nhập tên' }],
+    date_of_birth: [{ type: 'required', message: 'Vui lòng nhập ngày sinh' }],
+    genre: [{ type: 'required', message: 'Vui lòng nhập giới tính' }],
+    telephone: [{ type: 'required', message: 'Vui lòng nhập số điện thoại' }],
     street: [{ type: 'required', message: 'Vui lòng nhập Địa chỉ' }],
     ward: [{ type: 'required', message: 'Vui lòng nhập Phường' }],
-    level: [{ type: 'required', message: 'Vui lòng nhập trình độ học vấn' }],
-    specialized: [{ type: 'required', message: 'Vui lòng nhập chuyên môn' }],
-    company: [{ type: 'required', message: 'Vui lòng nhập phòng khám' }],
+    level_of_education: [{ type: 'required', message: 'Vui lòng nhập trình độ học vấn' }],
+    specializations: [{ type: 'required', message: 'Vui lòng nhập chuyên môn' }],
     description: [{ type: 'required', message: 'Vui lòng nhập mô tả về chuyên môn' }],
   };
 
   validationInputs() {
-    const surname = this.doctorSignupForm.get('surname').value;
-    const name = this.doctorSignupForm.get('name').value;
-    const date = this.doctorSignupForm.get('date').value;
-    const gender = this.doctorSignupForm.get('gender').value;
-    const phone = this.doctorSignupForm.get('phone').value;
+    const last_name = this.doctorSignupForm.get('last_name').value;
+    const first_name = this.doctorSignupForm.get('first_name').value;
+    const date_of_birth = this.doctorSignupForm.get('date_of_birth').value;
+    const genre = this.doctorSignupForm.get('genre').value;
+    const telephone = this.doctorSignupForm.get('telephone').value;
     const street = this.doctorSignupForm.get('street').value;
     const ward = this.doctorSignupForm.get('ward').value;
-    const level = this.doctorSignupForm.get('level').value;
-    const specialized = this.doctorSignupForm.get('specialized').value;
-    const company = this.doctorSignupForm.get('company').value;
+    const level_of_education = this.doctorSignupForm.get('level_of_education').value;
+    const specializations = this.doctorSignupForm.get('specializations').value;
     const description = this.doctorSignupForm.get('description').value;
 
     return (
-      surname && name && date && gender && phone && gender
-      && street && ward && level && company && specialized && description
-      && surname.length > 0 && name.length > 0 && date.length > 0 && gender.length > 0
-      && street.length > 0 && ward.length > 0 && level.length > 0 && company.length > 0
-      && specialized.length > 0 && description.length > 0
+      last_name && first_name && date_of_birth && genre && telephone
+      && street && ward && level_of_education && specializations && description
+      && last_name.length > 0 && first_name.length > 0 && date_of_birth.length > 0 && genre.length > 0
+      && street.length > 0 && ward.length > 0 && level_of_education.length > 0
+      && specializations.length > 0 && description.length > 0
     );
   }
 
   doctorSignupForm = this.formBuilder.group({
-    surname: ['', Validators.required],
-    name: ['', Validators.required],
-    date: ['', Validators.required],
-    gender: ['', Validators.required],
-    phone: ['', Validators.required],
+    last_name: ['', Validators.required],
+    first_name: ['', Validators.required],
+    date_of_birth: ['', Validators.required],
+    genre: ['', Validators.required],
+    telephone: ['', Validators.required],
     street: ['', Validators.required],
     ward: ['', Validators.required],
-    level: ['', Validators.required],
-    specialized: ['', Validators.required],
-    company: ['', Validators.required],
+    level_of_education: ['', Validators.required],
+    specializations: ['', Validators.required],
     description: ['', Validators.required]
   });
 
   public submit() {
+    this.postData.last_name = this.doctorSignupForm.get('last_name').value;
+    this.postData.first_name= this.doctorSignupForm.get('first_name').value;
+    this.postData.date_of_birth= this.doctorSignupForm.get('date_of_birth').value;
+    this.postData.genre= this.doctorSignupForm.get('genre').value;
+    this.postData.telephone= this.doctorSignupForm.get('telephone').value;
+    this.postData.street= this.doctorSignupForm.get('street').value;
+    this.postData.ward= this.doctorSignupForm.get('ward').value;
+    this.postData.level_of_education= this.doctorSignupForm.get('level_of_education').value;
+    this.postData.specializations= this.doctorSignupForm.get('specializations').value;
+    this.postData.description= this.doctorSignupForm.get('description').value;
+
     if (this.validationInputs()) {
-      this.dotorService.create(this.doctorSignupForm.value).subscribe(
+      console.log(this.postData);
+      this.dotorService.create(this.postData).then(
         (res: any) => {
           if (res) {
-            console.log(res);
-            this.router.navigate([`/login-form`]);
+            const uid = res;
+            this.router.navigate([`/appointment-schedule/${uid}`]);
           }
           else {
             console.log('Fail');

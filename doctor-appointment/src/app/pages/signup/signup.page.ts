@@ -11,9 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class SignupPage implements OnInit {
   postData = {
     username: '',
-    password: '',
-    confirmpassword: '',
-    role: ''
+    password: ''
   };
   // eslint-disable-next-line @typescript-eslint/naming-convention
   selected_option: string;
@@ -71,9 +69,12 @@ export class SignupPage implements OnInit {
     role: ['', Validators.required]
   });
 
-  public submit() {
+  public async submit() {
+    this.postData.username = this.signupForm.get('email').value;
+    this.postData.password = this.signupForm.get('password').value;
+
     if(this.validationInputs()){
-      this.authService.register(this.signupForm.value).then(
+      await this.authService.register(this.signupForm.value).then(
         (res: any) => {
           if(res !== ''){
             console.log(this.signupForm.value);

@@ -82,8 +82,6 @@ customerRoute.delete(
 // CREATE customer
 customerRoute.post(
     "/",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,

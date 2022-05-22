@@ -117,11 +117,20 @@ doctorRoute.delete(
     })
 );
 
+//Get doctor by specialization
+doctorRoute.get(
+    "/specialization/:id",
+    asyncHandler(async (req, res) => {
+      const specialization_id = req.params.id;
+      const doctors = await Doctor.find({ "specializations.id": specialization_id })
+        .sort({ _id: -1 });
+      res.json({ doctors });
+    })
+  );
+
 // CREATE doctor
 doctorRoute.post(
     "/",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
@@ -148,7 +157,6 @@ doctorRoute.post(
                 level_of_education,
                 specializations,
                 company_id,
-                user: req.user._id,
             });
             if (doctor) {
                 const createddoctor = await doctor.save();
