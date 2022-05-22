@@ -48,6 +48,14 @@ export class DoctorService {
       );
   }
 
+  getDoctorByIdSpecialization(id: string): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/specialization/${id}`)
+      .pipe(
+        tap(_ => console.log(`Doctor fetched: ${id}`)),
+        catchError(this.handleError<Doctor[]>(`Get doctors id=${id}`))
+      );
+  }
+
   getByID(id: string): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/${id}`)
       .pipe(

@@ -17,6 +17,16 @@ ion-card {
   }
   ion-searchbar {
     margin-top: 10px;
+    --border-radius: 15px;
+  }
+  .text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
   }
   img {
     border-radius: 10px;

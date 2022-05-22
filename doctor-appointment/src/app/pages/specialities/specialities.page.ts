@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
 
 @Component({
@@ -8,12 +9,16 @@ import { Specialization, SpecializationService } from 'src/app/services/speciali
 })
 export class SpecialitiesPage implements OnInit {
 
-  constructor(private specializationService: SpecializationService) { }
+  constructor(private specializationService: SpecializationService,
+    private router: Router) { }
 
   specializations$ : Specialization[] = [];
 
   ngOnInit() {
     this.getAllSpcializations();
+  }
+  gotoCardiologist(id: string){
+    this.router.navigateByUrl(`/cardiologist/${id}`);
   }
 
   public getAllSpcializations(){
