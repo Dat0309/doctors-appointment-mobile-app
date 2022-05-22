@@ -1,10 +1,8 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { FetchapiService } from '../fetchapi/fetchapi.service';
 import { Specialization } from '../specialization/specialization.service';
 
 export class Doctor {
@@ -24,7 +22,7 @@ export class Doctor {
   ward: string;
   street: string;
   level_of_education: string;
-  specializations: Specialization;
+  specializations: Specialization[];
   company_id: string;
 }
 
@@ -38,7 +36,7 @@ export class DoctorService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient, private fetchAPI: FetchapiService) { }
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`)
@@ -56,6 +54,8 @@ export class DoctorService {
       );
   }
 
+  
+
   delete(id: string): Observable<Doctor[]> {
     return this.http.delete<Doctor[]>(`${this.apiUrl}/doctors/${id}`, this.httpOptions)
       .pipe(
@@ -64,25 +64,15 @@ export class DoctorService {
       );
   }
 
-  async create(doctors: any): Promise<any> {
-    let id = '';
-    await this.fetchAPI.post(`/doctors`, doctors)
-      .then(
-        (res) => {
-          if (res.status === 201) {
-            id = res.data._id;
-            console.log('successful create user');
-          } else {
-            console.log(res.status);
-            id = '';
-          }
-        }
+  create(doctors: Doctor): Observable<any> {
+    return this.http.post<Doctor>(`${this.apiUrl}/doctors`, JSON.stringify(doctors), this.httpOptions)
+      .pipe(
+        catchError(this.handleError<Doctor>('Error occured'))
       );
-      return id;
   }
 
-  update(id, doctors: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/doctors/${id}`, JSON.stringify(doctors), this.httpOptions)
+  update(id, doctors: Doctor): Observable<any> {
+    return this.http.put(`${this.apiUrl}/doctors/${id}`,JSON.stringify(doctors), this.httpOptions)
       .pipe(
         tap(_ => console.log(`Doctor updated: ${id}`)),
         catchError(this.handleError<Doctor[]>('Update doctors'))

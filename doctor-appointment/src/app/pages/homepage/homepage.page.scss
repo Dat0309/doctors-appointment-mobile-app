@@ -1,76 +1,108 @@
 ion-header ion-toolbar {
   color: #fff;
-  --background: #8dd1f8;
+  --background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #1BA3F0;
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 7%;
+    transform: translateX(-50%);
+
+  }
 }
 
 * {
   font-family: Poppins;
   font-weight: 500;
 }
-ion-searchbar {
-  color: black;
-}
+
+
 .ion-tittle {
   text-align: center;
 }
 
 .card-location {
-  margin-top: 20px;
+  padding: 10px 0;
   text-align: left;
   color: #fff;
-  background-color: #26a8f1;
+  background-color: var(--ion-color-primary);
+
   * {
-    padding: 10px;
-    font-family: Poppins;
-    font-size: 22px;
+    padding: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
     line-height: 24px;
-    font-weight: 500;
-    font-weight: bold;
+
   }
+
   .your-location {
     display: flex;
     align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
   }
+
+  ion-searchbar {
+    padding-top: 18px;
+    color: black;
+    --border-radius: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    --background : white;
+
+  }
+
 }
 
-.feature {
-  border: 1px solid #1aa3f0;
-  border-radius: 10px;
-  margin: 10px 3px 3px 10px;
-  padding: 5px;
-  height: 80px;
-  max-width: 100%;
-  text-align: center;
-  color: #26a8f1;
-  font-weight: 600;
+
+.ion-no-margin {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
 }
+
+ion-note {
+  padding-right: 8px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ion-color-dark-tint);
+}
+
+
+
 ion-icon {
   font-size: 40px;
 }
 
 .special {
-  color: #26a8f1;
-  margin-left: 15px;
-  font-weight: 600;
+  color: var(--ion-color-primary);
+  margin: 0 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding-top: 13px;
+
+
 }
+
 .menu-tittle {
   img {
     width: 100%;
     height: auto;
   }
 }
+
 .fa-star {
   color: #ffc107;
 }
 
-ion-card {
-  border: 1px solid #bfb6b6;
-  border-radius: 15px;
-  padding: 5px;
-  width: 90%;
-  margin-left: 20px;
-  margin-top: 15px;
-}
+
+
 
 .faculity {
   height: 70%;

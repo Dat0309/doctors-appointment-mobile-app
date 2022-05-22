@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 export class Specialization {
   _id: string;
+  id: string;
   name: string;
   description: string;
 }
