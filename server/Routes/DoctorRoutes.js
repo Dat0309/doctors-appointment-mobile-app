@@ -135,7 +135,7 @@ doctorRoute.post(
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
             province, district, ward, street,
-            level_of_education, specializations, company_id } = req.body;
+            level_of_education, specializations } = req.body;
         const doctorExist = await Doctor.findOne({ user_id });
         if (doctorExist) {
             res.status(400);
@@ -156,7 +156,6 @@ doctorRoute.post(
                 street,
                 level_of_education,
                 specializations,
-                company_id,
             });
             if (doctor) {
                 const createddoctor = await doctor.save();

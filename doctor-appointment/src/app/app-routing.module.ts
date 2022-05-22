@@ -6,9 +6,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'splashsreen',
+    redirectTo: 'splashsreen',
     // redirectTo: 'homepage',
-    redirectTo: 'specialities',
+    // redirectTo: 'specialities',
     pathMatch: 'full',
   },
   {

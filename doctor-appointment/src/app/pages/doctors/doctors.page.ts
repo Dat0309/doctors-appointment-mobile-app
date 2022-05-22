@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/member-ordering */
@@ -28,8 +29,10 @@ export class DoctorsPage implements OnInit {
     street: '',
     ward: '',
     level_of_education: '',
-    specializations: '',
-    company_id: '',
+    specializations:
+    {
+      id: ''
+    },
     description: '',
   };
 
@@ -46,51 +49,51 @@ export class DoctorsPage implements OnInit {
   ngOnInit() {
   }
 
-  get getId(){
+  get getId() {
     return this.activateRoute.snapshot.paramMap.get('id');
   }
 
-  get first_name(){
+  get first_name() {
     return this.doctorSignupForm.get('first_name');
   }
 
-  get last_name(){
+  get last_name() {
     return this.doctorSignupForm.get('last_name');
   }
 
-  get date_of_birth(){
+  get date_of_birth() {
     return this.doctorSignupForm.get('date_of_birth');
   }
 
-  get genre(){
+  get genre() {
     return this.doctorSignupForm.get('genre');
   }
 
-  get telephone(){
+  get telephone() {
     return this.doctorSignupForm.get('telephone');
   }
 
-  get street(){
+  get street() {
     return this.doctorSignupForm.get('street');
   }
 
-  get ward(){
+  get ward() {
     return this.doctorSignupForm.get('ward');
   }
 
-  get level_of_education(){
+  get level_of_education() {
     return this.doctorSignupForm.get('level_of_education');
   }
 
-  get specializations(){
+  get specializations() {
     return this.doctorSignupForm.get('specializations');
   }
 
-  get description(){
+  get description() {
     return this.doctorSignupForm.get('description');
   }
 
-  public getSpecializations(){
+  public getSpecializations() {
     return this.specializationService.getAll().subscribe(
       (res: any) => {
         console.log(res);
@@ -148,23 +151,22 @@ export class DoctorsPage implements OnInit {
 
   public submit() {
     this.postData.last_name = this.doctorSignupForm.get('last_name').value;
-    this.postData.first_name= this.doctorSignupForm.get('first_name').value;
-    this.postData.date_of_birth= this.doctorSignupForm.get('date_of_birth').value;
-    this.postData.genre= this.doctorSignupForm.get('genre').value;
-    this.postData.telephone= this.doctorSignupForm.get('telephone').value;
-    this.postData.street= this.doctorSignupForm.get('street').value;
-    this.postData.ward= this.doctorSignupForm.get('ward').value;
-    this.postData.level_of_education= this.doctorSignupForm.get('level_of_education').value;
-    this.postData.specializations= this.doctorSignupForm.get('specializations').value;
-    this.postData.description= this.doctorSignupForm.get('description').value;
+    this.postData.first_name = this.doctorSignupForm.get('first_name').value;
+    this.postData.date_of_birth = this.doctorSignupForm.get('date_of_birth').value;
+    this.postData.genre = this.doctorSignupForm.get('genre').value;
+    this.postData.telephone = this.doctorSignupForm.get('telephone').value;
+    this.postData.street = this.doctorSignupForm.get('street').value;
+    this.postData.ward = this.doctorSignupForm.get('ward').value;
+    this.postData.level_of_education = this.doctorSignupForm.get('level_of_education').value;
+    this.postData.specializations.id = this.doctorSignupForm.get('specializations').value;
+    this.postData.description = this.doctorSignupForm.get('description').value;
 
     if (this.validationInputs()) {
       console.log(this.postData);
-      this.dotorService.create(this.postData).then(
+      this.dotorService.createByHTTP(this.postData).then(
         (res: any) => {
           if (res) {
-            const uid = res;
-            this.router.navigate([`/appointment-schedule/${uid}`]);
+            this.router.navigate([`/login-form`]);
           }
           else {
             console.log('Fail');

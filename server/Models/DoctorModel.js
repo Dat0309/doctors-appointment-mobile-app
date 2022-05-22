@@ -112,9 +112,9 @@ const doctorSchema = mongoose.Schema(
         ],
         reviews: [reviewSchema],
         company_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true,
+            type: String,
             ref: "Company",
+            default: "",
         }
     },
     {
