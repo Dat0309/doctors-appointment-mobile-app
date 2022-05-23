@@ -87,11 +87,9 @@ const doctorSchema = mongoose.Schema(
         },
         latitute: {
             type: String,
-            default: "",
         },
         longtitute: {
             type: String,
-            default: "",
         },
         level_of_education: {
             type: String,
@@ -112,10 +110,9 @@ const doctorSchema = mongoose.Schema(
         ],
         reviews: [reviewSchema],
         company_id: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Company",
-            default: "",
-        }
+        },
     },
     {
         timestamps: true,
