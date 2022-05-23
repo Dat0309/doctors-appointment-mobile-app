@@ -33,6 +33,7 @@ export class HomepagePage implements OnInit {
     this.getAllDoctors();
     this.getAllSpcializations();
     this.getAllCompany();
+    
   }
   gotoCardiologist(id: string){
     this.router.navigateByUrl(`/cardiologist/${id}`);
@@ -74,6 +75,8 @@ export class HomepagePage implements OnInit {
       }
     );
   }
+
+ 
   
   
 

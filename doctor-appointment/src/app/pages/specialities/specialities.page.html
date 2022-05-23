@@ -8,5 +8,6 @@
 </ion-header>
 <ion-content>
   <!-- <app-carditemcardiologist></app-carditemcardiologist> -->
-  <app-cardcategorylist  *ngFor="let specialization of specializations$" [SpecializationObj] = "specialization"></app-cardcategorylist>
+  <app-cardcategorylist  *ngFor="let specialization of specializations$" [SpecializationObj] = "specialization" 
+  (click)="gotoCardiologist(specialization._id)"></app-cardcategorylist>
 </ion-content>

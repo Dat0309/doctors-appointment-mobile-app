@@ -4,10 +4,15 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>BÁC SĨ CHUYÊN NGÀNH</ion-title>
+    <ion-title class="text">{{nameSpecial}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-searchbar placeholder="Nhập tên Bác sĩ"></ion-searchbar>
+  <app-carddoctoritem 
+  *ngFor="let doctor of doctors$" [doctorObj]="doctor" 
+  [specialization$]=specializations$
+  [company$]=company$>
+  </app-carddoctoritem>
 </ion-content>

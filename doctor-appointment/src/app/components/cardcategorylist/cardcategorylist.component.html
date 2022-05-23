@@ -3,7 +3,7 @@
   <div class="text-category">{{SpecializationObj.name}}</div>
 </ion-card> -->
 
-<ion-card class="feature">
+<ion-card class="feature" (click)="clicked.emit()">
   <img class="faculity" src="../../../assets/icon/icon_category/{{SpecializationObj.name}}.png"/>
 <div class="text-category">{{SpecializationObj.name}}</div>
 </ion-card>

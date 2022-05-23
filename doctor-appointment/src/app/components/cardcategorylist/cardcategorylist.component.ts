@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Specialization } from 'src/app/services/specialization/specialization.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { Specialization } from 'src/app/services/specialization/specialization.s
 })
 export class CardcategorylistComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
   @Input() SpecializationObj : Specialization;
+  @Output() clicked = new EventEmitter();
 
   ngOnInit() {}
 
