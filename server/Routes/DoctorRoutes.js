@@ -20,10 +20,10 @@ doctorRoute.get(
         const page = Number(req.query.pageNumber) || 1;
         const keyword = req.query.keyword
             ? {
-                last_name: {
+                first_name: {
                     $regex: req.query.keyword,
                     $options: "i",
-                },
+                }
             }
             : {};
 
