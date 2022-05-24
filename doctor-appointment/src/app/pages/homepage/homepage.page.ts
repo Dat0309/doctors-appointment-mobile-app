@@ -26,7 +26,6 @@ export class HomepagePage implements OnInit {
   option = {
     slidesPerView: 4,
     loop: true,
-
   }
 
   ngOnInit() {
