@@ -69,7 +69,6 @@ appointmentRouter.get(
 // DOCTOR LOGIN APPOINTMENT
 appointmentRouter.get(
   "/doctor/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const doctor_id = req.params.id;
     const appointment = await Appointment.find({ "doctor": doctor_id })
@@ -81,7 +80,6 @@ appointmentRouter.get(
 // CUSTOMER LOGIN APPOINTMENT
 appointmentRouter.get(
   "/customer/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const customer_id = req.params.id;
     const appointment = await Appointment.find({ "customer": customer_id })

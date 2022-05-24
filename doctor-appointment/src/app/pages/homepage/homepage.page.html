@@ -29,17 +29,14 @@
 
   <ion-slides [options]="option" class="doctor-category">
     <ion-slide *ngFor="let specialization of specializations$">
-      <app-cardcategoryitem [SpecializationObj]="specialization" 
-      (click)="gotoCardiologist(specialization._id)">
+      <app-cardcategoryitem [SpecializationObj]="specialization" (click)="gotoCardiologist(specialization._id)">
       </app-cardcategoryitem>
     </ion-slide>
   </ion-slides>
-  
+
   <p class="special">Top rate</p>
-  <app-carddoctoritem 
-  *ngFor="let doctor of doctors$" [doctorObj]="doctor" 
-  [specialization$]=specializations$
-  [company$]=company$>
+  <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
+    [company$]=company$>
   </app-carddoctoritem>
 
 </ion-content>

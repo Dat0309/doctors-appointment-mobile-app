@@ -46,11 +46,11 @@ export class AppointmentService {
       );
   }
 
-  getAllByCustomerId(id: string): Observable<Appointment[]> {
+  getAllByCustomerId(id: string): Observable<any> {
     return this.http.get<Appointment[]>(`${this.apiUrl}/appointment/customer/${id}`)
       .pipe(
         tap(_ => console.log(`Appointment fetched: ${id}`)),
-        catchError(this.handleError<Appointment[]>(`Get user id=${id}`))
+        catchError(this.handleError<Appointment[]>(`Get appoinment id=${id}`))
       );
   }
 

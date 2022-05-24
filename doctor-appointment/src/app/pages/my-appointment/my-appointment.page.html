@@ -24,13 +24,13 @@
             </div>
           </ion-col>
           <ion-col size="9" class="doctor-name">
-            <ion-card-content class="doctor-name-card">
-              <ion-card-title>Nguyen Van A</ion-card-title>
-              <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-              <ion-card-subtitle>Tim Mach</ion-card-subtitle>         
-			        <ion-card-subtitle>9H30 </ion-card-subtitle>
-              <ion-card-subtitle>20/05/2022</ion-card-subtitle>
-            </ion-card-content>
+            <app-cardappointment *ngFor="let appointment of appointments$" 
+            [doctorObj]=""
+            [company$]=""
+            [appointmentObj]=""
+            [appointment$]="">
+
+            </app-cardappointment>
           </ion-col>
         </ion-row>
       </ion-grid>
