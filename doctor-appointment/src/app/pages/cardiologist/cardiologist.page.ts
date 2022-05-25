@@ -40,8 +40,8 @@ export class CardiologistPage implements OnInit {
       }
     )
   }
-  public  getAllSpcializations() {
-    this.specializationService.getAll().subscribe(
+  public async  getAllSpcializations() {
+   await this.specializationService.getAll().subscribe(
      (res: any) => {
        if (res != null) {
          console.log(res.specialization);

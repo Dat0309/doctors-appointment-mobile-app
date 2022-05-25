@@ -28,6 +28,8 @@ export class Doctor {
   level_of_education: string;
   specializations: Specialization[];
   company_id: string;
+  longtitute: string;
+  latitute: string;
 }
 
 @Injectable({
