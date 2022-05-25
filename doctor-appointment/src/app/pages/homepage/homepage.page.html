@@ -13,9 +13,10 @@
     <ion-card-header class="your-location" style="color: #fff">
       <ion-icon name="compass"></ion-icon> Vị trí của bạn
     </ion-card-header>
-    <ion-card-content style="text-align: center">
-      Tìm bác sĩ gần nhất</ion-card-content>
-    <ion-searchbar placeholder="Nhập tên Bác sĩ" style="border-radius: 8px"></ion-searchbar>
+    <ion-card-content [routerLink]="['/map-doctor']" style="text-align: center">
+      Tìm bác sĩ gần nhất
+    </ion-card-content>
+    <ion-searchbar [routerLink]="['/find-doctor']" placeholder="Nhập tên Bác sĩ" style="border-radius: 8px"></ion-searchbar>
   </ion-card>
 
   <ion-item lines="none">
@@ -36,7 +37,7 @@
 
   <p class="special">Top rate</p>
   <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
-    [company$]=company$>
+    [company$]=company$ (click)="gotoDoctorInfo(doctor._id)"> 
   </app-carddoctoritem>
 
 </ion-content>

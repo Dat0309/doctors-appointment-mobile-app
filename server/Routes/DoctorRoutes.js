@@ -121,12 +121,23 @@ doctorRoute.delete(
 doctorRoute.get(
     "/specialization/:id",
     asyncHandler(async (req, res) => {
-      const specialization_id = req.params.id;
-      const doctors = await Doctor.find({ "specializations.id": specialization_id })
-        .sort({ _id: -1 });
-      res.json({ doctors });
+        const specialization_id = req.params.id;
+        const doctors = await Doctor.find({ "specializations.id": specialization_id })
+            .sort({ _id: -1 });
+        res.json({ doctors });
     })
-  );
+);
+
+// Get doctor by user_id
+doctorRoute.get(
+    "/users/:id",
+    asyncHandler(async (req, res) => {
+        const user_id = req.params.id;
+        const doctor = await Doctor.find({ "user_id": user_id })
+            .sort({ _id: -1 });
+        res.json({ doctor });
+    })
+);
 
 // CREATE doctor
 doctorRoute.post(

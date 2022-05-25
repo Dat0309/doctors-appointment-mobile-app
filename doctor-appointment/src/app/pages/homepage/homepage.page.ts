@@ -34,7 +34,7 @@ export class HomepagePage implements OnInit {
     this.getAllCompany();
 
   }
-  gotoCardiologist(id: string){
+  gotoCardiologist(id: string) {
     this.router.navigateByUrl(`/cardiologist/${id}`);
   }
 
@@ -53,8 +53,8 @@ export class HomepagePage implements OnInit {
     );
   }
 
-  public  getAllSpcializations() {
-     this.specializationService.getAll().subscribe(
+  public getAllSpcializations() {
+    this.specializationService.getAll().subscribe(
       (res: any) => {
         if (res != null) {
           console.log(res.specialization);
@@ -64,14 +64,18 @@ export class HomepagePage implements OnInit {
     );
   }
 
-  public getAllCompany(){
+  public getAllCompany() {
     this.companyService.getAll().subscribe(
       (res: any) => {
-        if(res != null){
+        if (res != null) {
           console.log(res.company);
           this.company$ = res.company;
         }
       }
     );
+  }
+
+  gotoDoctorInfo(id: string) {
+    this.router.navigateByUrl(`/doctor-info/${id}`);
   }
 }

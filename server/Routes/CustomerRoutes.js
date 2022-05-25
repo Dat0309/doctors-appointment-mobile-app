@@ -117,6 +117,17 @@ customerRoute.post(
     })
 );
 
+// Get customer by user_id
+customerRoute.get(
+    "/users/:id",
+    asyncHandler(async (req, res) => {
+        const user_id = req.params.id;
+        const customer = await Customer.find({ "user_id": user_id })
+            .sort({ _id: -1 });
+        res.json({ customer });
+    })
+);
+
 // UPDATE customer
 customerRoute.put(
     "/:id",

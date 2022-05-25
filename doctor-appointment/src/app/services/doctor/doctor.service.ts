@@ -81,7 +81,13 @@ export class DoctorService {
       );
   }
 
-
+  findByUserId(user_id: string): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/users/${user_id}`)
+    .pipe(
+        tap(_ => console.log(`Doctor fetched: ${user_id}`)),
+        catchError(this.handleError<Doctor[]>(`Get doctors user_id=${user_id}`))
+    );
+  }
 
   delete(id: string): Observable<Doctor[]> {
     return this.http.delete<Doctor[]>(`${this.apiUrl}/doctors/${id}`, this.httpOptions)

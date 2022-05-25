@@ -50,6 +50,14 @@ export class CustomerService {
       );
   }
 
+  findByUserId(user_id: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.apiUrl}/customers/users/${user_id}`)
+    .pipe(
+        tap(_ => console.log(`Customer fetched: ${user_id}`)),
+        catchError(this.handleError<Customer[]>(`Get customer user_id=${user_id}`))
+    );
+  }
+
   delete(id: string): Observable<Customer[]> {
     return this.http.delete<Customer[]>(`${this.apiUrl}/customers/${id}`, this.httpOptions)
       .pipe(
