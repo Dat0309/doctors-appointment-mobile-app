@@ -1,44 +1,16 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>DANH SÁCH BÁC SĨ</ion-title>
+    <ion-title class = "text">DANH SÁCH BÁC SĨ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Nhập tên Bác sĩ"></ion-searchbar>
-
-  <ion-list>
-    <ion-card [routerLink]="['/doctor-info']">
-      <ion-grid>
-        <ion-row class="doctor-info">
-          <ion-col size="3">
-            <div class="avatar">
-              <img src="../assets/icon/Icon-doctor.png" />
-            </div>
-          </ion-col>
-          <ion-col size="9" class="doctor-name">
-            <ion-card-content class="doctor-name-card">
-              <ion-card-title>Nguyen Van A</ion-card-title>
-              <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-              <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-              <p class="fa-star">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </p>
-            </ion-card-content>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
-  </ion-list>
+  <ion-searchbar [(ngModel)]="search" showCancelButton="always" placeholder="Nhập tên Bác sĩ" (ionChange)='onChangeTime($event.target.value)'></ion-searchbar>
+      <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
+        [company$]=company$ (click)="gotoDoctorInfo(doctor._id)">
+      </app-carddoctoritem>
 </ion-content>

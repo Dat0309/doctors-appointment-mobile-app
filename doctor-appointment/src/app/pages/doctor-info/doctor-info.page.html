@@ -1,7 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -23,50 +20,58 @@
       <ion-row class="doctor-info">
         <ion-col size="3">
           <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
+            <img src="{{doctor.avatar_url}}" />
           </div>
         </ion-col>
         <ion-col size="9" class="doctor-name">
           <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
+            <ion-card-title>{{doctor.last_name}} {{doctor.first_name}}</ion-card-title>
+            <ion-card-subtitle>Chuyên ngành</ion-card-subtitle>
+            <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
             <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
-            <p class="fa-star">
+            <!-- <p class="fa-star">
               <i class="fa fa-star" aria-hidden="true"></i>
               <i class="fa fa-star" aria-hidden="true"></i>
               <i class="fa fa-star" aria-hidden="true"></i>
               <i class="fa fa-star" aria-hidden="true"></i>
               <i class="fa fa-star-o" aria-hidden="true"></i>
+            </p> -->
+            <p class="star">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
             </p>
           </ion-card-content>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
-
+  <!-- <app-carddoctoritem 
+    [doctorObj]="doctor" 
+    [specialization]=specialization
+    [company]=company>
+  </app-carddoctoritem> -->
   <ion-row>
     <div class="fedback-doctor">
       <ion-row>
         <ion-col class="available-box">
           <span>Thông tin</span>
-          <p>Trình độ</p>
-          <p>Bác sĩ y khoa</p>
+          <p>Trình độ chuyên môn</p>
+          <p>{{doctor.level_of_education}}</p>
         </ion-col>
         <ion-col class="available-box-1">
           <span>Nhận xét</span>
           <p>Đánh giá</p>
-          <p>5.0</p>
+          <p>{{doctor.rating}}</p>
         </ion-col>
       </ion-row>
 
       <div class="Experience-sec">
         <label>Mô tả</label>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          {{doctor.description}}
         </p>
       </div>
     </div>
@@ -75,12 +80,13 @@
     <p>Thông tin phòng khám</p>
     <div class="clinic-detail">
       <p class="name-location">
-        Tên phòng khám<ion-icon name="location-outline"[routerLink]="['/lab-map']"></ion-icon>
+        {{company.name}}<ion-icon name="location-outline" [routerLink]="['/lab-map']"></ion-icon>
       </p>
-      <br /><span>Địa chỉ</span> <br /><span>9:00 am - 5:00pm</span>
+      <br /><span>Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
+        {{company.province}}</span><br /><span>9:00 am - 5:00pm</span>
     </div>
     <div class="img-clinic">
-      <img src="../assets/images/clinic.png" />
+      <img src="{{company.image}}" />
     </div>
   </div>
   <ion-button expand="block">BOOK</ion-button>

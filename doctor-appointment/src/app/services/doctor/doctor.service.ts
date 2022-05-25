@@ -73,6 +73,14 @@ export class DoctorService {
       );
   }
 
+  searchDoctorByName(name: string): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors?keyword=${name}`)
+      .pipe(
+        tap(_ => console.log(`Doctor fetched: ${name}`)),
+        catchError(this.handleError<Doctor[]>(`Get doctors name=${name}`))
+      );
+  }
+
 
 
   delete(id: string): Observable<Doctor[]> {
