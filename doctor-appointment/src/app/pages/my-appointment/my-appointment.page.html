@@ -1,7 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -12,28 +9,13 @@
 </ion-header>
 
 <ion-content>
-  
-
   <ion-list>
-    <ion-card [routerLink]="['/doctor-info']">
-      <ion-grid>
-        <ion-row class="doctor-info">
-          <ion-col size="3">
-            <div class="avatar">
-              <img src="../assets/icon/Icon-doctor.png" />
-            </div>
-          </ion-col>
-          <ion-col size="9" class="doctor-name">
-            <app-cardappointment *ngFor="let appointment of appointments$" 
-            [doctorObj]="doctor$"
-            [company$]="company$"
-            [appointmentObj]="appointment"
-            [appointment$]="appointments$">
+      <app-cardappointment *ngFor="let appointment of appointments$;" 
+        [company$]="company$"
+        [appointmentObj]="appointment" 
+        [appointment$]="appointments$">
 
-            </app-cardappointment>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+      </app-cardappointment>
   </ion-list>
+
 </ion-content>

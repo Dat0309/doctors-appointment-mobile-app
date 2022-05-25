@@ -15,7 +15,6 @@ appointmentRouter.use((req, res, next) => {
 // CREATE ORDER
 appointmentRouter.post(
   "/",
-  protect,
   asyncHandler(async (req, res) => {
     const {
       name,
@@ -28,6 +27,7 @@ appointmentRouter.post(
       contact,
       start_time,
       end_time,
+      status,
     } = req.body;
 
     if (start_time.length === 0 && end_time.length === 0) {
@@ -46,6 +46,7 @@ appointmentRouter.post(
         contact,
         start_time,
         end_time,
+        status,
       });
 
       const createAppointment = await appointment.save();
@@ -91,7 +92,6 @@ appointmentRouter.get(
 // GET APPOINMENT BY ID
 appointmentRouter.get(
   "/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const appointment = await Appointment.findById(req.params.id).populate(
       "doctor",
