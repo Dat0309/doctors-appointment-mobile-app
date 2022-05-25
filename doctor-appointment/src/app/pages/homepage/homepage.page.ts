@@ -21,7 +21,6 @@ export class HomepagePage implements OnInit {
   specializations$: Specialization[] = [];
   company$: Company[] = [];
 
-  
 
   option = {
     slidesPerView: 4,
@@ -53,7 +52,7 @@ export class HomepagePage implements OnInit {
     );
   }
 
-  public  getAllSpcializations() {
+  public getAllSpcializations() {
      this.specializationService.getAll().subscribe(
       (res: any) => {
         if (res != null) {
@@ -74,12 +73,4 @@ export class HomepagePage implements OnInit {
       }
     );
   }
-
- 
-  
-  
-
-
-  
-
 }

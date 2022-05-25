@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CarddoctoritemComponent } from 'src/app/components/carddoctoritem/carddoctoritem.component';
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-medical-shop',
   templateUrl: './medical-shop.page.html',
@@ -13,7 +14,8 @@ export class MedicalShopPage implements OnInit {
 
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
-    private companyService: CompanyService) { }
+    private companyService: CompanyService,
+    private router: Router) { }
 
   doctors$: Doctor[] = [];
   doctor = new Doctor;
@@ -78,5 +80,9 @@ export class MedicalShopPage implements OnInit {
        }
      }
    );
+ }
+
+ gotoDoctorInfo(id: string) {
+  this.router.navigateByUrl(`/doctor-info/${id}`);
  }
 }
