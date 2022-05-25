@@ -7,8 +7,10 @@ const routes: Routes = [
   {
     path: '',
     // redirectTo: 'splashsreen',
-    redirectTo: 'homepage',
+    // redirectTo: 'homepage',
     // redirectTo: 'specialities',
+    redirectTo: 'map-doctor',
+   
     
 
     pathMatch: 'full',

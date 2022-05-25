@@ -6,12 +6,13 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
+import { MapComponent } from './map/map.component';
 
 const COMPONENTS = [  
     CarddoctoritemComponent,
     CardcategoryitemComponent,
-    CardcategorylistComponent
-    
+    CardcategorylistComponent,
+    MapComponent
   ];
   
   @NgModule({

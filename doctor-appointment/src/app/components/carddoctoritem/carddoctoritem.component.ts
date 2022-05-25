@@ -1,6 +1,6 @@
 import { element } from 'protractor';
 import { Doctor } from './../../services/doctor/doctor.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
 import { Specialization } from 'src/app/services/specialization/specialization.service';
 
 @Component({
@@ -9,6 +9,9 @@ import { Specialization } from 'src/app/services/specialization/specialization.s
   styleUrls: ['./carddoctoritem.component.scss'],
 })
 export class CarddoctoritemComponent implements OnInit, OnChanges {
+
+  // @Output() longitudeEvent = new EventEmitter<string>();
+  // @Output() latitudeEvent = new EventEmitter<string>();
 
   constructor() { }
   // @Input() doctorName: String;
@@ -28,9 +31,13 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     // console.log(this.doctorObj.specializations);
+    // this.longitudeEvent.emit(this.doctorObj.longtitute);
+    // this.latitudeEvent.emit(this.doctorObj.latitute);
+
+    // console.log(this.doctorObj.longtitute);
+
     this.onChangesSpacailizations();
     this.onChangesCompanys();
-    
     
   }
 
@@ -70,10 +77,5 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
     return nameCompany;
     
   }
-
-
-
-
-
 
 }
