@@ -82,7 +82,7 @@
                 ><i class="fa fa-address-book" aria-hidden="true"></i
               ></a>
               <label> Quản lý lịch hẹn</label>
-              <a [routerLink]="['/appointment-schedule']">
+              <a [routerLink]="['/appointment-schedule/12345']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
@@ -93,7 +93,7 @@
                 ><i class="fa fa-flask" aria-hidden="true"></i
               ></a>
               <label>Phòng khám</label>
-              <a [routerLink]="['/lab-test']">
+              <a [routerLink]="['/lab-map']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
@@ -116,7 +116,7 @@
                 ><i class="fa fa-sign-out" aria-hidden="true"></i
               ></a>
               <label>Đăng xuất</label>
-              <a [routerLink]="['/login-form']">
+              <a [routerLink]="['/login-form']" (click)="logout()">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>

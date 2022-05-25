@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Appointment, AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { Company } from 'src/app/services/company/company.service';
+import { CustomerService } from 'src/app/services/customer/customer.service';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
 
 @Component({
   selector: 'app-my-appointment',
@@ -16,29 +21,44 @@ export class MyAppointmentPage implements OnInit, OnChanges {
   constructor(
     private appointmentService: AppointmentService,
     private route: Router,
-    private doctorService: DoctorService
+    private customerService: CustomerService,
+    private storageService: StorageService
   ) { }
 
   appointments$: any[] = [];
   doctors$: any[] = [];
   company$: any[] = [];
+  customer_id: string;
 
   ngOnInit() {
-    this.getMyAppointment('62793c38fe74f2163ea2920a');
+    this.getCustomerByUserId();
+    setTimeout(()=>{
+      this.getMyAppointment(this.customer_id);
+    }, 2000);
   }
 
   ngOnChanges(): void {
-    // this.getMyAppointment('62793c38fe74f2163ea2920a');
-    // // setTimeout(()=>{
-    // console.log('session 3'+this.doctors$);
-    // // },2050);
   }
 
   public async getMyAppointment(id: string) {
-    this.appointmentService.getAllByCustomerId(id).subscribe(
-      async (res: any) => {
+      this.appointmentService.getAllByCustomerId(id).subscribe(
+        async (res: any) => {
+          if (res != null) {
+            this.appointments$ = res.appointment;
+          } else {
+            console.log('Fail to load appoinment');
+          }
+        }
+      );
+
+  }
+
+  public async getCustomerByUserId(){
+    let user = await this.storageService.get('USER');
+    this.customerService.findByUserId(user.data._id).subscribe(
+      (res: any) => {
         if (res != null) {
-          this.appointments$ = res.appointment;
+          this.customer_id = res.customer[0]._id;
         } else {
           console.log('Fail to load appoinment');
         }
