@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 /* eslint-disable prefer-const */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -19,6 +19,7 @@ import { CustomerService } from './services/customer/customer.service';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   name_user: string = '';
+  role: string ='';
   public appPages = [
     {
       title: 'Inbox',
@@ -82,6 +83,7 @@ export class AppComponent implements OnInit {
 
   public async getProfile() {
     let user = await this.storageService.get('USER');
+    this.role = user.data.role;
     if (user.data.role === 'Bác sĩ') {
       this.doctorService.findByUserId(user.data._id).subscribe(
         (res: any)=>{

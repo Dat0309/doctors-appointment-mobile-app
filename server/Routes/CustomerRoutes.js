@@ -104,7 +104,6 @@ customerRoute.post(
                 district,
                 ward,
                 street,
-                user: req.user._id,
             });
             if (customer) {
                 const createdcustomer = await customer.save();

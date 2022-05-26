@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit, Input } from '@angular/core';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { FormsModule } from '@angular/forms';
@@ -18,10 +19,10 @@ export class MedicalShopPage implements OnInit {
     private router: Router) { }
 
   doctors$: Doctor[] = [];
-  doctor = new Doctor;
+  doctor = Doctor;
   specializations$: Specialization[] = [];
   company$: Company[] = [];
-  search = "";
+  search = '';
 
   ngOnInit() {
     this.getAllDoctors();
@@ -42,7 +43,7 @@ export class MedicalShopPage implements OnInit {
           console.log(res);
         }
       }
-    )
+    );
   }
 
   public getAllDoctors() {

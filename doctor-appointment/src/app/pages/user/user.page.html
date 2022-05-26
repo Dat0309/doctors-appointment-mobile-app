@@ -1,54 +1,118 @@
-
 <ion-content>
   <div id="header">
     <!-- <h1>Đăng ký</h1> -->
-  <div>
-    <img src="assets/icon/avatar.png" />
-    <ion-icon name ="image-outline" slot="end"></ion-icon>
+    <div>
+      <img
+        src="https://www.htcestore.com/media/catalog/product/cache/ccb47da442ebb206d74aa361802c6e2c/p/r/profile.png" />
+      <ion-icon name="image-outline" slot="end"></ion-icon>
+    </div>
   </div>
+  <div class="form-sec">
+    <div class="content">
+      <form action="#" [formGroup]="doctorSignupForm" (ngSubmit)="submit()">
+        <div class="Surname">
+
+          <ion-item class="ion-margin-bottom">
+            <ion-input class="first_name" inputmode="text" id="first_name" placeholder="Họ"
+              formControlName="first_name">
+            </ion-input>
+
+            <ion-input class="last_name" inputmode="text" id="last_name" placeholder="Tên" formControlName="last_name">
+            </ion-input>
+          </ion-item>
+
+        </div>
+        <div *ngFor="let error of errorMessages.first_name" class="error">
+          <ng-container *ngIf="first_name.hasError(error.type) && (first_name.dirty || first_name.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <div class="date">
+          <ion-input inputmode="text" id="date" placeholder="Ngày sinh" formControlName="date_of_birth">
+          </ion-input>
+        </div>
+        <div *ngFor="let error of errorMessages.date_of_birth" class="error">
+          <ng-container *ngIf="date_of_birth.hasError(error.type) && (date_of_birth.dirty || date_of_birth.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <div class="genre">
+          <ion-item>
+            <div class="labelSelect">
+              <ion-label style="color: rgb(114, 111, 111)"> Giới tính : </ion-label>
+            </div>
+
+            <ion-select placeholder=" Chọn " formControlName="genre">
+              <ion-select-option value="Nam"> Nam</ion-select-option>
+              <ion-select-option value="Nữ"> Nữ</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div *ngFor="let error of errorMessages.genre" class="error">
+          <ng-container *ngIf="genre.hasError(error.type) && (genre.dirty || genre.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <!-- <div class="specialized">
+          <ion-item>
+            <div class="labelSelect">
+              <ion-label style="color: rgb(114, 111, 111)"> Giới tính: </ion-label>
+            </div>
+
+            <ion-select placeholder=" Chọn " formControlName="genre">
+              <ion-select-option value="Nam"> Nam</ion-select-option>
+              <ion-select-option value="Nữ"> Nữ</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div> -->
+        
+        <div class="phone">
+          <ion-input inputmode="text" id="phone" placeholder="Số điện thoại" formControlName="telephone">
+          </ion-input>
+        </div>
+        <div *ngFor="let error of errorMessages.telephone" class="error">
+          <ng-container *ngIf="telephone.hasError(error.type) && (telephone.dirty || telephone.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <div class="address">
+
+          <ion-item class="ion-margin-bottom">
+            <ion-input class="street" inputmode="text" id="street" placeholder="Đường" formControlName="street">
+            </ion-input>
+
+            <ion-input class="ward" inputmode="text" id="ward" placeholder="Phường" formControlName="ward">
+            </ion-input>
+          </ion-item>
+          <div *ngFor="let error of errorMessages.street" class="error">
+            <ng-container *ngIf="street.hasError(error.type) && (street.dirty || street.touched)">
+              <p class="error-message">{{error.message}}</p>
+            </ng-container>
+          </div>
+
+        </div>
+
+        <div class="description">
+          <ion-input inputmode="text" id="description" placeholder="Mô tả" formControlName="description">
+          </ion-input>
+        </div>
+        <div *ngFor="let error of errorMessages.description" class="error">
+          <ng-container *ngIf="description.hasError(error.type) && (description.dirty || description.touched)">
+            <p class="error-message">{{error.message}}</p>
+          </ng-container>
+        </div>
+
+        <div class="button">
+          <ion-button
+          [disabled]="!doctorSignupForm.valid"
+            type="submit">Đăng ký<i></i>
+          </ion-button>
+        </div>
+      </form>
+    </div>
   </div>
-<div class="Surname">
-  
-  <ion-item class="ion-margin-bottom">
-    <ion-input class="surname"  inputmode="text" id="Surname" placeholder="Họ" >
-    </ion-input>
-
-    <ion-input class="name" inputmode="text" id="name" placeholder="Tên" >
-    </ion-input>
-  </ion-item>
- 
-</div>
-
-<div class="date">
-  <ion-input inputmode="text" id="date" placeholder="Ngày sinh" >
-  </ion-input>
-</div>
-
-  <div class="checkbox">  
-    <ion-checkbox></ion-checkbox>  
-    <ion-label> Nam</ion-label>  
-    <ion-checkbox style="margin-left: 110px;" ></ion-checkbox>  
-    <ion-label style="margin-left: 10px;"> Nữ</ion-label>  
-  </div>  
-
-<div class="phone">
-  <ion-input inputmode="text" id="phobe" placeholder="Số điện thoại" >
-  </ion-input>
-</div>
-<div class="address">
-  
-  <ion-item class="ion-margin-bottom">
-    <ion-input class="road"  inputmode="text" id="road" placeholder="Đường" >
-    </ion-input>
-
-    <ion-input class="ward" inputmode="text" id="Ward" placeholder="Phường" >
-    </ion-input>
-  </ion-item>
- 
-</div>
-
-<div class="button">
-  <ion-button >SIGN UP<i ></i>
-  </ion-button>
-</div>
 </ion-content>

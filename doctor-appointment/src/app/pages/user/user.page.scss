@@ -16,6 +16,9 @@ ion-icon{
     width: 30px;
     height: 120px;
 }
+.form-sec{
+    padding:5px
+}
 .Surname{
     margin-left: 20px;
     border-radius: 10px;
@@ -37,7 +40,7 @@ ion-icon{
     height: 50px;
     width: 150px;
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
-  
+   
 }
 .date{ 
     margin-top: 20px;
@@ -46,7 +49,6 @@ ion-icon{
     height: 50px;
     width: 300px;
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
-   
 }
 .checkbox{
     margin-top: 20px;
@@ -60,7 +62,6 @@ ion-icon{
     height: 50px;
     width: 300px;
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
-   
 }
 .address{
     margin-top: 20px;
@@ -86,11 +87,58 @@ ion-icon{
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
   
 }
-
+.level{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.specialized{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.workplace{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.description{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
 .button {
     text-align: center;
     margin: 25px auto;
     
+}
+.genre{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.level_of_education{
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
 }
 
 ion-button {
