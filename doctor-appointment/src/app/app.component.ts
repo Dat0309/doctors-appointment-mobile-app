@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DoctorService } from './services/doctor/doctor.service';
 import { StorageService } from './services/storage/storage.service';
 import { CustomerService } from './services/customer/customer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -60,7 +61,8 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private doctorService: DoctorService,
     private storageService: StorageService,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private activateRouteL: ActivatedRoute
   ) {
     this.initializeApp();
   }
@@ -105,5 +107,6 @@ export class AppComponent implements OnInit {
 
   logout(){
     this.storageService.clear();
+    window.location.reload();
   }
 }

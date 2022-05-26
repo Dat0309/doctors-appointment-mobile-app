@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
@@ -25,7 +27,7 @@ export class CardiologistPage implements OnInit {
   company$: Company[] = [];
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get("id");
+    this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id);
     this.getDoctorByIdSpecail(this.id);
     this.getAllSpcializations();
@@ -65,7 +67,7 @@ export class CardiologistPage implements OnInit {
   }
 
   public getNameSpcailizations(id: string) {
-    let nameSpcailizations = "";
+    let nameSpcailizations = '';
     this.specializations$.forEach(element => {
       if (element._id === id) {
         nameSpcailizations = element.name;
