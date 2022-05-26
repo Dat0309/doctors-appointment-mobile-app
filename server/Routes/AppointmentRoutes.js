@@ -107,4 +107,37 @@ appointmentRouter.get(
   })
 );
 
+// UPDATE appointment
+appointmentRouter.put(
+  "/:id",
+  asyncHandler(async (req, res) => {
+      const { status } = req.body;
+      const appointment = await Appointment.findById(req.params.id);
+      if (appointment) {
+          appointment.status = status || appointment.status;
+
+          const updatedappointment = await appointment.save();
+          res.json(updatedappointment);
+      } else {
+          res.status(404);
+          throw new Error("appointment not found");
+      }
+  })
+);
+
+// DELETE doctor
+appointmentRouter.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+      const appointment = await Appointment.findById(req.params.id);
+      if (appointment) {
+          await appointment.remove();
+          res.json({ message: "appointment deleted" });
+      } else {
+          res.status(404);
+          throw new Error("appointment not Found");
+      }
+  })
+);
+
 export default appointmentRouter;
