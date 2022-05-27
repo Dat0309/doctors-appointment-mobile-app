@@ -25,7 +25,7 @@ export class SpecializationService {
   getAll(): Observable<Specialization[]> {
     return this.http.get<Specialization[]>(`${this.apiUrl}/specialization`)
       .pipe(
-        tap(users => console.log('Users retrieved!')),
+        tap(users => console.log('Speci retrieved!')),
         catchError(this.handleError<Specialization[]>('Get specialization', []))
       );
   }

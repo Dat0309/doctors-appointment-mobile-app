@@ -1,6 +1,7 @@
-* {
-  font-family: "Quicksand", sans-serif;
-  font-weight: 400;
+*{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  --ion-color-warning: #ffa400;
 }
 
 ion-header ion-toolbar {
@@ -12,23 +13,19 @@ ion-header ion-toolbar {
 }
 
 .card-doctor-info {
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   height: auto;
   position: relative;
   .avatar {
     position: absolute;
     top: 20%;
-    margin-top: 5px;
     margin: 0;
     max-width: 100%;
     height: auto;
   }
-  .star {
+  .fa-star {
     color: #ffc107;
-  }
-  ion-card-title {
-    font-size: 300;
   }
 }
 .border {
@@ -105,16 +102,10 @@ ion-header ion-toolbar {
   width: 100%;
 
   p {
-    margin-left: 10px;
     margin-bottom: 10px;
     font-weight: 600;
     color: #1aa3f0;
     font-family: "Poppins", sans-serif;
-    display: flex;
-    ion-icon {
-      margin-left: 170px;
-      font-size: 23px;
-    }
   }
   .clinic-detail {
     padding: 5px;
@@ -127,9 +118,11 @@ ion-header ion-toolbar {
       color: #ccc;
       font-weight: 400;
     }
-    .address {
-      display: flex;
-      justify-content: center;
+    .name-location {
+      ion-icon {
+        margin-left: 220px;
+        font-size: 25px;
+      }
     }
   }
   .img-clinic {
@@ -148,6 +141,6 @@ ion-header ion-toolbar {
   }
   .star {
     padding-top: 3px;
-    color: var(--ion-color-warning);
+    color: var(--ion-color-warning) !important;
   }
 }

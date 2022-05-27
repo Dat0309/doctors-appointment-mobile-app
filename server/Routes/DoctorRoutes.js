@@ -40,8 +40,6 @@ doctorRoute.get(
 // ADMIN GET ALL DOCTOR WITHOUT SEARCH AND PEGINATION
 doctorRoute.get(
     "/all",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const doctors = await Doctor.find({}).sort({ _id: -1 });
         res.json(doctors);

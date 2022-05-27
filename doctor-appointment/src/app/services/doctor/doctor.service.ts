@@ -24,6 +24,7 @@ export class Doctor {
   province: string;
   district: string;
   ward: string;
+  rating: 0;
   street: string;
   level_of_education: string;
   specializations: Specialization[];
@@ -50,6 +51,14 @@ export class DoctorService {
 
   getAll(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`)
+      .pipe(
+        tap(users => console.log('Doctors retrieved!')),
+        catchError(this.handleError<Doctor[]>('Get doctors', []))
+      );
+  }
+
+  getAllWithoutPagination(): Observable<Doctor[]>{
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/all`)
       .pipe(
         tap(users => console.log('Doctors retrieved!')),
         catchError(this.handleError<Doctor[]>('Get doctors', []))

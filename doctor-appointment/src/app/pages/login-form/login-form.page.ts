@@ -72,9 +72,17 @@ export class LoginFormPage implements OnInit {
             console.log(this.loginForm.value);
             let user = await this.storageService.get('USER');
             if(user.data.role === 'Bác sĩ'){
-              this.router.navigate([`appointment-schedule/${user.data._id}`]);
+              this.router.navigate([`appointment-schedule/${user.data._id}`]).then(
+                () => {
+                  window.location.reload();
+                }
+              );
             }else if(user.data.role === 'Bệnh nhân'){
-              this.router.navigate(['/homepage']);
+              this.router.navigate(['/homepage']).then(
+                () => {
+                  window.location.reload();
+                }
+              );
             }
 
           }else {

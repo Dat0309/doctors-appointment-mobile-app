@@ -1,7 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -11,190 +8,117 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card [routerLink]="['/doctor-info']">
+  <ion-card>
     <ion-grid>
       <ion-row class="doctor-info">
         <ion-col size="3">
           <div class="avatar">
-            <img src="../assets/icon/Icon-doctor.png" />
+            <img src="{{doctor.avatar_url}}" />
           </div>
         </ion-col>
         <ion-col size="9" class="doctor-name">
           <ion-card-content class="doctor-name-card">
-            <ion-card-title>Nguyen Van A</ion-card-title>
-            <ion-card-subtitle>Benh Vien Da khoa Lam Dong</ion-card-subtitle>
-            <ion-card-subtitle>Tim Mach</ion-card-subtitle>
-            <p class="fa-star">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
+            <ion-card-title>{{doctor.last_name}} {{doctor.first_name}}</ion-card-title>
+            <ion-card-subtitle>Chuyên môn: {{specialization.name}}</ion-card-subtitle>
+            <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
+            <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
+            <p class="star">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
             </p>
           </ion-card-content>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
-  <div class="mr-top">
-    <div class="calendar">
-      <div class="month">
-        <a href="#" class="nav"
-          ><i class="fa fa-angle-left" aria-hidden="true"></i
-        ></a>
-        <div>December <span class="year">2019</span></div>
-        <a href="#" class="nav"
-          ><i class="fa fa-angle-right" aria-hidden="true"></i
-        ></a>
-      </div>
-      <div class="days">
-        <span>Mon</span>
-        <span>Tue</span>
-        <span>Wed</span>
-        <span>Thu</span>
-        <span>Fri</span>
-        <span>Sat</span>
-        <span>Sun</span>
-      </div>
-    </div>
-    <div class="dates">
-      <button>
-        <time>1</time>
-      </button>
-      <button>
-        <time>2</time>
-      </button>
-      <button>
-        <time>3</time>
-      </button>
-      <button>
-        <time>4</time>
-      </button>
-      <button>
-        <time>5</time>
-      </button>
-      <button>
-        <time>6</time>
-      </button>
-      <button>
-        <time>7</time>
-      </button>
-      <button>
-        <time>8</time>
-      </button>
-      <button>
-        <time>9</time>
-      </button>
-      <button>
-        <time>10</time>
-      </button>
-      <button>
-        <time>11</time>
-      </button>
-      <button>
-        <time>12</time>
-      </button>
-      <button>
-        <time>13</time>
-      </button>
-      <button>
-        <time>14</time>
-      </button>
-      <button>
-        <time>15</time>
-      </button>
-      <button>
-        <time>16</time>
-      </button>
-      <button>
-        <time>17</time>
-      </button>
-      <button class="today">
-        <time>18</time>
-      </button>
-      <button>
-        <time>19</time>
-      </button>
-      <button>
-        <time>20</time>
-      </button>
-      <button>
-        <time>21</time>
-      </button>
-      <button>
-        <time>22</time>
-      </button>
-      <button>
-        <time>23</time>
-      </button>
-      <button>
-        <time>24</time>
-      </button>
-      <button>
-        <time>25</time>
-      </button>
-      <button>
-        <time>26</time>
-      </button>
-      <button>
-        <time>27</time>
-      </button>
-      <button>
-        <time>28</time>
-      </button>
-      <button>
-        <time>29</time>
-      </button>
-      <button>
-        <time>30</time>
-      </button>
-      <button>
-        <time>31</time>
-      </button>
-    </div>
-  </div>
-
-  <ion-label class="timeing">
-    <ion-row>
-      <span>10:00 AM</span>
-      <span>12:00 PM</span>
-      <span>2:00 PM</span>
-    </ion-row>
-  </ion-label>
-  <!-- <div class="form-sec">
+  <div class="form-sec">
     <div class="content">
       <form action="#" [formGroup]="bookappointment" (ngSubmit)="submit()">
         <div class="field">
-          <input type="text" required inputmode="name" formControlName="name" placeholder="Full Name">
+          <ion-input id="name" placeholder="Tên cuộc hẹn" type="text" formControlName="name">
+          </ion-input>
           <label></label>
         </div>
-                 <div *ngFor="let error of errorMessages.name">
+        <div *ngFor="let error of errorMessages.name">
           <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
 
         <div class="field">
-          <input type="number" inputmode="number" formControlName="number" placeholder="Mobile Number">
+          <ion-input id="number" placeholder="liên hệ" type="text" formControlName="number">
+          </ion-input>
           <label></label>
         </div>
-                 <div *ngFor="let error of errorMessages.number">
+        <div *ngFor="let error of errorMessages.number">
           <ng-container *ngIf="number.hasError(error.type) && (number.dirty || number.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
         </div>
-        <ion-button [routerLink]="['/my-appointment']" [disabled]="!bookappointment.valid" class="book-appointment" type="submit" expand="block">Confirm Appointment</ion-button>
-      </form>
-  </div>
-</div> -->
+        <div class="date">
+          <ion-item button="true" id="open-date-input">
+            <ion-label style="font-weight: bold;">Chọn ngày: </ion-label>
+            <ion-text slot="end">{{ dateValue }} </ion-text>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-popover trigger="open-date-input" show-backdrop="false">
+              <ng-template>
+                <ion-datetime size="auto" #popoverDatetime presentation="date"
+                  (ionChange)="dateValue = formatDate(popoverDatetime.value)" formControlName="date"></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>
+        </div>
+        <div class="timestart">
+          <ion-item>
+            <div class="labelSelect">
+              <ion-label style="color: rgb(114, 111, 111)"> Giờ bắt đầu </ion-label>
+            </div>
 
-  <ion-item>
-    <ion-label position="floating">Tên</ion-label>
-    <ion-textarea></ion-textarea>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Số điện thoại</ion-label>
-    <ion-textarea></ion-textarea>
-  </ion-item>
-  <ion-button expand="block">BOOK</ion-button>
+            <ion-select placeholder=" Chọn " id="time" formControlName="timeStart">
+              <ion-select-option value="9:00 AM">9:00 AM</ion-select-option>
+              <ion-select-option value="10:00 AM">10:00 AM </ion-select-option>
+              <ion-select-option value="11:00 AM">11:00 AM</ion-select-option>
+              <ion-select-option value="1:00 PM">1:00 PM </ion-select-option>
+              <ion-select-option value="2:00 PM">2:00 PM</ion-select-option>
+              <ion-select-option value="3:00 PM">3:00 PM </ion-select-option>
+              <ion-select-option value="4:00 PM">4:00 PM</ion-select-option>
+              <ion-select-option value="5:00 PM">5:00 PM </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div class="timeEnd">
+          <ion-item>
+            <div class="labelSelect">
+              <ion-label style="color: rgb(114, 111, 111)"> Giờ kết thúc </ion-label>
+            </div>
+
+            <ion-select placeholder=" Chọn " id="timeEnd" formControlName="timeEnd">
+              <ion-select-option value="9:00 AM">9:30 AM</ion-select-option>
+              <ion-select-option value="10:00 AM">10:30 AM </ion-select-option>
+              <ion-select-option value="11:00 AM">11:30 AM</ion-select-option>
+              <ion-select-option value="1:00 PM">1:30 PM </ion-select-option>
+              <ion-select-option value="2:00 PM">2:30 PM</ion-select-option>
+              <ion-select-option value="3:00 PM">3:30 PM </ion-select-option>
+              <ion-select-option value="4:00 PM">4:30 PM</ion-select-option>
+              <ion-select-option value="5:00 PM">5:30 PM </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+
+
+        <ion-button [disabled]="!bookappointment.valid" class="book-appointment"
+          type="submit" expand="block">Đặt lịch</ion-button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
 </ion-content>

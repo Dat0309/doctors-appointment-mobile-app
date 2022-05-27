@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable new-parens */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit, Input } from '@angular/core';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
@@ -19,10 +21,10 @@ export class MedicalShopPage implements OnInit {
     private router: Router) { }
 
   doctors$: Doctor[] = [];
-  doctor = Doctor;
+  doctor = new Doctor;
   specializations$: Specialization[] = [];
   company$: Company[] = [];
-  search = '';
+  search = "";
 
   ngOnInit() {
     this.getAllDoctors();

@@ -1,7 +1,4 @@
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -23,15 +20,13 @@
       <ion-row class="doctor-info">
         <ion-col size="3">
           <div class="avatar">
-            <img style="border-radius: 8px" src="{{doctor.avatar_url}}" />
+            <img src="{{doctor.avatar_url}}" />
           </div>
         </ion-col>
         <ion-col size="9" class="doctor-name">
           <ion-card-content class="doctor-name-card">
-            <ion-card-title
-              >{{doctor.last_name}} {{doctor.first_name}}</ion-card-title
-            >
-            <ion-card-subtitle>Chuyên ngành</ion-card-subtitle>
+            <ion-card-title>{{doctor.last_name}} {{doctor.first_name}}</ion-card-title>
+            <ion-card-subtitle>Chuyên môn: {{specialization.name}}</ion-card-subtitle>
             <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
             <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
             <p class="star">
@@ -46,43 +41,49 @@
       </ion-row>
     </ion-grid>
   </div>
+  <!-- <app-carddoctoritem 
+    [doctorObj]="doctor" 
+    [specialization]=specialization
+    [company]=company>
+  </app-carddoctoritem> -->
   <ion-row>
     <div class="fedback-doctor">
       <ion-row>
         <ion-col class="available-box">
-          <span>Thông tin</span>
-          <p>Trình độ chuyên môn</p>
-          <p>{{doctor.level_of_education}}</p>
+          <div class="info">
+            <span>Thông tin</span>
+            <p style="font-weight: bold;">Trình độ</p>
+            <p>{{doctor.level_of_education}}</p>
+          </div>
+          
         </ion-col>
         <ion-col class="available-box-1">
           <span>Nhận xét</span>
-          <p>Đánh giá</p>
+          <p style="font-weight: bold;">Đánh giá</p>
           <p>{{doctor.rating}}</p>
         </ion-col>
       </ion-row>
 
       <div class="Experience-sec">
         <label>Mô tả</label>
-        <p>{{doctor.description}}</p>
+        <p>
+          {{doctor.description}}
+        </p>
       </div>
     </div>
   </ion-row>
   <div class="clinic-info">
-    <p>
-      Thông tin phòng khám
-      <ion-icon name="location-outline" [routerLink]="['/lab-map']"></ion-icon>
-    </p>
+    <p>Thông tin phòng khám</p>
     <div class="clinic-detail">
-      <p class="name-location">{{company.name}}</p>
-      <br />
-      <span class="address"
-        >Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
-        {{company.province}}</span
-      ><br /><span>9:00 am - 5:00pm</span>
+      <p class="name-location">
+        {{company.name}}<ion-icon name="location-outline" [routerLink]="['/lab-map']"></ion-icon>
+      </p>
+      <br /><span>Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
+        {{company.province}}</span><br /><span>9:00 am - 5:00pm</span>
     </div>
     <div class="img-clinic">
       <img src="{{company.image}}" />
     </div>
   </div>
-  <ion-button expand="block">BOOK</ion-button>
+  <ion-button expand="block" (click)="bookDoctor(doctor._id)">BOOK</ion-button>
 </ion-content>

@@ -26,8 +26,6 @@ export class MyAppointmentPage implements OnInit, OnChanges {
   ) { }
 
   appointments$: any[] = [];
-  doctors$: any[] = [];
-  company$: any[] = [];
   customer_id: string;
 
   ngOnInit() {
@@ -64,6 +62,16 @@ export class MyAppointmentPage implements OnInit, OnChanges {
         }
       }
     );
+  }
+
+  public update(id: string) {
+    this.appointmentService.update(id);
+    window.location.reload();
+  }
+
+  public delete(id: string) {
+    this.appointmentService.delete(id);
+    window.location.reload();
   }
 
 }

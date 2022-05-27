@@ -2,14 +2,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/homepage"></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title class = "text">DANH SÁCH BÁC SĨ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="search" showCancelButton="always" placeholder="Nhập tên Bác sĩ" (ionChange)='onChangeTime($event.target.value)'></ion-searchbar>
+  <ion-searchbar [(ngModel)]="search" showCancelButton="always" placeholder="Nhập tên Bác sĩ" (ionChange)='onChangeTime()'></ion-searchbar>
       <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
         [company$]=company$ (click)="gotoDoctorInfo(doctor._id)">
       </app-carddoctoritem>

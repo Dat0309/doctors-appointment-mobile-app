@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { DoctorService } from './services/doctor/doctor.service';
 import { StorageService } from './services/storage/storage.service';
 import { CustomerService } from './services/customer/customer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   name_user: string = '';
-  role: string ='';
+  role: string = '';
   public appPages = [
     {
       title: 'Inbox',
@@ -62,7 +62,8 @@ export class AppComponent implements OnInit {
     private doctorService: DoctorService,
     private storageService: StorageService,
     private customerService: CustomerService,
-    private activateRouteL: ActivatedRoute
+    private activateRouteL: ActivatedRoute,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -88,16 +89,16 @@ export class AppComponent implements OnInit {
     this.role = user.data.role;
     if (user.data.role === 'Bác sĩ') {
       this.doctorService.findByUserId(user.data._id).subscribe(
-        (res: any)=>{
-          if(res.doctor !== null){
+        (res: any) => {
+          if (res.doctor !== null) {
             this.name_user = res.doctor[0].last_name + ' ' + res.doctor[0].first_name;
           }
         }
       );
     } else if (user.data.role === 'Bệnh nhân') {
       this.customerService.findByUserId(user.data._id).subscribe(
-        (res: any)=>{
-          if(res.customer !== null){
+        (res: any) => {
+          if (res.customer !== null) {
             this.name_user = res.customer[0].last_name + ' ' + res.customer[0].first_name;
           }
         }
@@ -105,8 +106,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout() {
     this.storageService.clear();
-    window.location.reload();
+    this.router.navigateByUrl('/login-form').then(
+      () => {
+        window.location.reload();
+      }
+    );
   }
 }
