@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/member-ordering */
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -22,12 +24,12 @@ export class MapPage implements OnInit {
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
     private companyService: CompanyService,
-    private route: ActivatedRoute) {   
+    private route: ActivatedRoute) {
       this.slideOpts = {
         slidesPerView: 1,
         centeredSlide: true,
         loop: true,
-      };   
+      };
     }
 
   ngOnInit() {
@@ -69,7 +71,7 @@ export class MapPage implements OnInit {
     );
   }
 
- 
+
   public getAllCompany(){
     this.companyService.getAll().subscribe(
       (res: any) => {
@@ -80,7 +82,7 @@ export class MapPage implements OnInit {
       }
     );
   }
-  
+
   public async getDoctorByIdSpecail(id: string){
      await this.doctorService.getDoctorByIdSpecialization(id).subscribe(
       (res: any) => {
@@ -89,7 +91,7 @@ export class MapPage implements OnInit {
           this.doctors$ = res.doctors;
         }
       }
-    )
+    );
     this.longitudeEvent = this.doctors$[0].longtitute;
     this.latitudeEvent = this.doctors$[0].latitute;
   }
@@ -100,7 +102,7 @@ export class MapPage implements OnInit {
       // let i = index-1;
       console.log(index-1);
       console.log((index-1)%this.doctors$.length);
-      let i = (index-1)%this.doctors$.length
+      let i = (index-1)%this.doctors$.length;
       this.longitudeEvent = this.doctors$[i].longtitute;
       this.latitudeEvent = this.doctors$[i].latitute;
     });

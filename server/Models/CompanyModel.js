@@ -30,6 +30,12 @@ const companySchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        latitute: {
+            type: String,
+        },
+        longtitude: {
+            type: String,
+        },
     },
     {
         timestamps: true,

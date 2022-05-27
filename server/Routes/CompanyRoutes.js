@@ -83,7 +83,7 @@ companyRoute.post(
     protect,
     admin,
     asyncHandler(async (req, res) => {
-        const { name, description, image, province, district, ward, street } = req.body;
+        const { name, description, image, province, district, ward, street, longtitude, latitute } = req.body;
         const companyExist = await Company.findOne({ name });
         if (companyExist) {
             res.status(400);
@@ -97,7 +97,8 @@ companyRoute.post(
                 district,
                 ward,
                 street,
-                user: req.user._id,
+                longtitude,
+                latitute
             });
             if (company) {
                 const createdcompany = await company.save();
@@ -116,7 +117,7 @@ companyRoute.put(
     protect,
     admin,
     asyncHandler(async (req, res) => {
-        const { name, description, image, province, district, ward, street } = req.body;
+        const { name, description, image, province, district, ward, street, longtitude, latitute } = req.body;
         const company = await Company.findById(req.params.id);
         if (company) {
             company.name = name || company.name;
@@ -126,6 +127,8 @@ companyRoute.put(
             company.district = district || company.district;
             company.ward = ward || company.ward;
             company.street = street || company.street;
+            company.longtitude = longtitude || company.longtitude;
+            company.latitute = latitute || company.latitute;
 
             const updatedCompany = await company.save();
             res.json(updatedCompany);
