@@ -29,13 +29,6 @@
             <ion-card-subtitle>Chuyên ngành</ion-card-subtitle>
             <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
             <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
-            <!-- <p class="fa-star">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-            </p> -->
             <p class="star">
               <ion-icon name="star"></ion-icon>
               <ion-icon name="star"></ion-icon>
@@ -57,9 +50,12 @@
     <div class="fedback-doctor">
       <ion-row>
         <ion-col class="available-box">
-          <span>Thông tin</span>
-          <p>Trình độ chuyên môn</p>
-          <p>{{doctor.level_of_education}}</p>
+          <div class="info">
+            <span>Thông tin</span>
+            <p>Trình độ chuyên môn</p>
+            <p>{{doctor.level_of_education}}</p>
+          </div>
+          
         </ion-col>
         <ion-col class="available-box-1">
           <span>Nhận xét</span>
