@@ -1,10 +1,22 @@
-ion-toolbar a {
-    font-size: 24px;
-    }
+ion-header ion-toolbar {
+  color: #fff;
+  --background: #8dd1f8;
+}
 svg{
 	fill: #fff;
     margin: 0 5px;
 }
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+}
+
 .lab-box ion-row .star-rating span {
     font-size: 12px;
 }

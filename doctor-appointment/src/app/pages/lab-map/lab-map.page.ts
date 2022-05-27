@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabMapPage implements OnInit {
 
+  longitudeEvent: string;
+  latitudeEvent: string;
   constructor() { }
 
   ngOnInit() {
