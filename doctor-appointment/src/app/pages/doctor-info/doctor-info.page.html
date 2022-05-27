@@ -26,7 +26,7 @@
         <ion-col size="9" class="doctor-name">
           <ion-card-content class="doctor-name-card">
             <ion-card-title>{{doctor.last_name}} {{doctor.first_name}}</ion-card-title>
-            <ion-card-subtitle>Chuyên ngành</ion-card-subtitle>
+            <ion-card-subtitle>Chuyên môn: {{specialization.name}}</ion-card-subtitle>
             <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
             <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
             <p class="star">
@@ -52,14 +52,14 @@
         <ion-col class="available-box">
           <div class="info">
             <span>Thông tin</span>
-            <p>Trình độ chuyên môn</p>
+            <p style="font-weight: bold;">Trình độ</p>
             <p>{{doctor.level_of_education}}</p>
           </div>
           
         </ion-col>
         <ion-col class="available-box-1">
           <span>Nhận xét</span>
-          <p>Đánh giá</p>
+          <p style="font-weight: bold;">Đánh giá</p>
           <p>{{doctor.rating}}</p>
         </ion-col>
       </ion-row>
@@ -85,5 +85,5 @@
       <img src="{{company.image}}" />
     </div>
   </div>
-  <ion-button expand="block">BOOK</ion-button>
+  <ion-button expand="block" (click)="bookDoctor(doctor._id)">BOOK</ion-button>
 </ion-content>

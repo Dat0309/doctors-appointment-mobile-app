@@ -20,10 +20,10 @@ doctorRoute.get(
         const page = Number(req.query.pageNumber) || 1;
         const keyword = req.query.keyword
             ? {
-                name: {
+                first_name: {
                     $regex: req.query.keyword,
                     $options: "i",
-                },
+                }
             }
             : {};
 
@@ -40,8 +40,6 @@ doctorRoute.get(
 // ADMIN GET ALL DOCTOR WITHOUT SEARCH AND PEGINATION
 doctorRoute.get(
     "/all",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const doctors = await Doctor.find({}).sort({ _id: -1 });
         res.json(doctors);
@@ -121,12 +119,23 @@ doctorRoute.delete(
 doctorRoute.get(
     "/specialization/:id",
     asyncHandler(async (req, res) => {
-      const specialization_id = req.params.id;
-      const doctors = await Doctor.find({ "specializations.id": specialization_id })
-        .sort({ _id: -1 });
-      res.json({ doctors });
+        const specialization_id = req.params.id;
+        const doctors = await Doctor.find({ "specializations.id": specialization_id })
+            .sort({ _id: -1 });
+        res.json({ doctors });
     })
-  );
+);
+
+// Get doctor by user_id
+doctorRoute.get(
+    "/users/:id",
+    asyncHandler(async (req, res) => {
+        const user_id = req.params.id;
+        const doctor = await Doctor.find({ "user_id": user_id })
+            .sort({ _id: -1 });
+        res.json({ doctor });
+    })
+);
 
 // CREATE doctor
 doctorRoute.post(

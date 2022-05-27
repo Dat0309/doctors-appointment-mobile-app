@@ -41,7 +41,7 @@ export class DoctorsPage implements OnInit {
     private router: Router,
     private dotorService: DoctorService,
     private specializationService: SpecializationService,
-    private activateRoute: ActivatedRoute,
+    private activateRoute: ActivatedRoute
   ) {
     this.getSpecializations();
   }
@@ -178,5 +178,4 @@ export class DoctorsPage implements OnInit {
       );
     }
   }
-
 }

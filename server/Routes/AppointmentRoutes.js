@@ -15,7 +15,6 @@ appointmentRouter.use((req, res, next) => {
 // CREATE ORDER
 appointmentRouter.post(
   "/",
-  protect,
   asyncHandler(async (req, res) => {
     const {
       name,
@@ -28,6 +27,7 @@ appointmentRouter.post(
       contact,
       start_time,
       end_time,
+      status,
     } = req.body;
 
     if (start_time.length === 0 && end_time.length === 0) {
@@ -46,6 +46,7 @@ appointmentRouter.post(
         contact,
         start_time,
         end_time,
+        status,
       });
 
       const createAppointment = await appointment.save();
@@ -69,7 +70,6 @@ appointmentRouter.get(
 // DOCTOR LOGIN APPOINTMENT
 appointmentRouter.get(
   "/doctor/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const doctor_id = req.params.id;
     const appointment = await Appointment.find({ "doctor": doctor_id })
@@ -81,7 +81,6 @@ appointmentRouter.get(
 // CUSTOMER LOGIN APPOINTMENT
 appointmentRouter.get(
   "/customer/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const customer_id = req.params.id;
     const appointment = await Appointment.find({ "customer": customer_id })
@@ -93,7 +92,6 @@ appointmentRouter.get(
 // GET APPOINMENT BY ID
 appointmentRouter.get(
   "/:id",
-  protect,
   asyncHandler(async (req, res) => {
     const appointment = await Appointment.findById(req.params.id).populate(
       "doctor",
@@ -106,6 +104,39 @@ appointmentRouter.get(
       res.status(404);
       throw new Error("Appointment Not Found");
     }
+  })
+);
+
+// UPDATE appointment
+appointmentRouter.put(
+  "/:id",
+  asyncHandler(async (req, res) => {
+      const { status } = req.body;
+      const appointment = await Appointment.findById(req.params.id);
+      if (appointment) {
+          appointment.status = status || appointment.status;
+
+          const updatedappointment = await appointment.save();
+          res.json(updatedappointment);
+      } else {
+          res.status(404);
+          throw new Error("appointment not found");
+      }
+  })
+);
+
+// DELETE doctor
+appointmentRouter.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+      const appointment = await Appointment.findById(req.params.id);
+      if (appointment) {
+          await appointment.remove();
+          res.json({ message: "appointment deleted" });
+      } else {
+          res.status(404);
+          throw new Error("appointment not Found");
+      }
   })
 );
 

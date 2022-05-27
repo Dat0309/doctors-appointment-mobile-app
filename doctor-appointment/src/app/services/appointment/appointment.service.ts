@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -46,11 +47,11 @@ export class AppointmentService {
       );
   }
 
-  getAllByCustomerId(id: string): Observable<Appointment[]> {
+  getAllByCustomerId(id: string): Observable<any> {
     return this.http.get<Appointment[]>(`${this.apiUrl}/appointment/customer/${id}`)
       .pipe(
         tap(_ => console.log(`Appointment fetched: ${id}`)),
-        catchError(this.handleError<Appointment[]>(`Get user id=${id}`))
+        catchError(this.handleError<Appointment[]>(`Get appoinment id=${id}`))
       );
   }
 
@@ -67,6 +68,58 @@ export class AppointmentService {
       .pipe(
         catchError(this.handleError<Appointment>('Error occured'))
       );
+  }
+
+  async createByHTTP(appoinment: any): Promise<any> {
+    let id = '';
+    await this.http.post(`${this.apiUrl}/appointment`, JSON.stringify(appoinment), this.httpOptions)
+      .subscribe(
+        (res: any) => {
+          if (res.status === 201) {
+            console.log('created appointment');
+            id = res._id;
+          } else {
+            id = '';
+          }
+        }
+      );
+    return id;
+  }
+
+  async update(id: string): Promise<boolean> {
+    const obj = {
+      status: 'done'
+    };
+    let check = true;
+    await this.http.put(`${this.apiUrl}/appointment/${id}`, JSON.stringify(obj), this.httpOptions)
+      .subscribe(
+        (res: any) => {
+          if (res.status === 201) {
+            console.log('created appointment');
+            check = true;
+            return;
+          } else {
+            console.log(res.error);
+            check = false;
+          }
+        }
+      );
+    return check;
+  }
+
+  async delete(id: string): Promise<boolean> {
+    let check = false;
+    await this.http.delete(`${this.apiUrl}/doctors/${id}`, this.httpOptions)
+      .subscribe((res: any) => {
+        if (res.status === 200) {
+          console.log('deleted appointment');
+          check = true;
+          return;
+        } else {
+          check = false;
+        }
+      });
+    return check;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

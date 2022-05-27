@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="search" showCancelButton="always" placeholder="Nhập tên Bác sĩ" (ionChange)='onChangeTime($event.target.value)'></ion-searchbar>
+  <ion-searchbar [(ngModel)]="search" showCancelButton="always" placeholder="Nhập tên Bác sĩ" (ionChange)='onChangeTime()'></ion-searchbar>
       <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
         [company$]=company$ (click)="gotoDoctorInfo(doctor._id)">
       </app-carddoctoritem>

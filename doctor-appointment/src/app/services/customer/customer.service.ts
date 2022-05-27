@@ -50,6 +50,29 @@ export class CustomerService {
       );
   }
 
+  async createByHTTP(customer: any): Promise<boolean> {
+    let check = true;
+    await this.http.post(`${this.apiUrl}/customers`, JSON.stringify(customer), this.httpOptions)
+      .subscribe(
+        (res: any) => {
+          if (res.status === 201) {
+            console.log('created customer');
+          } else {
+            check = false;
+          }
+        }
+      );
+    return check;
+  }
+
+  findByUserId(user_id: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(`${this.apiUrl}/customers/users/${user_id}`)
+    .pipe(
+        tap(_ => console.log(`Customer fetched: ${user_id}`)),
+        catchError(this.handleError<Customer[]>(`Get customer user_id=${user_id}`))
+    );
+  }
+
   delete(id: string): Observable<Customer[]> {
     return this.http.delete<Customer[]>(`${this.apiUrl}/customers/${id}`, this.httpOptions)
       .pipe(

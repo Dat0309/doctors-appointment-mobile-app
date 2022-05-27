@@ -17,10 +17,11 @@ export class AuthService {
 
   async login(postData: any): Promise<boolean> {
     let check = true;
+    this.storageService.clear();
     await this.fetchAPI.post('/users/login', postData).then(
       (res) => {
         if (res.status === 200) {
-          this.storageService.store('TOKEN', res.data.access);
+          this.storageService.store('USER', res);
         } else {
           check = false;
         }

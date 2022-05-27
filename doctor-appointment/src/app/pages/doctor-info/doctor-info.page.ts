@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
@@ -11,25 +12,27 @@ import { Specialization, SpecializationService } from 'src/app/services/speciali
 })
 export class DoctorInfoPage implements OnInit {
 
-  specialization = new Specialization;
-  doctor = new Doctor;
-  company = new Company;
-  doctors$ : Doctor[] = [];
+  specialization = new Specialization();
+  doctor = new Doctor();
+  company = new Company();
+  doctors$: Doctor[] = [];
   companies$: Company[] = [];
   specializations$: Specialization[] = [];
   idCompany: string;
   idSpecialization: string;
   nameSpecialization: string;
-  constructor(private doctorService: DoctorService, 
-    private route:ActivatedRoute, 
-    private specializationService: SpecializationService, 
+
+  constructor(private doctorService: DoctorService,
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+    private specializationService: SpecializationService,
     private companyService: CompanyService) { }
 
   ngOnInit() {
     this.getAllDoctors();
     this.getAllCompanies();
     this.getAllSpecializations();
-    this.getRoute(this.route.snapshot.params["id"]);
+    this.getRoute(this.activateRoute.snapshot.params['id']);
   }
 
   public getAllDoctors(){
@@ -65,27 +68,33 @@ export class DoctorInfoPage implements OnInit {
     );
   }
 
-  getRoute(id:any) {
+  getRoute(id: any) {
     this.doctorService.getByID(id).subscribe((res: any) => {
       this.doctor = res;
       this.idCompany = this.doctor.company_id;
       this.getCompany(this.idCompany);
-      
-      //this.idSpecialization = this.doctor.specializations;
-      console.log(this.idSpecialization)
+
+      this.idSpecialization = this.doctor.specializations[0].id;
+      this.getSpecialization(this.idSpecialization);
+      console.log(this.idSpecialization);
     });
   }
 
-  getCompany (id:any) {
+  getCompany(id: any) {
     this.companyService.getByID(id).subscribe((res: any) => {
       this.company = res;
     });
-  } 
+  }
 
-  getSpecialization (id:any) {
+  getSpecialization(id: any) {
     this.specializationService.getByID(id).subscribe((res: any) => {
       this.specialization = res;
-    })
+      console.log(res);
+    });
+  }
+
+  bookDoctor(id: string){
+    this.router.navigateByUrl(`/book-appointment/${id}`);
   }
 
   // public getNameSpecialization(id: string) {

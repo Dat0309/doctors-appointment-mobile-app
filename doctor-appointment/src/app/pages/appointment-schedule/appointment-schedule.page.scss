@@ -51,3 +51,15 @@ label{
   		color: #fff; 
   	}
 }
+
+ion-content{
+    --background : #F0F4FD;
+  
+    p{
+     font-weight: 300;
+    }
+  }
+
+ion-card{
+    border-radius: 15px;
+}

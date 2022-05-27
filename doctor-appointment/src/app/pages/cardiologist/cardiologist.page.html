@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/specialities"></ion-back-button>
     </ion-buttons>
     <ion-title class="text">{{nameSpecial}}</ion-title>
   </ion-toolbar>
@@ -13,6 +13,6 @@
   <app-carddoctoritem 
   *ngFor="let doctor of doctors$" [doctorObj]="doctor" 
   [specialization$]=specializations$
-  [company$]=company$>
+  [company$]=company$ (click)="gotoDoctorInfo(doctor._id)">
   </app-carddoctoritem>
 </ion-content>

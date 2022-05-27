@@ -1,3 +1,9 @@
+/* eslint-disable @typescript-eslint/semi */
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/quotes */
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { element } from 'protractor';
 import { Doctor } from './../../services/doctor/doctor.service';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
@@ -30,20 +36,19 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
     // console.log(this.doctorObj.specializations);
     this.onChangesSpacailizations();
     this.onChangesCompanys();
-    
-    
+
   }
 
   public onChangesSpacailizations(){
     this.doctorObj.specializations.forEach(special => {
       this.nameSpecial = this.getNameSpcailizations(special.id);
-     
-    })
+
+    });
   }
 
   public onChangesCompanys(){
    this.nameCompanny = this.getNameCompany(this.doctorObj.company_id);
-  
+
   }
 
   public getNameSpcailizations(id: string) {
@@ -66,9 +71,9 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
         return;
       }
     });
-    
+
     return nameCompany;
-    
+
   }
 
 

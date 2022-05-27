@@ -1,36 +1,40 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { Plugins } from '@capacitor/core';
-const { Storage } = Plugins;
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
+  ret: any;
 
-  constructor() { }
+  constructor(private storage: Storage) { }
 
   // Store the value
   async store(storageKey: string, value: any) {
-    const encryptedValue = btoa(escape(JSON.stringify(value)));
-    await Storage.set({
-      key: storageKey,
-      value: encryptedValue
-    });
+    await this.storage.set(storageKey, value);
+    console.log('success storage');
   }
 
   // Get the value
   async get(storageKey: string) {
-    const ret = await Storage.get({ key: storageKey });
-    return JSON.parse(unescape(atob(ret.value)));
+    await this.storage.get(storageKey).then(
+      (res: any) => {
+        this.ret = res;
+        console.log(res);
+      }
+    );
+    return this.ret;
   }
 
   async removeStorageItem(storageKey: string) {
-    await Storage.remove({ key: storageKey });
+    await this.storage.remove(storageKey);
   }
 
   // Clear storage
   async clear() {
-    await Storage.clear();
+    await this.storage.clear();
   }
 }

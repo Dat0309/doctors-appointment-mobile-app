@@ -6,10 +6,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'splashsreen',
-    redirectTo: 'homepage',
+    redirectTo: 'splashsreen',
+    // redirectTo: 'homepage',
     // redirectTo: 'specialities',
-    
 
     pathMatch: 'full',
   },
@@ -65,7 +64,7 @@ const routes: Routes = [
       import('./pages/map/map.module').then((m) => m.MapPageModule),
   },
   {
-    path: 'book-appointment',
+    path: 'book-appointment/:id',
     loadChildren: () =>
       import('./pages/book-appointment/book-appointment.module').then(
         (m) => m.BookAppointmentPageModule

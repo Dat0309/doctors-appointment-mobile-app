@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -6,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { FetchapiService } from '../fetchapi/fetchapi.service';
 import { Specialization } from '../specialization/specialization.service';
+import { StorageService } from '../storage/storage.service';
 
 export class Doctor {
   _id: string;
@@ -22,26 +24,41 @@ export class Doctor {
   province: string;
   district: string;
   ward: string;
+  rating: 0;
   street: string;
   level_of_education: string;
   specializations: Specialization[];
   company_id: string;
+  longtitute: string;
+  latitute: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorService {
+
   apiUrl = 'https://doctorapiv1.herokuapp.com/api';
+  auth: any = `${this.localStorage.get('USER')}`;
   httpOptions = {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
   };
 
-  constructor(private http: HttpClient, private fetchAPI: FetchapiService) { }
+  constructor(private http: HttpClient, private fetchAPI: FetchapiService, private localStorage: StorageService) { }
 
   getAll(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`)
+      .pipe(
+        tap(users => console.log('Doctors retrieved!')),
+        catchError(this.handleError<Doctor[]>('Get doctors', []))
+      );
+  }
+
+  getAllWithoutPagination(): Observable<Doctor[]>{
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/all`)
       .pipe(
         tap(users => console.log('Doctors retrieved!')),
         catchError(this.handleError<Doctor[]>('Get doctors', []))
@@ -72,7 +89,13 @@ export class DoctorService {
       );
   }
 
-
+  findByUserId(user_id: string): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/users/${user_id}`)
+    .pipe(
+        tap(_ => console.log(`Doctor fetched: ${user_id}`)),
+        catchError(this.handleError<Doctor[]>(`Get doctors user_id=${user_id}`))
+    );
+  }
 
   delete(id: string): Observable<Doctor[]> {
     return this.http.delete<Doctor[]>(`${this.apiUrl}/doctors/${id}`, this.httpOptions)
@@ -82,18 +105,18 @@ export class DoctorService {
       );
   }
 
-  async createByHTTP(doctor: any): Promise<boolean>{
+  async createByHTTP(doctor: any): Promise<boolean> {
     let check = true;
     await this.http.post(`${this.apiUrl}/doctors`, JSON.stringify(doctor), this.httpOptions)
-    .subscribe(
-      (res: any) => {
-        if(res.status === 201){
-          console.log('created doctor');
-        }else{
-          check = false;
+      .subscribe(
+        (res: any) => {
+          if (res.status === 201) {
+            console.log('created doctor');
+          } else {
+            check = false;
+          }
         }
-      }
-    );
+      );
     return check;
   }
 

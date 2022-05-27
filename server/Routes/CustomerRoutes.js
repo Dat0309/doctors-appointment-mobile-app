@@ -104,7 +104,6 @@ customerRoute.post(
                 district,
                 ward,
                 street,
-                user: req.user._id,
             });
             if (customer) {
                 const createdcustomer = await customer.save();
@@ -114,6 +113,17 @@ customerRoute.post(
                 throw new Error("Invalid customer data");
             }
         }
+    })
+);
+
+// Get customer by user_id
+customerRoute.get(
+    "/users/:id",
+    asyncHandler(async (req, res) => {
+        const user_id = req.params.id;
+        const customer = await Customer.find({ "user_id": user_id })
+            .sort({ _id: -1 });
+        res.json({ customer });
     })
 );
 

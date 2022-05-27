@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-underscore-dangle */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -60,16 +62,29 @@ export class LoginFormPage implements OnInit {
     );
   }
 
-  public submit() {
+  public async submit() {
     this.postData.username = this.loginForm.get('email').value;
     this.postData.password = this.loginForm.get('password').value;
     if(this.validationInputs()){
       this.authService.login(this.loginForm.value).then(
-        (res: any) => {
+        async (res: any) => {
           if(res){
             console.log(this.loginForm.value);
-            this.storageService.store('user', res.userData);
-            this.router.navigate(['/homepage']);
+            let user = await this.storageService.get('USER');
+            if(user.data.role === 'Bác sĩ'){
+              this.router.navigate([`appointment-schedule/${user.data._id}`]).then(
+                () => {
+                  window.location.reload();
+                }
+              );
+            }else if(user.data.role === 'Bệnh nhân'){
+              this.router.navigate(['/homepage']).then(
+                () => {
+                  window.location.reload();
+                }
+              );
+            }
+
           }else {
             console.log('Sai mật khẩu');
           }

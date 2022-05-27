@@ -1,0 +1,45 @@
+ion-card {
+    border-radius: 15px;
+    ion-card-content {
+        display: flex;
+        padding: 10px;
+
+        .avatar {
+            width: auto;
+            height: 90%;
+            border-radius: 10px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .info {
+            margin-left: 10px;
+
+            .appointment-name{
+                font-family: 'Quicksand', sans-serif;
+                font-size: 15px;
+                font-weight: 800;
+                color: var(--ion-color-textname);
+            }
+
+            .time{
+                font-family: 'Quicksand', sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--ion-color-textname);
+            }
+            // .status[target="incomming"]{
+            //     background-color: green;
+            // }
+            .status{
+                font-weight: 500;
+                color: #1aa3f0;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
