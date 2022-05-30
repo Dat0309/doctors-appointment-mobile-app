@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-	<ion-card *ngFor="let appointment of appointments$; let i = index" class="ion-margin">
+	<ion-card *ngFor="let appointment of appointments$; let i = index" (click)="detailAppointment(appointment._id)" class="ion-margin">
 		<ion-card-header>
 
 			<ion-card-subtitle
