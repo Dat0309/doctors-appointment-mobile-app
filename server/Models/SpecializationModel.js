@@ -9,6 +9,9 @@ const specializationSchema = mongoose.Schema(
         description: {
             type: String,
             required: true,
+        },
+        thumb: {
+            type: String,
         }
     },
     {

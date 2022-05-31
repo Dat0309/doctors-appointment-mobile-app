@@ -8,6 +8,31 @@
 </ion-header>
 <ion-content>
   <!-- <app-carditemcardiologist></app-carditemcardiologist> -->
-  <app-cardcategorylist  *ngFor="let specialization of specializations$" [SpecializationObj] = "specialization" 
-  (click)="gotoCardiologist(specialization._id)"></app-cardcategorylist>
+  <!-- <app-cardcategorylist  *ngFor="let specialization of specializations$" [SpecializationObj] = "specialization" 
+  (click)="gotoCardiologist(specialization._id)"></app-cardcategorylist> -->
+  <div class="specialize" *ngFor="let specialization of specializations$">
+    <img class="thumb" src="{{specialization.thumb}}" />
+
+    <div class="info">
+      <div class="content">
+        <h6>{{specialization.name}}</h6>
+
+        <p class="location"><ion-icon name='location'></ion-icon>Đà Lạt, Lâm Đồng</p>
+
+        <div class="additional-info">
+          <div class="attendees">
+            <img src="../../../assets/images/person1.svg" />
+            <img src="../../../assets/images/person1.svg" />
+            <img src="../../../assets/images/person1.svg" />
+            <img src="../../../assets/images/person-placeholder.svg" />
+            <p>+3</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="indicator" (click)="gotoCardiologist(specialization._id)">
+        <div>Xem</div>
+      </div>
+    </div>
+  </div>
 </ion-content>

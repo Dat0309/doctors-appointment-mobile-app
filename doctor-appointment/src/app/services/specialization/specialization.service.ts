@@ -8,6 +8,7 @@ export class Specialization {
   id: string;
   name: string;
   description: string;
+  thumb: string;
 }
 
 @Injectable({
