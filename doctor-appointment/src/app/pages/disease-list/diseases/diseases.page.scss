@@ -1,0 +1,126 @@
+ion-header ion-toolbar {
+    color: #fff;
+    --background: #8dd1f8;
+    font-family: Poppins;
+    font-weight: 500;
+  }
+  
+  .text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+  }
+  
+  ion-header {
+    position: absolute;
+  
+    ion-toolbar {
+      padding-left: 14px;
+      padding-right: 14px;
+  
+      ion-title {
+        --color: white;
+        font-size: 18px;
+      }
+    }
+  }
+  
+  .default-left-padding {
+    padding-left: 26px;
+  }
+  
+  .default-top-padding {
+    padding-top: 26px !important;
+  }
+  
+  ion-content {
+    .diseases {
+      border-radius: 10px;
+      box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.16);
+      margin: 0 26px 26px 26px;
+      display: flex;
+      justify-content: space-between;
+  
+      img {
+        border-radius: 10px 0 0 10px;
+        object-fit: cover;
+      }
+  
+      .thumb {
+        border-radius: 10px 0 0 10px;
+        object-fit: fill;
+        width: 130px;
+        height: 130px;
+      }
+  
+      .info {
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+  
+        .content {
+          h6 {
+            color: #364F6B;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 0px;
+          }
+  
+          .location {
+            display: flex;
+            align-items: center;
+            color: var(--ion-color-primary);
+            font-size: 13px;
+            margin-bottom: 5px;
+            margin-top: 0;
+          }
+  
+          .stats {
+            display: flex;
+            margin-bottom: 5px;
+            margin-top: 0;
+  
+            span {
+              display: flex;
+              align-items: center;
+              color: #364F6B80;
+              font-size: 10px;
+              margin-right: 10px;
+            }
+          }
+  
+          .additional-info{
+            display: flex;
+  
+            .attendees{
+              display: flex;
+              align-items: center;
+              img{
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+  
+        .indicator {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  
+          div {
+            background: #FFE6E6;
+            border-radius: 12px;
+            padding: 15px;
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+    }
+  }

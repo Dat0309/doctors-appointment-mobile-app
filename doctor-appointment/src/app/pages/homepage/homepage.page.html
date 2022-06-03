@@ -40,4 +40,40 @@
     [company$]=company$ (click)="gotoDoctorInfo(doctor._id)"> 
   </app-carddoctoritem>
 
+  <p class="special">Thông tin Dịch Covid19 tháng 6</p>
+
+  <ion-card *ngFor="let covid of covid_datas$; let i = index" class="ion-margin">
+		<ion-card-header>
+			<ion-item>
+				<ion-icon color="success" size="small" name="ellipse">
+				</ion-icon>
+				<ion-label> {{ covid.Country}}</ion-label>
+			</ion-item>
+
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-label>{{covid.Date}}</ion-label>
+		</ion-card-content>
+
+		<ion-row>
+
+      <ion-item button>
+				<ion-icon name="bar-chart-outline" size="10"></ion-icon>
+				<p>Tổng số ca mắc: {{covid.Confirmed}}</p>
+			</ion-item>
+
+			<ion-item button>
+				<ion-icon name="checkmark-outline"></ion-icon>
+				<p>Số ca đã khỏi: {{covid.Active}}</p>
+			</ion-item>
+
+			<ion-item button >
+				<ion-icon name="pulse-outline"></ion-icon>
+				<p>Số ca tử vong: {{covid.Deaths}}</p>
+			</ion-item>
+		</ion-row>
+
+	</ion-card>
+
 </ion-content>
