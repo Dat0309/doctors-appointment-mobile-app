@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -9,41 +12,57 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let appointment of appointments$; let i = index" class="ion-margin">
-		<ion-card-header>
+  <ion-card
+    *ngFor="let appointment of appointments$; let i = index"
+    class="ion-margin"
+    (click)="  gotoAppointmentDetail(appointment._id)"
+  >
+    <ion-card-header>
+      <ion-card-subtitle
+        [style.color]="appointment.status === 'comming' ? 'red' : (appointment.status === 'done' ? 'green' : 'orange')"
+      >
+        {{appointment.status}}
+      </ion-card-subtitle>
 
-			<ion-card-subtitle
-				[style.color]="appointment.status === 'comming' ? 'red' : (appointment.status === 'done' ? 'green' : 'orange')">
-				{{appointment.status}}
-			</ion-card-subtitle>
+      <ion-item>
+        <ion-icon
+          *ngIf="appointment.status === 'comming'"
+          color="danger"
+          size="small"
+          name="ellipse"
+        >
+        </ion-icon>
+        <ion-icon
+          *ngIf="appointment.status === 'done'"
+          color="success"
+          size="small"
+          name="ellipse"
+        >
+        </ion-icon>
+        <ion-label> {{ appointment.name}}</ion-label>
+      </ion-item>
+    </ion-card-header>
 
-			<ion-item>
-				<ion-icon *ngIf="appointment.status === 'comming'" color="danger" size="small" name="ellipse">
-				</ion-icon>
-				<ion-icon *ngIf="appointment.status === 'done'" color="success" size="small" name="ellipse">
-				</ion-icon>
-				<ion-label> {{ appointment.name}}</ion-label>
-			</ion-item>
+    <ion-card-content>
+      <ion-label
+        >{{appointment.start_time}} - {{appointment.end_time}}
+      </ion-label>
+    </ion-card-content>
 
-		</ion-card-header>
+    <ion-row>
+      <ion-item
+        button
+        [disabled]="appointment.status === 'done'"
+        (click)="update(appointment._id)"
+      >
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <p>Hoàn thành</p>
+      </ion-item>
 
-		<ion-card-content>
-			<ion-label>{{appointment.start_time}} - {{appointment.end_time}}</ion-label>
-		</ion-card-content>
-
-		<ion-row>
-
-			<ion-item button [disabled]="appointment.status === 'done'" (click)="update(appointment._id)">
-				<ion-icon name="checkmark-outline"></ion-icon>
-				<p>Hoàn thành</p>
-			</ion-item>
-
-			<ion-item button (click)="delete(appointment._id)">
-				<ion-icon name="trash-outline"></ion-icon>
-				<p>Huỷ lịch</p>
-			</ion-item>
-		</ion-row>
-
-	</ion-card>
-
+      <ion-item button (click)="delete(appointment._id)">
+        <ion-icon name="trash-outline"></ion-icon>
+        <p>Huỷ lịch</p>
+      </ion-item>
+    </ion-row>
+  </ion-card>
 </ion-content>

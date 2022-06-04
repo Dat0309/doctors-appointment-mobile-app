@@ -1,19 +1,21 @@
 <ion-app>
-  <ion-split-pane contentId="main-content" *ngIf="role==='Bác sĩ'">
+  <ion-split-pane contentId="main-content" *ngIf="role === 'Bác sĩ'">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-label class="menu-tittle">
             <img src="assets/icon/Icon-doctor.png" />
-            <ion-list-header>{{name_user}}</ion-list-header>
+            <ion-list-header>{{ name_user }}</ion-list-header>
             <a [routerLink]="['/profile']">
               <ion-note>Complete Your Profile</ion-note>
             </a>
           </ion-label>
-  
+
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/newhome']"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
+              <a [routerLink]="['/newhome']"
+                ><i class="fa fa-list-alt" aria-hidden="true"></i
+              ></a>
               <label>Chuyên môn</label>
               <a [routerLink]="['/specialities']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -22,7 +24,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/find-doctor']"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+              <a [routerLink]="['/find-doctor']"
+                ><i class="fa fa-medkit" aria-hidden="true"></i
+              ></a>
               <label>Danh sách bác sĩ</label>
               <a [routerLink]="['/find-doctor']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -31,17 +35,21 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a href="#"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></a>
+              <a href="#"
+                ><i class="fa fa-calendar-check-o" aria-hidden="true"></i
+              ></a>
               <label>Thông tin tài khoản</label>
               <a [routerLink]="['/profile']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
           </ion-label>
-  
+
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/appointment-schedule']"><i class="fa fa-address-book" aria-hidden="true"></i></a>
+              <a [routerLink]="['/appointment-schedule']"
+                ><i class="fa fa-address-book" aria-hidden="true"></i
+              ></a>
               <label> Quản lý lịch hẹn</label>
               <a [routerLink]="['/appointment-schedule/12345']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -50,17 +58,21 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/lab-test']"><i class="fa fa-flask" aria-hidden="true"></i></a>
+              <a [routerLink]="['/lab-test']"
+                ><i class="fa fa-flask" aria-hidden="true"></i
+              ></a>
               <label>Phòng khám</label>
               <a [routerLink]="['/lab-map']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
           </ion-label>
-  
+
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/chat']"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+              <a [routerLink]="['/chat']"
+                ><i class="fa fa-comments-o" aria-hidden="true"></i
+              ></a>
               <label>Nhắn tin</label>
               <a [routerLink]="['/chat']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -69,7 +81,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/login-form']"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+              <a [routerLink]="['/login-form']"
+                ><i class="fa fa-sign-out" aria-hidden="true"></i
+              ></a>
               <label>Đăng xuất</label>
               <a [routerLink]="['/login-form']" (click)="logout()">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -78,7 +92,9 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/signup']"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+              <a [routerLink]="['/signup']"
+                ><i class="fa fa-sign-out" aria-hidden="true"></i
+              ></a>
               <label>Đăng ký</label>
               <a [routerLink]="['/signup']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -90,13 +106,13 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
-  <ion-split-pane contentId="main-content" *ngIf="role==='Bệnh nhân'" >
+  <ion-split-pane contentId="main-content" *ngIf="role === 'Bệnh nhân'">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-label class="menu-tittle">
             <img src="assets/icon/Icon-doctor.png" />
-            <ion-list-header>{{name_user}}</ion-list-header>
+            <ion-list-header>{{ name_user }}</ion-list-header>
             <a [routerLink]="['/profile']">
               <ion-note>Complete Your Profile</ion-note>
             </a>
@@ -219,7 +235,7 @@
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 
-  <ion-split-pane contentId="main-content" *ngIf="role===''" >
+  <ion-split-pane contentId="main-content" *ngIf="role === ''">
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
