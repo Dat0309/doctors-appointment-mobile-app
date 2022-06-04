@@ -8,7 +8,9 @@ import { catchError, tap } from 'rxjs/operators';
 export class Appointment {
   _id: string;
   name: string;
-  doctor: string;
+  doctor: {
+    _id: string;
+  };
   customer: string;
   province: string;
   district: string;

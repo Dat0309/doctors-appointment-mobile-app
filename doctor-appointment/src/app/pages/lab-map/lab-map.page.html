@@ -1,7 +1,7 @@
 <ion-header>
 	<ion-toolbar>
 		<ion-buttons slot="start">
-			<ion-menu-button></ion-menu-button>
+			<ion-back-button auto-hide="false"></ion-back-button>
 		</ion-buttons>
 		<ion-title class="text">Vị trí phòng khám</ion-title>
 	</ion-toolbar>
@@ -10,22 +10,8 @@
 <ion-content>
 	<div class="container">
 		<div class="map-container">
-			<map-component [longitudeEvent]="longitudeEvent" [latitudeEvent]="latitudeEvent">
+			<map-component [longitudeEvent]="company?.longtitude" [latitudeEvent]="company?.latitude">
 			</map-component>
 		</div>
-		
-		<!-- <ion-slides #slides (ionSlideDidChange)="changeEvent($event)" class="info-doctor" [options]="slideOpts">
-            <ion-slide>
-                <app-carddoctoritem [doctorObj]="doctor" 
-                [specialization$]=specializations$
-                [company$]=company$ (click)="testClick(doctor)"></app-carddoctoritem>
-            </ion-slide>
-        </ion-slides>
-		<ion-slide class="info-doctor">
-		<app-carddoctoritem  [doctorObj]="doctor" 
-		[specialization$]=specializations$
-		[company$]=companies$ (click)="testClick(doctor)">
-		</app-carddoctoritem>
-		</ion-slide> -->
 	</div>
 </ion-content>

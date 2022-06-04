@@ -20,7 +20,7 @@ export class MyAppointmentPage implements OnInit, OnChanges {
 
   constructor(
     private appointmentService: AppointmentService,
-    private route: Router,
+    private router: Router,
     private customerService: CustomerService,
     private storageService: StorageService
   ) { }
@@ -72,6 +72,10 @@ export class MyAppointmentPage implements OnInit, OnChanges {
   public delete(id: string) {
     this.appointmentService.delete(id);
     window.location.reload();
+  }
+
+  public detailAppointment(id: string){
+    this.router.navigateByUrl(`/appointment-detail/${id}`);
   }
 
 }

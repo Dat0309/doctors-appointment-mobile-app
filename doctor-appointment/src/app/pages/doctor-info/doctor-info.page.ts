@@ -89,7 +89,6 @@ export class DoctorInfoPage implements OnInit {
   getSpecialization(id: any) {
     this.specializationService.getByID(id).subscribe((res: any) => {
       this.specialization = res;
-      console.log(res);
     });
   }
 
@@ -99,5 +98,9 @@ export class DoctorInfoPage implements OnInit {
 
   goToLabMap(id: string) {
     this.router.navigateByUrl(`/lab-map/${id}`);
+  }
+
+  gotoLabInfo(id: string){
+    this.router.navigateByUrl(`/lab-info/${id}`);
   }
 }

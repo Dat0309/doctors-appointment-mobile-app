@@ -1,37 +1,51 @@
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button auto-hide="false"></ion-back-button>
     </ion-buttons>
-    <ion-title>Chi tiết lịch hẹn</ion-title>
+    <ion-title>CHI TIẾT LỊCH HẸN</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-
   <ion-list>
-    <ion-card [routerLink]="['/doctor-info']">
-      <ion-grid>
-        <ion-row class="doctor-info">
-          <ion-col size="3">
-            <div class="avatar">
-              <img src="../assets/icon/Icon-doctor.png" />
-            </div>
-          </ion-col>
-          <ion-col size="9" class="doctor-name">
-            <ion-card-content class="doctor-name-card">
-              <ion-card-title>Nguyen Van A</ion-card-title> 
-			        <ion-card-subtitle>9H30 </ion-card-subtitle>
-                    <ion-card-subtitle>20/05/2022</ion-card-subtitle>
-            </ion-card-content>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card>
+    <div class="doctor-name">
+      <h3>{{appointment?.name}}</h3>
+      <p>Bác sĩ: {{nameDoctor}}</p>
+      <p>Bệnh nhân: {{nameCustomer}}</p>
+      <p class="star">
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </p>
+    </div>
+
+    <ion-item class="booking-time">
+      <ion-avatar slot="start">
+        <ion-icon name="time-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Thời gian hẹn khám</h2>
+        <h3>{{appointment?.start_time}} - {{appointment?.end_time}}</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="telephone">
+      <ion-avatar slot="start">
+        <ion-icon name="location-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Địa chỉ</h2>
+        <h3>{{appointment?.street}}, {{appointment?.ward}}, {{appointment?.district}}, {{appointment?.province}},</h3>
+      </ion-label>
+    </ion-item>
   </ion-list>
+  <ion-button expand="block" >Đánh giá</ion-button>
 </ion-content>

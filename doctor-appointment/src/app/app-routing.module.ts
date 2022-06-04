@@ -112,7 +112,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lab-info/lab-info.module').then(m => m.LabInfoPageModule)
   },
   {
-    path: 'search-test', 
+    path: 'search-test',
     loadChildren: () =>
       import('./pages/search-test/search-test.module').then(
         (m) => m.SearchTestPageModule
