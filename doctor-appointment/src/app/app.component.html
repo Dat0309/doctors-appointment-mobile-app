@@ -130,17 +130,6 @@
           </ion-label>
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/doctor-info']"
-                ><i class="fa fa-sign-out" aria-hidden="true"></i
-              ></a>
-              <label>Thông tin bác sĩ </label>
-              <a [routerLink]="['/doctor-info']">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </a>
-            </ion-row>
-          </ion-label>
-          <ion-label class="menu-icon">
-            <ion-row>
               <a [routerLink]="['/newhome']"
                 ><i class="fa fa-list-alt" aria-hidden="true"></i
               ></a>
@@ -191,6 +180,18 @@
               ></a>
               <label>Phòng khám</label>
               <a [routerLink]="['/lab-map']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a [routerLink]="['/catdiseases']"
+                ><i class="fa fa-flask" aria-hidden="true"></i
+              ></a>
+              <label>Tư vấn sức khoẻ</label>
+              <a [routerLink]="['/catdiseases']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>

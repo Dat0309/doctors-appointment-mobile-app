@@ -1,3 +1,10 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable prefer-const */
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit, Input } from '@angular/core';
 import {
   Appointment,
@@ -5,7 +12,7 @@ import {
 } from 'src/app/services/appointment/appointment.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { element } from 'protractor';
 @Component({
@@ -18,62 +25,51 @@ export class AppointmentDetailPage implements OnInit {
     private appointmentService: AppointmentService,
     private route: Router,
     private customerService: CustomerService,
+    private doctorService: DoctorService,
     private storageService: StorageService,
-    private router: Router
+    private activatedRoute: ActivatedRoute
   ) {}
 
-  @Input() appointmentObj: Appointment;
-  @Input() doctor$: any[];
-
-  appointments$: any[] = [];
-  customer_id: string;
+  appointment: Appointment;
+  nameCustomer: string = '';
   nameDoctor: string = '';
 
   ngOnInit() {
-    this.getCustomerByUserId();
-    setTimeout(() => {
-      this.getMyAppointment(this.customer_id);
-    }, 2000);
+    this.getAppointment(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
-  ngOnChanges(): void {
-    this.onChangesDocTorName();
-  }
-
-  public async getMyAppointment(id: string) {
+  public getAppointment(id: string) {
     this.appointmentService
-      .getAllByCustomerId(id)
+      .getById(id)
       .subscribe(async (res: any) => {
         if (res != null) {
-          this.appointments$ = res.appointment;
+          this.appointment = res;
+          this.getDoctorName(this.appointment?.doctor._id);
+          this.getCustomerName(this.appointment?.customer);
         } else {
           console.log('Fail to load appoinment');
         }
       });
   }
 
-  public async getCustomerByUserId() {
-    let user = await this.storageService.get('USER');
-    this.customerService.findByUserId(user.data._id).subscribe((res: any) => {
-      if (res != null) {
-        this.customer_id = res.customer[0]._id;
-      } else {
-        console.log('Fail to load appoinment');
+  public getDoctorName(id: string){
+    this.doctorService.getByID(id).subscribe(
+      (res: any) => {
+        if(res != null){
+          this.nameDoctor = res.last_name + ' ' + res.first_name;
+        }
       }
-    });
+    );
   }
 
-  public onChangesDocTorName() {
-    this.nameDoctor = this.getDoctorName(this.appointmentObj._id);
-  }
-  public getDoctorName(id: string) {
-    let doctorName = '';
-    this.doctor$.forEach((element) => {
-      if (element._id === id) {
-        doctorName = element.name;
-        return;
+  public getCustomerName(id: string){
+    this.customerService.getByID(id).subscribe(
+      (res: any) => {
+        if(res != null){
+          this.nameCustomer = res.last_name + ' ' + res.first_name;
+        }
       }
-    });
-    return doctorName;
+    );
   }
+
 }

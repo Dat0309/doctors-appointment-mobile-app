@@ -41,7 +41,7 @@ export class CardiologistPage implements OnInit {
           this.doctors$ = res.doctors;
         }
       }
-    )
+    );
   }
   public async getAllSpcializations() {
     await this.specializationService.getAll().subscribe(

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button auto-hide="false"></ion-menu-button>
+      <ion-back-button auto-hide="false"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="primary">
       <ion-button>
@@ -75,7 +75,7 @@
       <br /><span>Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
         {{company.province}}</span><br /><span>9:00 am - 5:00pm</span>
     </div>
-    <div class="img-clinic">
+    <div class="img-clinic" (click)="gotoLabInfo(company._id)">
       <img src="{{company.image}}" />
     </div>
   </div>

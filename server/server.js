@@ -9,6 +9,7 @@ import customerRoute from "./Routes/CustomerRoutes.js";
 import specializationRoute from "./Routes/SpecializationRoutes.js";
 import appointmentRouter from "./Routes/AppointmentRoutes.js";
 import companyRoute from "./Routes/CompanyRoutes.js";
+import diseasesRoute from "./Routes/DiseasesRoutes.js";
 
 dotenv.config();
 connectDatabase();
@@ -23,6 +24,7 @@ app.use("/api/company", companyRoute);
 app.use("/api/specialization", specializationRoute);
 app.use("/api/users", userRouter);
 app.use("/api/appointment", appointmentRouter);
+app.use("/api/diseases", diseasesRoute);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });

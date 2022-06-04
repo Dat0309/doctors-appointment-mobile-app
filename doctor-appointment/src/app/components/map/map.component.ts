@@ -1,7 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild,OnChanges,Input } from '@angular/core';
-import { Geolocation } from '@capacitor/geolocation'; 
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable prefer-const */
+/* eslint-disable @angular-eslint/component-selector */
+/* eslint-disable no-var */
+import { Component, ElementRef, OnInit, ViewChild, OnChanges, Input } from '@angular/core';
+import { Geolocation } from '@capacitor/geolocation';
 
-declare var google; 
+declare var google;
 
 @Component({
   selector: 'map-component',
@@ -12,45 +16,41 @@ declare var google;
 export class MapComponent implements OnInit, OnChanges {
   @ViewChild('map', { static: true }) mapElement: ElementRef;
   map: any;
-  showMap(latitude: any, longitude: any){
+  showMap(latitude: any, longitude: any) {
     let latLng = new google.maps.LatLng(latitude, longitude);
     let mapOptions = {
       center: latLng,
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
+    };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
-
- 
 
   constructor() {
     this.getCurrentLocation().then((position: any) => {
       this.showMap(position.coords.latitude, position.coords.longitude);
-    }); 
-   }
-   @Input() longitudeEvent: string;
-   @Input() latitudeEvent: string;
+    });
+  }
+  @Input() longitudeEvent: string;
+  @Input() latitudeEvent: string;
 
-   getCurrentLocation(): Promise<any> {
+  getCurrentLocation(): Promise<any> {
     return new Promise((resolve, reject) => {
-        const locOptions = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
-        Geolocation.getCurrentPosition(locOptions).then((position: any) => {
-          resolve(position);
-        }).catch(e => {
-          reject(e.message);
-        });
+      const locOptions = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+      Geolocation.getCurrentPosition(locOptions).then((position: any) => {
+        resolve(position);
+      }).catch(e => {
+        reject(e.message);
+      });
     });
   }
   ngOnInit() {
-    this.showLocation(this.latitudeEvent,this.longitudeEvent);
+    this.showLocation(this.latitudeEvent, this.longitudeEvent);
   }
 
 
-  ngOnChanges(){
-    console.log(this.longitudeEvent);
-    console.log(this.latitudeEvent);
-    this.showLocation(this.latitudeEvent,this.longitudeEvent)
+  ngOnChanges() {
+    this.showLocation(this.latitudeEvent, this.longitudeEvent);
   }
 
   showLocation(latitude, longitude) {

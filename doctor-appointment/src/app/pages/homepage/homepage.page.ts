@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Router } from '@angular/router';
 import { Company, CompanyService } from './../../services/company/company.service';
@@ -5,6 +6,7 @@ import { Specialization, SpecializationService } from './../../services/speciali
 import { Doctor } from './../../services/doctor/doctor.service';
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
+import { Covid19, CovidServiceService } from 'src/app/services/CovidService/covid-service.service';
 
 @Component({
   selector: 'app-homepage',
@@ -16,11 +18,13 @@ export class HomepagePage implements OnInit {
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
     private companyService: CompanyService,
+    private covidService: CovidServiceService,
     private router: Router) { }
 
   doctors$: Doctor[] = [];
   specializations$: Specialization[] = [];
   company$: Company[] = [];
+  covid_datas$: Covid19[] = [];
 
   option = {
     slidesPerView: 4,
@@ -32,6 +36,7 @@ export class HomepagePage implements OnInit {
     this.getAllDoctors();
     this.getAllSpcializations();
     this.getAllCompany();
+    this.getAllDataCovid();
 
   }
   gotoCardiologist(id: string) {
@@ -70,6 +75,17 @@ export class HomepagePage implements OnInit {
         if (res != null) {
           console.log(res.company);
           this.company$ = res.company;
+        }
+      }
+    );
+  }
+
+  public getAllDataCovid() {
+    this.covidService.getData().subscribe(
+      (res: any) => {
+        if(res != null) {
+          console.log(res);
+          this.covid_datas$ = res;
         }
       }
     );

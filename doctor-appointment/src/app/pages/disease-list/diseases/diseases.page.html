@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button auto-hide="false"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text">Danh sách bệnh</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <app-carditemcardiologist></app-carditemcardiologist> -->
+  <!-- <app-cardcategorylist  *ngFor="let specialization of specializations$" [SpecializationObj] = "specialization" 
+  (click)="gotoCardiologist(specialization._id)"></app-cardcategorylist> -->
+  <div class="diseases" *ngFor="let disease of diseases$">
+    <img class="thumb" src="{{disease.thumb}}" />
+
+    <div class="info">
+      <div class="content">
+        <h6>{{disease.name}}</h6>
+
+      </div>
+      <div class="indicator" (click)="gotoDiseaseInfo(disease._id)">
+        <div>Xem</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

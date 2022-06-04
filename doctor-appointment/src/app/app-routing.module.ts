@@ -112,7 +112,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lab-info/lab-info.module').then(m => m.LabInfoPageModule)
   },
   {
-    path: 'search-test', 
+    path: 'search-test',
     loadChildren: () =>
       import('./pages/search-test/search-test.module').then(
         (m) => m.SearchTestPageModule
@@ -175,6 +175,19 @@ const routes: Routes = [
     path: 'splashsreen',
     loadChildren: () => import('./pages/splashsreen/splashsreen.module').then( m => m.SplashsreenPageModule)
   },
+  {
+    path: 'catdiseases',
+    loadChildren: () => import('./pages/cat-disease/catdiseases/catdiseases.module').then( m => m.CatdiseasesPageModule)
+  },
+  {
+    path: 'diseases/:id',
+    loadChildren: () => import('./pages/disease-list/diseases/diseases.module').then( m => m.DiseasesPageModule)
+  },
+  {
+    path: 'diseaseinfo/:id',
+    loadChildren: () => import('./pages/disease-info/diseaseinfo/diseaseinfo.module').then( m => m.DiseaseinfoPageModule)
+  },
+
 
 ];
 

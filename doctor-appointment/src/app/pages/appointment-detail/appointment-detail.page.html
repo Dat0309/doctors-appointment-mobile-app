@@ -6,7 +6,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button auto-hide="false"></ion-back-button>
     </ion-buttons>
     <ion-title>CHI TIẾT LỊCH HẸN</ion-title>
   </ion-toolbar>
@@ -15,8 +15,9 @@
 <ion-content>
   <ion-list>
     <div class="doctor-name">
-      <h3>{{appointment.doctor-name}}</h3>
-      <p>Tim mạch</p>
+      <h3>{{appointment?.name}}</h3>
+      <p>Bác sĩ: {{nameDoctor}}</p>
+      <p>Bệnh nhân: {{nameCustomer}}</p>
       <p class="star">
         <ion-icon name="star"></ion-icon>
         <ion-icon name="star"></ion-icon>
@@ -32,7 +33,7 @@
       </ion-avatar>
       <ion-label>
         <h2>Thời gian hẹn khám</h2>
-        <h3>5:00-6:00</h3>
+        <h3>{{appointment?.start_time}} - {{appointment?.end_time}}</h3>
       </ion-label>
     </ion-item>
 
@@ -42,10 +43,9 @@
       </ion-avatar>
       <ion-label>
         <h2>Địa chỉ</h2>
-        <h3>187 Phù Đổng Thiên Vương, P8, Đà Lạt, Lâm Đồng</h3>
+        <h3>{{appointment?.street}}, {{appointment?.ward}}, {{appointment?.district}}, {{appointment?.province}},</h3>
       </ion-label>
     </ion-item>
   </ion-list>
-
-  <ion-button expand="block">OK</ion-button>
+  <ion-button expand="block" >Đánh giá</ion-button>
 </ion-content>

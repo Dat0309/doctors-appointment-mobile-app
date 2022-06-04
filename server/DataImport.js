@@ -10,6 +10,8 @@ import Specialization from "./Models/SpecializationModel.js";
 import specializations from "./data/specialization.js";
 import Company from "./Models/CompanyModel.js";
 import companies from "./data/company.js";
+import diseases from "./data/diseases.js";
+import Diseases from "./Models/DiseasesModel.js";
 
 const ImportData = express.Router();
 
@@ -55,6 +57,15 @@ ImportData.post(
     await Company.deleteMany({});
     const importCompany = await Company.insertMany(companies);
     res.send({importCompany});
+  })
+);
+
+ImportData.post(
+  "/disease",
+  asyncHandler(async (req, res) => {
+    await Diseases.deleteMany({});
+    const importDisease = await Diseases.insertMany(diseases);
+    res.send({importDisease});
   })
 );
 
