@@ -97,21 +97,7 @@ export class DoctorInfoPage implements OnInit {
     this.router.navigateByUrl(`/book-appointment/${id}`);
   }
 
-  // public getNameSpecialization(id: string) {
-  //   let nameSpecialization = "";
-  //   this.specializations.forEach(element => {
-  //     if (element._id === id) {
-  //       nameSpecialization = element.name;
-  //       return;
-  //     }
-  //   }
-  //   );
-  //   return nameSpecialization;
-  // }
-
-  // public onChangesSpecializations(){
-  //   this.doctor.specializations.forEach(special => {
-  //     this.nameSpecialization = this.getNameSpecialization(special.id);
-  //   })
-  // }
+  goToLabMap(id: string) {
+    this.router.navigateByUrl(`/lab-map/${id}`);
+  }
 }

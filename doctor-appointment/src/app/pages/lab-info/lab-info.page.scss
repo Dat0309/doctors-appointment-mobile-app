@@ -1,91 +1,91 @@
-.lab-box {
-ion-row {
-.star-rating {
-padding: 30px 10px;
-}
-	p{
-	width: 150px;
-	}
-}
-}
-.timing-lab{
-	width: 150px;
-    text-align: right;
-   padding: 35px 45px;
-span{
-	font-size: 10px;
-	font-family: "Poppins", sans-serif;
-	color: #254298;
-}    
-p{
-	    padding: 5px 41px;
-	    font-size: 10px;
-	    font-family: "Poppins", sans-serif;
-}    
-}
-.lab-map{
-	margin: 20px 0;
-}
-.Faclitiess-heading{
-	label{
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    color: #000;
+* {
+    font-family: 'Quicksand', sans-serif;
     font-weight: 500;
-    padding: 0 24px;	
-	}
-}
-.Faclitiess-tittle{
-    margin: 15px 20px;
-	span{
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    color: #474747;
-    border-radius: 0;
-    box-shadow: 0px 0px 5px 0px #ccc;
-    font-weight: 500;
-    text-align: center;
-    padding: 10px;
-    background: #fff;
-	}
-	span:hover{
-		color:#fff;
-		background-color: #254298;
-	}
+    --ion-color-warning: #ffa400;
 }
 
-.Faclitiess-tittle1{
-	margin: 20px 20px;
-	span{
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    color: #474747;
-    border-radius: 0;
-    box-shadow: 0px 0px 5px 0px #ccc;
-    font-weight: 500;
-    text-align: center;
-    padding: 10px;
-    background: #fff;
-	}
-	span:hover{
-		color:#fff;
-		background-color: #254298;
-	}	
+ion-header ion-toolbar {
+    color: #fff;
+    --background: #8dd1f8;
 }
-.lab-btn{
-.my-button {
-    background: #fff;
-    border-radius: 4px;
-    width: 134px;
-    margin: 0 20px;
-    color: #000;
-    height: 40px;
+
+.content {
+    padding: 15px;
 }
-	
+
+.thumb {
+    width: 100%;
+    height: 30%;
+
+    ion-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
-.my-button:hover{
-   background: #254298 !important;
-    color: #fff !important;
-    border:none;
-    outline: none;
+
+.lab-info {
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    padding: 0 3%;
+    margin-top: 5%;
+
+
+    .lab-name {
+        font-size: 1.375rem;
+        font-weight: bold;
+        width: 100%;
+        line-height: 1.75rem;
+        text-align: left;
+    }
+
+    .star {
+        color: var(--ion-color-warning);
+    }
+}
+
+.info-contact {
+    margin-top: 7%;
+    height: 23%;
+    padding: 0 2.5%;
+    align-items: center;
+
+    .address {
+        overflow-wrap: break-word;
+        flex: 1;
+        padding-bottom: 10px;
+        
+        height: 48px;
+    }
+
+    .cXHGnc {
+        width: 48px;
+        display: flex;
+        align-items: center;
+        float: left;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .rogA2c {
+        height: 24px;
+        align-self: center;
+        flex: 1;
+    }
+
+    .AdGh {
+        overflow-wrap: break-word;
+        flex: 1;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+}
+
+.map-container {
+    height: 30%;
+    width: 100%;
 }

@@ -107,12 +107,12 @@ const routes: Routes = [
   //   path: 'lab-test',
   //   loadChildren: () => import('./pages/lab-test/lab-test.module').then(m => m.LabTestPageModule)
   // },
-  // {
-  //   path: 'lab-info',
-  //   loadChildren: () => import('./pages/lab-info/lab-info.module').then(m => m.LabInfoPageModule)
-  // },
   {
-    path: 'search-test',
+    path: 'lab-info/:id',
+    loadChildren: () => import('./pages/lab-info/lab-info.module').then(m => m.LabInfoPageModule)
+  },
+  {
+    path: 'search-test', 
     loadChildren: () =>
       import('./pages/search-test/search-test.module').then(
         (m) => m.SearchTestPageModule
@@ -126,7 +126,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'lab-map',
+    path: 'lab-map/:id',
     loadChildren: () =>
       import('./pages/lab-map/lab-map.module').then((m) => m.LabMapPageModule),
   },

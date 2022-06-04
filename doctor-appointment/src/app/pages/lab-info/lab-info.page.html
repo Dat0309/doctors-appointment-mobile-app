@@ -1,75 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Labs info</ion-title>
-  </ion-toolbar>
-</ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button auto-hide="false"></ion-menu-button>
+		</ion-buttons>
+		<ion-buttons slot="primary">
+			<ion-button>
+				<ion-icon size="large" name="chatbox-ellipses-outline"></ion-icon>
+			</ion-button>
+		</ion-buttons>
 
+		<ion-title>Thông tin phòng khám</ion-title>
+	</ion-toolbar>
+</ion-header>
 <ion-content>
-<ion-label class="lab-box">
-	<ion-row>
-		<ion-col>
-			<div class="adult-dr-img">
-					<img src="assets/images/adult-doctor.png">
-					
-				<div class="star-rating">
-					<span>SMS Clinical Labs</span>
-					<p>1210 30th Dr.Renna,Jaipur</p>
-				</div>
+	<ion-slides class="thumb">
+		<ion-slide *ngFor="let thumb of thumbs" class="thumbnail">
+			<ion-img src="{{thumb}}"></ion-img>
+		</ion-slide>
+	</ion-slides>
+	<div class="lab-info">
+		<h1 class="lab-name">{{company.name}}</h1>
+		<p class="star">
+			<ion-icon name="star"></ion-icon>
+			<ion-icon name="star"></ion-icon>
+			<ion-icon name="star"></ion-icon>
+			<ion-icon name="star"></ion-icon>
+			<ion-icon name="star"></ion-icon>
+		</p>
+		<span>Bệnh viện</span>
+	</div>
+	<div class="info-contact">
+		<div class="address">
+			<div class="cXHGnc">
+				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/place_gm_blue_24dp.png">
 			</div>
-		</ion-col>
-		<ion-col class="timing-lab">
-			<span>Timing</span>
-			<p>07:00 to 20:00</p>
-		</ion-col>
-	</ion-row>
-</ion-label>
-<ion-row class="field-lab">
-	<div class="field">
-		<span class="fa fa-search"></span>
-          <input type="text" required>
-          <label>Search for tests</label>
-        </div>
-</ion-row>
-<ion-label>
-	<ion-row class="lab-map">
-		<label>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113874.29338099538!2d75.72051798115461!3d26.885346595295566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1593502550662!5m2!1sen!2sin" width="500" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-		</label>
-	</ion-row>
-</ion-label>
-<ion-label class="Faclitiess-heading">
-	<ion-row>
-	<label>Faclitiess</label>
-</ion-row>
-	<ion-row class="Faclitiess-tittle">
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-	</ion-row>
-		<ion-row class="Faclitiess-tittle1">
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-			<span>Card Accepted</span>
-		</ion-col>
-		<ion-col>
-		
-		</ion-col>
-	</ion-row>
-</ion-label>
-<ion-row class="lab-btn">
-<ion-col>
-	<button class="my-button">Message</button>
-</ion-col>
-<ion-col>
-	<button class="my-button">Call Now</button>
-</ion-col>
-</ion-row>
+			<div class="rogA2c">
+				<span class="address-info">{{company.street}}, {{company.ward}}, {{company.district}},
+					{{company.province}}</span>
+			</div>
+		</div>
+
+		<div class="AdGh">
+			<div class="cXHGnc">
+				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/schedule_gm_blue_24dp.png">
+			</div>
+			<div class="rogA2c">
+				<span>Đang mở cửa</span>
+			</div>
+		</div>
+
+		<div class="AdGh">
+			<div class="cXHGnc">
+				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/email_gm_blue_24dp.png">
+			</div>
+			<div class="rogA2c">
+				<span>phongkham@gmail.com</span>
+			</div>
+		</div>
+
+		<div class="AdGh">
+			<div class="cXHGnc">
+				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/phone_gm_blue_24dp.png">
+			</div>
+			<div class="rogA2c">
+				<span>0995878545</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="map-container">
+		<map-component [longitudeEvent]="longitudeEvent" [latitudeEvent]="latitudeEvent">
+		</map-component>
+	</div>
 </ion-content>

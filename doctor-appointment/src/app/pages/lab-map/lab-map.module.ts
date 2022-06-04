@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LabMapPageRoutingModule } from './lab-map-routing.module';
 
 import { LabMapPage } from './lab-map.page';
+import { ComponentsModule } from 'src/app/components/component.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LabMapPageRoutingModule
+    LabMapPageRoutingModule,
+    ComponentsModule,
   ],
   declarations: [LabMapPage]
 })
