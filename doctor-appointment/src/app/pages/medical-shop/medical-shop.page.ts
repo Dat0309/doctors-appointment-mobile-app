@@ -85,7 +85,7 @@ export class MedicalShopPage implements OnInit {
    );
  }
 
- gotoDoctorInfo(id: string) {
+  gotoDoctorInfo(id: string) {
   this.router.navigateByUrl(`/doctor-info/${id}`);
  }
 }

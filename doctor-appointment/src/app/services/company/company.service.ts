@@ -12,6 +12,8 @@ export class Company {
   province: string;
   district: string;
   ward: string;
+  longtitude: string;
+  latitude: string;
   street: string;
 }
 

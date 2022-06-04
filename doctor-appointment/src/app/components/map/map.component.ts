@@ -43,7 +43,7 @@ export class MapComponent implements OnInit, OnChanges {
     });
   }
   ngOnInit() {
-    this.showLocation(this.latitudeEvent,this.longitudeEvent)
+    this.showLocation(this.latitudeEvent,this.longitudeEvent);
   }
 
 
@@ -53,7 +53,7 @@ export class MapComponent implements OnInit, OnChanges {
     this.showLocation(this.latitudeEvent,this.longitudeEvent)
   }
 
-  showLocation(latitude,longitude) {
+  showLocation(latitude, longitude) {
     const latLng = new google.maps.LatLng(latitude, longitude);
     const mapOptions = {
       center: latLng,
