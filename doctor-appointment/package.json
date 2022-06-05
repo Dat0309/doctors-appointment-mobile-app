@@ -37,6 +37,7 @@
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-request-location-accuracy": "^2.3.0",
     "date-fns": "^2.28.0",
+    "ionic4-rating": "^1.0.9",
     "querystring-es3": "^0.2.1",
     "rxjs": "~6.6.0",
     "swiper": "^8.1.5",

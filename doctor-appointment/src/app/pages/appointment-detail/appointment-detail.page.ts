@@ -15,6 +15,9 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { element } from 'protractor';
+import { AlertController } from '@ionic/angular';
+import { FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-appointment-detail',
   templateUrl: './appointment-detail.page.html',
@@ -27,8 +30,9 @@ export class AppointmentDetailPage implements OnInit {
     private customerService: CustomerService,
     private doctorService: DoctorService,
     private storageService: StorageService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private alertCtrl: AlertController,
+  ) { }
 
   appointment: Appointment;
   nameCustomer: string = '';
@@ -52,24 +56,25 @@ export class AppointmentDetailPage implements OnInit {
       });
   }
 
-  public getDoctorName(id: string){
+  public getDoctorName(id: string) {
     this.doctorService.getByID(id).subscribe(
       (res: any) => {
-        if(res != null){
+        if (res != null) {
           this.nameDoctor = res.last_name + ' ' + res.first_name;
         }
       }
     );
   }
 
-  public getCustomerName(id: string){
+  public getCustomerName(id: string) {
     this.customerService.getByID(id).subscribe(
       (res: any) => {
-        if(res != null){
+        if (res != null) {
           this.nameCustomer = res.last_name + ' ' + res.first_name;
         }
       }
     );
   }
 
+  
 }
