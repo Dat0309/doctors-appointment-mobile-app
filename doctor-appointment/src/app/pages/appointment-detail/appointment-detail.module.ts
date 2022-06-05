@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AppointmentDetailPageRoutingModule } from './appointment-detail-routing.module';
 
 import { AppointmentDetailPage } from './appointment-detail.page';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AppointmentDetailPageRoutingModule
+    AppointmentDetailPageRoutingModule,
+    IonicRatingModule,
   ],
   declarations: [AppointmentDetailPage]
 })

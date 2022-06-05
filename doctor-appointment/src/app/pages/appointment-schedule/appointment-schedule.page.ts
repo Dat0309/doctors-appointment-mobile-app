@@ -5,6 +5,7 @@
 /* eslint-disable no-underscore-dangle */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
@@ -22,14 +23,22 @@ export class AppointmentSchedulePage implements OnInit {
     private appointmentService: AppointmentService,
     private router: Router,
     private doctorService: DoctorService,
-    private storageService: StorageService,
-    private activateRoute: ActivatedRoute) { }
+    private activateRoute: ActivatedRoute,
+    private toastController: ToastController) { }
 
   ngOnInit() {
     this.getCustomerByUserId();
     setTimeout(() => {
       this.getMyAppointment(this.doctor_id);
     }, 2000);
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   public async getMyAppointment(id: string) {
@@ -60,11 +69,13 @@ export class AppointmentSchedulePage implements OnInit {
   public update(id: string) {
     this.appointmentService.update(id);
     window.location.reload();
+    this.presentToast('Đánh dấu hoàn thành!');
   }
 
   public delete(id: string) {
     this.appointmentService.delete(id);
     window.location.reload();
+    this.presentToast('Đã huỷ lịch!');
   }
 
   public detailAppointment(id: string){

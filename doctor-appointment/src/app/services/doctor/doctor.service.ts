@@ -143,6 +143,14 @@ export class DoctorService {
       );
   }
 
+  rate(id ,rating: any){
+    return this.http.post(`${this.apiUrl}/doctors/${id}/review`, JSON.stringify(rating), this.httpOptions)
+    .pipe(
+      tap(_ => console.log(`Doctor review: ${id}`)),
+      catchError(this.handleError<Doctor[]>('review doctors'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

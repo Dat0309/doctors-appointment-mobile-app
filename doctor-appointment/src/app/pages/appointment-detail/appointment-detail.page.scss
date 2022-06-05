@@ -3,27 +3,43 @@
   --ion-grid-width-lg: 20px;
   --ion-safe-area-top: 20px;
   --ion-safe-area-bottom: 22px;
+  font-family: 'Quicksand', sans-serif;
 }
+
 * {
   padding-top: 7px;
+  font-family: 'Quicksand', sans-serif;
 }
+
 ion-header ion-toolbar {
   color: #fff;
   --background: #8dd1f8;
 }
+
 .doctor-name {
   text-align: center;
 }
+
 ion-avatar {
   ion-icon {
     font-size: 36px;
     color: #1aa3f0;
   }
 }
+
 .star {
   color: #ffc107;
 }
 
 ion-button {
   height: 40px;
+}
+
+.rating {
+  ion-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #1aa3f0;
+    font-size: 22px;
+  }
 }

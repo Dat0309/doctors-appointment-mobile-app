@@ -63,24 +63,13 @@ doctorRoute.get(
 // doctor REVIEW
 doctorRoute.post(
     "/:id/review",
-    protect,
     asyncHandler(async (req, res) => {
-        const { rating, comment } = req.body;
+        const { rating } = req.body;
         const doctor = await Doctor.findById(req.params.id);
 
         if (doctor) {
-            const alreadyReviewed = doctor.reviews.find(
-                (r) => r.user.toString() === req.user._id.toString()
-            );
-            if (alreadyReviewed) {
-                res.status(400);
-                throw new Error("doctor already Reviewed");
-            }
             const review = {
-                name: req.user.name,
                 rating: Number(rating),
-                comment,
-                user: req.user._id,
             };
 
             doctor.reviews.push(review);
@@ -144,7 +133,7 @@ doctorRoute.post(
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
             province, district, ward, street,
-            level_of_education, specializations } = req.body;
+            level_of_education, specializations, latitute, longtitute } = req.body;
         const doctorExist = await Doctor.findOne({ user_id });
         if (doctorExist) {
             res.status(400);
@@ -165,6 +154,8 @@ doctorRoute.post(
                 street,
                 level_of_education,
                 specializations,
+                latitute,
+                longtitute
             });
             if (doctor) {
                 const createddoctor = await doctor.save();

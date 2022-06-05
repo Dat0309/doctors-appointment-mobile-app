@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 
 @Component({
@@ -33,10 +34,19 @@ export class UserPage implements OnInit {
     private router: Router,
     private customerService: CustomerService,
     private activateRoute: ActivatedRoute,
+    private toastController: ToastController
   ) {
   }
 
   ngOnInit() {
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   get getId() {
@@ -130,14 +140,15 @@ export class UserPage implements OnInit {
       this.customerService.createByHTTP(this.postData).then(
         (res: any) => {
           if (res) {
+            this.presentToast('Đăng ký thành công!');
             this.router.navigate([`/login-form`]);
           }
           else {
-            console.log('Fail');
+            this.presentToast('Đã xảy ra lỗi');
           }
         },
         (error: any) => {
-          console.log('Net work Issue.');
+          this.presentToast('Lỗi mạng');
         }
       );
     }

@@ -140,13 +140,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/chating/chating.module').then((m) => m.ChatingPageModule),
   },
-  {
-    path: 'feedback',
-    loadChildren: () =>
-      import('./pages/feedback/feedback.module').then(
-        (m) => m.FeedbackPageModule
-      ),
-  },
+  // {
+  //   path: 'feedback',
+  //   loadChildren: () =>
+  //     import('./pages/feedback/feedback.module').then(
+  //       (m) => m.FeedbackPageModule
+  //     ),
+  // },
   {
     path: 'homepage',
     loadChildren: () =>
