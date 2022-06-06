@@ -130,12 +130,10 @@ customerRoute.get(
 // UPDATE customer
 customerRoute.put(
     "/:id",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
-            province, district, ward, street, facebook_id, zalo_id } = req.body;
+            province, district, ward, street} = req.body;
         const customer = await Customer.findById(req.params.id);
         if (customer) {
             customer.user_id = user_id || customer.user_id;
@@ -150,8 +148,6 @@ customerRoute.put(
             customer.district = district || customer.district;
             customer.ward = ward || customer.ward;
             customer.street = street || customer.street;
-            customer.facebook_id = facebook_id || customer.facebook_id;
-            customer.zalo_id = zalo_id || customer.zalo_id;
 
             const updatedcustomer = await customer.save();
             res.json(updatedcustomer);

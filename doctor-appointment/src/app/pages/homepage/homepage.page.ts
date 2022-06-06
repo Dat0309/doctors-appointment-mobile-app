@@ -25,6 +25,7 @@ export class HomepagePage implements OnInit {
   specializations$: Specialization[] = [];
   company$: Company[] = [];
   covid_datas$: Covid19[] = [];
+  covid: Covid19;
 
   option = {
     slidesPerView: 4,
@@ -33,11 +34,10 @@ export class HomepagePage implements OnInit {
   };
 
   ngOnInit() {
-    this.getAllDoctors();
+    this.getDoctorsHighRating();
     this.getAllSpcializations();
     this.getAllCompany();
     this.getAllDataCovid();
-
   }
   gotoCardiologist(id: string) {
     this.router.navigateByUrl(`/cardiologist/${id}`);
@@ -53,6 +53,17 @@ export class HomepagePage implements OnInit {
           // this.doctors$.forEach(element => {
           //   console.log(element);
           // });
+        }
+      }
+    );
+  }
+
+  public getDoctorsHighRating(){
+    this.doctorService.getDoctorsHighRating().subscribe(
+      (res: any) => {
+        if(res.doctors) {
+          console.log(res.doctors);
+          this.doctors$ = res.doctors;
         }
       }
     );
@@ -86,6 +97,8 @@ export class HomepagePage implements OnInit {
         if(res != null) {
           console.log(res);
           this.covid_datas$ = res;
+          this.covid = this.covid_datas$[this.covid_datas$.length - 1];
+          console.log(this.covid);
         }
       }
     );

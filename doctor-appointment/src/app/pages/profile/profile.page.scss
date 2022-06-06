@@ -1,130 +1,178 @@
-:root {
-  --ion-safe-area-top: 20px;
-  --ion-safe-area-bottom: 22px;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    margin-top: 100px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10%;
+
+  }
+
 }
+
 ion-header ion-toolbar {
   color: #fff;
   --background: #8dd1f8;
 }
-.form-sec .field:nth-child(2) {
-  margin-top: 15px;
-  margin-bottom: 15px;
+
+ion-icon {
+  width: 30px;
+  height: 120px;
 }
 
-.form-sec .content .field {
-  margin-bottom: 15px;
+.form-sec {
+  padding: 5px
 }
 
-.form-sec .content {
-  top: 36%;
-}
-
-ion-content {
-  --background: #f5f5f3;
-
-  #header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      margin-top: 80px;
-      width: 90px;
-      height: 90px;
-      margin-bottom: 10%;
-    }
-  }
-
-  #form {
-    margin-top: 15px;
-    padding-left: 20px;
-    padding-right: 30px;
-  }
-
-  .button {
-    text-align: center;
-    margin: 25px auto;
-  }
-
-  ion-button {
-    --border-radius: 12px;
-    width: 55%;
-    margin-top: 35px;
-    height: 45px;
-    font-size: 15px;
-    text-transform: initial;
-    font-weight: bold;
-    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
-    --box-shadow: none;
-  }
-}
-.labelSelect {
-  --placeholder-opacity: 1;
-}
-
-ion-item {
-  margin-left: 10px;
-  margin-right: 10px;
+.Surname {
+  margin-left: 20px;
   border-radius: 10px;
   height: 50px;
-  width: 370px;
+  width: 330px;
+
+}
+
+.surname {
+
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+.name {
+  margin-left: 30px;
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+.date {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
   box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
 }
-.text-lastname {
-  align-items: center;
-  width: 170px;
-}
-.text-name {
-  width: 170px;
-}
-.sex {
-  margin-left: 25px;
-  .radio-sex {
-    ion-lable + ion-radio {
-      margin-left: 5px;
-    }
-  }
-  ion-radio {
-    margin-left: 7px;
-  }
+
+.checkbox {
+  margin-top: 20px;
+  margin-left: 60px;
+  font-weight: 600;
 }
 
-ion-input {
-  font-size: 15px;
-  --padding-top: 20px;
-  --padding-bottom: 15px;
-  --padding-start: 5px;
+.phone {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
 }
 
-ion-label {
+.address {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  height: 50px;
+  width: 330px;
+
+}
+
+.road {
+
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+.ward {
+  margin-left: 30px;
+  border-radius: 10px;
+  height: 50px;
+  width: 150px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+
+}
+
+.level {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.specialized {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.workplace {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.description {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.button {
+  text-align: center;
+  margin: 25px auto;
+
+}
+
+.genre {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.level_of_education {
+  margin-top: 20px;
+  margin-left: 40px;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+ion-button {
+  --border-radius: 12px;
+  width: 55%;
+  margin-top: 35px;
+  height: 45px;
   font-size: 15px;
+  text-transform: initial;
   font-weight: bold;
-}
+  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+  --box-shadow: none;
 
-a {
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  color: #575755;
-  margin-left: 15px;
-}
-.error {
-  margin-left: 55px;
-}
-.error-message {
-  margin-left: 55px;
-  font-size: 10px;
-  color: #d00909;
-  margin-left: 10px;
-}
-
-.forgot-pass {
-  color: #292929;
-}
-
-.register {
-  align-items: center;
-}
-._ngcontent-abc-c142 {
-  margin-left: 55px;
 }

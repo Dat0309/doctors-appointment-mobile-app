@@ -16,27 +16,30 @@ import { Specialization, SpecializationService } from 'src/app/services/speciali
 export class MapPage implements OnInit {
 
   slideOpts: any;
-  longitudeEvent: string ;
+  longitudeEvent: string;
   latitudeEvent: string;
 
-  @ViewChild('slides',{static:false}) slides: IonSlides;
+  @ViewChild('slides', { static: false }) slides: IonSlides;
 
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
     private companyService: CompanyService,
     private route: ActivatedRoute) {
-      this.slideOpts = {
-        slidesPerView: 1,
-        centeredSlide: true,
-        loop: true,
-      };
-    }
+    this.slideOpts = {
+      slidesPerView: 1,
+      centeredSlide: true,
+      loop: true,
+    };
+  }
 
   ngOnInit() {
     // this.getDoctorByIdSpecail("6289a0e9b416b9c1586e2b68");
     this.getAllDoctors();
     this.getAllSpcializations();
     this.getAllCompany();
+    setTimeout(() => {
+      this.testClick(this.doctors$[0]);
+    }, 3000);
     // this.longitudeEvent = this.doctors$[0].longtitute;
     // this.latitudeEvent = this.doctors$[0].latitute;
   }
@@ -45,7 +48,7 @@ export class MapPage implements OnInit {
   specializations$: Specialization[] = [];
   company$: Company[] = [];
 
-  public async  getAllSpcializations() {
+  public async getAllSpcializations() {
     await this.specializationService.getAll().subscribe(
       (res: any) => {
         if (res != null) {
@@ -72,10 +75,10 @@ export class MapPage implements OnInit {
   }
 
 
-  public getAllCompany(){
+  public getAllCompany() {
     this.companyService.getAll().subscribe(
       (res: any) => {
-        if(res != null){
+        if (res != null) {
           console.log(res.company);
           this.company$ = res.company;
         }
@@ -83,10 +86,10 @@ export class MapPage implements OnInit {
     );
   }
 
-  public async getDoctorByIdSpecail(id: string){
-     await this.doctorService.getDoctorByIdSpecialization(id).subscribe(
+  public async getDoctorByIdSpecail(id: string) {
+    await this.doctorService.getDoctorByIdSpecialization(id).subscribe(
       (res: any) => {
-        if(res.doctors ) {
+        if (res.doctors) {
           console.log(res.doctors);
           this.doctors$ = res.doctors;
         }
@@ -96,23 +99,22 @@ export class MapPage implements OnInit {
     this.latitudeEvent = this.doctors$[0].latitute;
   }
 
-  async changeEvent(event){
+  async changeEvent(event) {
     // console.log(event)
-    await this.slides.getActiveIndex().then(index =>{
+    await this.slides.getActiveIndex().then(index => {
       // let i = index-1;
-      console.log(index-1);
-      console.log((index-1)%this.doctors$.length);
-      let i = (index-1)%this.doctors$.length;
+      console.log(index);
+      let i = (index) % this.doctors$.length;
       this.longitudeEvent = this.doctors$[i].longtitute;
       this.latitudeEvent = this.doctors$[i].latitute;
     });
   }
 
-  testClick(doctor){
+  testClick(doctor) {
     // this.longitudeEvent.emit(doctor.longtitute);
     // this.latitudeEvent.emit(doctor.latitute);
     // console.log(doctor.longtitute);
-    this.longitudeEvent = doctor.longtitute;
-    this.latitudeEvent = doctor.latitute;
+    this.longitudeEvent = doctor?.longtitute;
+    this.latitudeEvent = doctor?.latitute;
   }
 }

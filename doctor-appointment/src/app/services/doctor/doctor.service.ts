@@ -57,7 +57,7 @@ export class DoctorService {
       );
   }
 
-  getAllWithoutPagination(): Observable<Doctor[]>{
+  getAllWithoutPagination(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/all`)
       .pipe(
         tap(users => console.log('Doctors retrieved!')),
@@ -81,6 +81,13 @@ export class DoctorService {
       );
   }
 
+  getDoctorsHighRating(): Observable<Doctor[]> {
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/highRating/5`).pipe(
+      tap(_ => console.log(`Doctor fetched high ratinh`)),
+      catchError(this.handleError<Doctor[]>(`Get doctors high rating`))
+    );
+  }
+
   searchDoctorByName(name: string): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors?keyword=${name}`)
       .pipe(
@@ -91,10 +98,10 @@ export class DoctorService {
 
   findByUserId(user_id: string): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/users/${user_id}`)
-    .pipe(
+      .pipe(
         tap(_ => console.log(`Doctor fetched: ${user_id}`)),
         catchError(this.handleError<Doctor[]>(`Get doctors user_id=${user_id}`))
-    );
+      );
   }
 
   delete(id: string): Observable<Doctor[]> {
@@ -117,6 +124,20 @@ export class DoctorService {
           }
         }
       );
+    return check;
+  }
+
+  async updateByHTTP(id, doctor: any): Promise<boolean> {
+    let check = true;
+    await this.http.put(`${this.apiUrl}/doctors/${id}`, JSON.stringify(doctor), this.httpOptions).subscribe(
+      (res: any) => {
+        if (res.status === 200) {
+          console.log('updated doctor');
+        } else {
+          check = false;
+        }
+      }
+    );
     return check;
   }
 
@@ -143,12 +164,12 @@ export class DoctorService {
       );
   }
 
-  rate(id ,rating: any){
+  rate(id, rating: any) {
     return this.http.post(`${this.apiUrl}/doctors/${id}/review`, JSON.stringify(rating), this.httpOptions)
-    .pipe(
-      tap(_ => console.log(`Doctor review: ${id}`)),
-      catchError(this.handleError<Doctor[]>('review doctors'))
-    );
+      .pipe(
+        tap(_ => console.log(`Doctor review: ${id}`)),
+        catchError(this.handleError<Doctor[]>('review doctors'))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

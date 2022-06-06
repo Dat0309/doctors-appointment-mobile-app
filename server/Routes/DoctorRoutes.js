@@ -115,6 +115,17 @@ doctorRoute.get(
     })
 );
 
+// Get doctor with high rating
+doctorRoute.get(
+    "/highRating/:rate",
+    asyncHandler(async (req, res) => {
+        const rating = req.params.rate;
+        const doctors = await Doctor.find({ "rating": rating })
+            .sort({ _id: -1 });
+        res.json({ doctors });
+    })
+);
+
 // Get doctor by user_id
 doctorRoute.get(
     "/users/:id",
@@ -171,14 +182,10 @@ doctorRoute.post(
 // UPDATE doctor
 doctorRoute.put(
     "/:id",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
-            province, district, ward, street,
-            level_of_education, specializations, company_id,
-            facebook_id, zalo_id } = req.body;
+            province, district, ward, street } = req.body;
         const doctor = await Doctor.findById(req.params.id);
         if (doctor) {
             doctor.user_id = user_id || doctor.user_id;
@@ -193,13 +200,6 @@ doctorRoute.put(
             doctor.district = district || doctor.district;
             doctor.ward = ward || doctor.ward;
             doctor.street = street || doctor.street;
-            doctor.level_of_education = level_of_education || doctor.level_of_education;
-            doctor.rating = rating || doctor.rating;
-            doctor.numReviews = numReviews || doctor.numReviews;
-            doctor.specializations = specializations || doctor.specializations;
-            doctor.company_id = company_id || doctor.company_id;
-            doctor.facebook_id = facebook_id || doctor.facebook_id;
-            doctor.zalo_id = zalo_id || doctor.zalo_id;
 
             const updateddoctor = await doctor.save();
             res.json(updateddoctor);
