@@ -1,0 +1,27 @@
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button auto-hide="false"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text">Vị trí</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>   
+    <div class="container">
+        <!-- Map -->
+        <div class="map-container">
+            <!-- <ion-img src="../assets/1.jpg"></ion-img> -->
+            <map-component 
+            [longitudeEvent]="longitudeEvent" 
+            [latitudeEvent]="latitudeEvent">
+            </map-component>
+        </div>
+        <ion-slides #slides (ionSlideDidChange)="changeEvent($event)" class="info-doctor" [options]="slideOpts">
+            <ion-slide *ngFor="let company of companies$">
+                <app-cardmap [companyObj]="company" (click)="testClick(company)"></app-cardmap>
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

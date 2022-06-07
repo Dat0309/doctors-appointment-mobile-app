@@ -23,8 +23,7 @@ export class MapPage implements OnInit {
 
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
-    private companyService: CompanyService,
-    private route: ActivatedRoute) {
+    private companyService: CompanyService) {
     this.slideOpts = {
       slidesPerView: 1,
       centeredSlide: true,

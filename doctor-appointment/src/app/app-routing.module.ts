@@ -166,11 +166,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/user/user.module').then((m) => m.UserPageModule),
   },
-  {
-    path: 'doctors-signup/:id',
-    loadChildren: () =>
-      import('./pages/doctors/doctors.module').then((m) => m.DoctorsPageModule),
-  },
+  // {
+  //   path: 'doctors-signup/:id',
+  //   loadChildren: () =>
+  //     import('./pages/doctors/doctors.module').then((m) => m.DoctorsPageModule),
+  // },
   {
     path: 'splashsreen',
     loadChildren: () => import('./pages/splashsreen/splashsreen.module').then( m => m.SplashsreenPageModule)
@@ -186,7 +186,11 @@ const routes: Routes = [
   {
     path: 'diseaseinfo/:id',
     loadChildren: () => import('./pages/disease-info/diseaseinfo/diseaseinfo.module').then( m => m.DiseaseinfoPageModule)
+  },  {
+    path: 'companymap',
+    loadChildren: () => import('./pages/company-maps/companymap/companymap.module').then( m => m.CompanymapPageModule)
   },
+
 
 
 ];
