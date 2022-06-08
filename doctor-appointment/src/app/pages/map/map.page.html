@@ -14,8 +14,8 @@
         <div class="map-container">
             <!-- <ion-img src="../assets/1.jpg"></ion-img> -->
             <map-component 
-            [longitudeEvent]="longitudeEvent" 
-            [latitudeEvent]="latitudeEvent">
+            [latitudeEvent]="latitudeEvent"
+            [longitudeEvent]="longitudeEvent" >
             </map-component>
         </div>
         <ion-slides #slides (ionSlideDidChange)="changeEvent($event)" class="info-doctor" [options]="slideOpts">

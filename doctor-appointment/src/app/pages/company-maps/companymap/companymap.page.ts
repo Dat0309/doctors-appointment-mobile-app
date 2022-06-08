@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/member-ordering */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
@@ -10,7 +10,7 @@ import { Company, CompanyService } from 'src/app/services/company/company.servic
   templateUrl: './companymap.page.html',
   styleUrls: ['./companymap.page.scss'],
 })
-export class CompanymapPage implements OnInit {
+export class CompanymapPage implements OnInit, OnChanges {
 
   slideOpts: any;
   longitudeEvent: string;
@@ -28,6 +28,13 @@ export class CompanymapPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllCompany();
+    setTimeout(() => {
+      this.testClick(this.companies$[0]);
+    }, 3000);
+  }
+
+  ngOnChanges() {
     this.getAllCompany();
     setTimeout(() => {
       this.testClick(this.companies$[0]);

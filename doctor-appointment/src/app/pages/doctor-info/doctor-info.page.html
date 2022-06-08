@@ -46,7 +46,7 @@
             <p style="font-weight: bold;">Trình độ</p>
             <p>{{doctor.level_of_education}}</p>
           </div>
-          
+
         </ion-col>
         <ion-col class="available-box-1">
           <span>Nhận xét</span>
@@ -65,16 +65,21 @@
   </ion-row>
   <div class="clinic-info">
     <p>Thông tin phòng khám</p>
-    <div class="clinic-detail">
-      <p class="name-location">
-        {{company.name}}<ion-icon name="location-outline" (click)="goToLabMap(doctor.company_id)"></ion-icon>
-      </p>
-      <br /><span>Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
-        {{company.province}}</span><br /><span>9:00 am - 5:00pm</span>
+    <div class="company_name">
+      <div class="clinic-detail">
+        <span class="name-location">
+          {{company.name}}<ion-icon name="location-outline" (click)="goToLabMap(doctor.company_id)"></ion-icon>
+        </span>
+      </div>
+      <div class="img-clinic" (click)="gotoLabInfo(company._id)">
+
+      </div>
     </div>
-    <div class="img-clinic" (click)="gotoLabInfo(company._id)">
-      <img src="{{company.image}}" />
-    </div>
+    <!-- <br /><span>Địa chỉ: {{company.street}} - {{company.ward}} - {{company.district}} -
+        {{company.province}}</span><br /><span>9:00 am - 5:00pm</span> -->
+  </div>
+  <div class="thumbnail">
+    <img src="{{company.image}}" />
   </div>
   <ion-button expand="block" (click)="bookDoctor(doctor._id)">BOOK</ion-button>
 </ion-content>

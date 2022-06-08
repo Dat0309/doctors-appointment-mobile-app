@@ -1,4 +1,4 @@
-*{
+* {
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   --ion-color-warning: #ffa400;
@@ -8,6 +8,7 @@ ion-header ion-toolbar {
   color: #fff;
   --background: #8dd1f8;
 }
+
 .content {
   padding: 15px;
 }
@@ -17,6 +18,7 @@ ion-header ion-toolbar {
   width: 100%;
   height: auto;
   position: relative;
+
   .avatar {
     position: absolute;
     top: 20%;
@@ -24,10 +26,12 @@ ion-header ion-toolbar {
     max-width: 100%;
     height: auto;
   }
+
   .fa-star {
     color: #ffc107;
   }
 }
+
 .border {
   border-top: 1px solid #707070;
   width: 100%;
@@ -35,6 +39,7 @@ ion-header ion-toolbar {
   top: 120px;
   left: 0;
 }
+
 .fedback-doctor {
   display: block;
   width: 92%;
@@ -50,6 +55,7 @@ ion-header ion-toolbar {
     text-align: justify;
     margin-left: 15px;
     font-weight: 600;
+
     p {
       margin-left: 22px;
       padding: 0;
@@ -57,17 +63,20 @@ ion-header ion-toolbar {
       color: #474747;
       font-family: "Poppins", sans-serif;
     }
+
     span {
       color: #1aa3f0;
       margin-left: 20px;
       top: 10px;
     }
   }
+
   .available-box-1 {
     padding: 5px;
     text-align: justify;
     margin-left: 50px;
     font-weight: 600;
+
     p {
       margin-left: 22px;
       padding: 0;
@@ -75,27 +84,32 @@ ion-header ion-toolbar {
       color: #474747;
       font-family: "Poppins", sans-serif;
     }
+
     span {
       color: #1aa3f0;
       margin-left: 20px;
       top: 10px;
     }
   }
+
   .Experience-sec {
     text-align: justify;
     padding-left: 10px;
     margin-left: 10px;
     width: 97%;
     margin-left: 10px;
+
     p {
       padding: 5px;
     }
+
     label {
       color: #1aa3f0;
       font-weight: 600;
     }
   }
 }
+
 .clinic-info {
   margin-top: 300px;
   margin-left: 20px;
@@ -107,40 +121,52 @@ ion-header ion-toolbar {
     color: #1aa3f0;
     font-family: "Poppins", sans-serif;
   }
-  .clinic-detail {
-    padding: 5px;
-    p {
-      margin: 5px;
-      color: #000;
-    }
-    span {
-      margin-left: 5px;
-      color: #ccc;
-      font-weight: 400;
-    }
-    .name-location {
-      ion-icon {
-        margin-left: 220px;
-        font-size: 25px;
-      }
-    }
-  }
-  .img-clinic {
-    position: relative;
-    padding: 5px;
-    display: inline;
-    img {
-      margin-top: 10px;
-      border-radius: 10px;
-      width: 90%;
-      height: auto;
-    }
-  }
+
+  
+
   .ion-button {
     width: 60%;
   }
+
   .star {
     padding-top: 3px;
     color: var(--ion-color-warning) !important;
+  }
+}
+
+.company_name {
+  width: 100%;
+}
+
+.clinic-detail {
+  width: 85%
+
+  p {
+    margin: 5px;
+    color: #000;
+  }
+
+  .name-location {
+    ion-icon {
+      margin-left: 220px;
+      font-size: 25px;
+    }
+  }
+}
+
+.img-clinic {
+  padding: 5px;
+  width: 10%;
+  text-align: center;
+  float: left;
+}
+
+.thumbnail {
+  text-align: center;
+  img {
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 90%;
+    height: auto;
   }
 }

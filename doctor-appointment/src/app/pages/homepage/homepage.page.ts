@@ -26,6 +26,7 @@ export class HomepagePage implements OnInit {
   company$: Company[] = [];
   covid_datas$: Covid19[] = [];
   covid: Covid19;
+  doctors_high_rating: Doctor[] = [];
 
   option = {
     slidesPerView: 4,
@@ -34,7 +35,7 @@ export class HomepagePage implements OnInit {
   };
 
   ngOnInit() {
-    this.getDoctorsHighRating();
+    this.getAllDoctors();
     this.getAllSpcializations();
     this.getAllCompany();
     this.getAllDataCovid();
@@ -46,10 +47,11 @@ export class HomepagePage implements OnInit {
   public getAllDoctors() {
     this.doctorService.getAll().subscribe(
       (res: any) => {
-        if (res.doctors) {
-          console.log(res.doctors);
+        if (res !== null) {
+          console.log(res);
 
-          this.doctors$ = res.doctors;
+          this.doctors$ = res;
+          this.getDoctorsHighRating(this.doctors$);
           // this.doctors$.forEach(element => {
           //   console.log(element);
           // });
@@ -58,15 +60,12 @@ export class HomepagePage implements OnInit {
     );
   }
 
-  public getDoctorsHighRating(){
-    this.doctorService.getDoctorsHighRating().subscribe(
-      (res: any) => {
-        if(res.doctors) {
-          console.log(res.doctors);
-          this.doctors$ = res.doctors;
-        }
+  public getDoctorsHighRating(list: Doctor[]){
+    list.map((e)=>{
+      if(e.rating >= 4){
+        this.doctors_high_rating.push(e);
       }
-    );
+    });
   }
 
   public getAllSpcializations() {

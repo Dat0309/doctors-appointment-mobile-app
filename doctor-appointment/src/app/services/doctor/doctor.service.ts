@@ -50,7 +50,7 @@ export class DoctorService {
   constructor(private http: HttpClient, private fetchAPI: FetchapiService, private localStorage: StorageService) { }
 
   getAll(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors`)
+    return this.http.get<Doctor[]>(`${this.apiUrl}/doctors/all`)
       .pipe(
         tap(users => console.log('Doctors retrieved!')),
         catchError(this.handleError<Doctor[]>('Get doctors', []))

@@ -36,7 +36,7 @@
   </ion-slides>
 
   <p class="special">Bác sĩ được đánh giá cao</p>
-  <app-carddoctoritem *ngFor="let doctor of doctors$" [doctorObj]="doctor" [specialization$]=specializations$
+  <app-carddoctoritem *ngFor="let doctor of doctors_high_rating" [doctorObj]="doctor" [specialization$]=specializations$
     [company$]=company$ (click)="gotoDoctorInfo(doctor._id)"> 
   </app-carddoctoritem>
 
