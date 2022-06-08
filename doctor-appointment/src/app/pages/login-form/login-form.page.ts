@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 @Component({
@@ -20,8 +21,16 @@ export class LoginFormPage implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private storageService: StorageService) { }
+    private storageService: StorageService,
+    private toastController: ToastController) { }
   ngOnInit() {
+  }
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
   get email() {
@@ -69,15 +78,16 @@ export class LoginFormPage implements OnInit {
       this.authService.login(this.loginForm.value).then(
         async (res: any) => {
           if(res){
-            console.log(this.loginForm.value);
             let user = await this.storageService.get('USER');
             if(user.data.role === 'Bác sĩ'){
+              this.presentToast('Đăng nhập thành công!');
               this.router.navigate([`appointment-schedule/${user.data._id}`]).then(
                 () => {
                   window.location.reload();
                 }
               );
             }else if(user.data.role === 'Bệnh nhân'){
+              this.presentToast('Đăng nhập thành công!');
               this.router.navigate(['/homepage']).then(
                 () => {
                   window.location.reload();
@@ -86,11 +96,11 @@ export class LoginFormPage implements OnInit {
             }
 
           }else {
-            console.log('Sai mật khẩu');
+            this.presentToast('Email hoặc mật khẩu sai!!');
           }
         },
         (error: any) => {
-          console.log('Network Issue.');
+          this.presentToast('Lỗi mạng!');
         }
       );
     }

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-signup',
@@ -19,8 +20,17 @@ export class SignupPage implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    ) {}
-  ngOnInit() {}
+    private toastController: ToastController
+  ) { }
+  ngOnInit() { }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
+  }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   get email() {
@@ -47,10 +57,10 @@ export class SignupPage implements OnInit {
     confirmpassword: [
       { type: 'required', message: 'Yêu cầu xác nhận mật khẩu' },
     ],
-    role: [{ type: 'required', message: 'Vui lòng chọn quyền'}],
+    role: [{ type: 'required', message: 'Vui lòng chọn quyền' }],
   };
 
-  validationInputs(){
+  validationInputs() {
     const username = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     const confirmpassword = this.signupForm.get('confirmpassword').value;
@@ -73,27 +83,21 @@ export class SignupPage implements OnInit {
     this.postData.username = this.signupForm.get('email').value;
     this.postData.password = this.signupForm.get('password').value;
 
-    if(this.validationInputs()){
+    if (this.validationInputs()) {
       await this.authService.register(this.signupForm.value).then(
         (res: any) => {
-          if(res !== ''){
+          if (res !== '') {
             console.log(this.signupForm.value);
             // eslint-disable-next-line no-underscore-dangle
             const uid = res;
-            console.log(uid);
-            if(this.signupForm.get('role').value === 'Bác sĩ'){
-              this.router.navigate([`/doctors-signup/${uid}`]);
-            }
-            else if(this.signupForm.get('role').value === 'Bệnh nhân'){
-              this.router.navigate([`/user-signup/${uid}`]);
-            }
+            this.router.navigate([`/user-signup/${uid}`]);
           }
-          else{
-            console.log('Fail');
+          else {
+            this.presentToast('Thất bại!');
           }
         },
-        (error: any)=>{
-          console.log('Net work Issue.');
+        (error: any) => {
+          this.presentToast('Lỗi mạng');
         }
       );
     }

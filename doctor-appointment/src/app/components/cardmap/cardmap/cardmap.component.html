@@ -1,0 +1,10 @@
+<ion-card>
+  <ion-card-content>
+    <ion-img class="avatar" src="{{companyObj.image.split(',')[0]}}"></ion-img>
+    <div class="info">
+      <div class="doctor-name">{{companyObj.name}}</div>
+      <div class="hospital-name">{{companyObj.province + companyObj.district + companyObj.street + companyObj.ward}}</div>
+      <div class="specialized-name">{{companyObj.description}}</div>
+    </div>
+  </ion-card-content>
+</ion-card>

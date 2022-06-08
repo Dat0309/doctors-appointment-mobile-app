@@ -47,17 +47,15 @@
 
   <ion-card>
     <ion-card-content class="rating">
-      <ion-item lines="none">
         <ion-label position="stacked">Đánh giá</ion-label>
         <br>
-        <rating [rate]="rate" readonly="false" size="default" (rateChange)="onRateChange($event)">
-        </rating>
-      </ion-item>
+        <div>
+          <rating [rate]="postdata.rating" size="default" (rateChange)="onRateChange($event)">
+          </rating>
+        </div>
     </ion-card-content>
     <ion-card-content>
-      <ion-button expand="full">Submit</ion-button>
+      <ion-button expand="full" (click)="rating(postdata)">Đánh giá</ion-button>
     </ion-card-content>
   </ion-card>
-
-  <ion-button (click)="showAlertRating()" expand="block">Đánh giá</ion-button>
 </ion-content>

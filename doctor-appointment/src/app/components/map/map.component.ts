@@ -27,9 +27,9 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   constructor() {
-    this.getCurrentLocation().then((position: any) => {
-      this.showMap(position.coords.latitude, position.coords.longitude);
-    });
+    // this.getCurrentLocation().then((position: any) => {
+    //   this.showMap(position.coords.latitude, position.coords.longitude);
+    // });
   }
   @Input() longitudeEvent: string;
   @Input() latitudeEvent: string;

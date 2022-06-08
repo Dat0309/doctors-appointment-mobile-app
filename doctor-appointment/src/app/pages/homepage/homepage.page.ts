@@ -25,6 +25,8 @@ export class HomepagePage implements OnInit {
   specializations$: Specialization[] = [];
   company$: Company[] = [];
   covid_datas$: Covid19[] = [];
+  covid: Covid19;
+  doctors_high_rating: Doctor[] = [];
 
   option = {
     slidesPerView: 4,
@@ -37,7 +39,6 @@ export class HomepagePage implements OnInit {
     this.getAllSpcializations();
     this.getAllCompany();
     this.getAllDataCovid();
-
   }
   gotoCardiologist(id: string) {
     this.router.navigateByUrl(`/cardiologist/${id}`);
@@ -46,16 +47,25 @@ export class HomepagePage implements OnInit {
   public getAllDoctors() {
     this.doctorService.getAll().subscribe(
       (res: any) => {
-        if (res.doctors) {
-          console.log(res.doctors);
+        if (res !== null) {
+          console.log(res);
 
-          this.doctors$ = res.doctors;
+          this.doctors$ = res;
+          this.getDoctorsHighRating(this.doctors$);
           // this.doctors$.forEach(element => {
           //   console.log(element);
           // });
         }
       }
     );
+  }
+
+  public getDoctorsHighRating(list: Doctor[]){
+    list.map((e)=>{
+      if(e.rating >= 4){
+        this.doctors_high_rating.push(e);
+      }
+    });
   }
 
   public getAllSpcializations() {
@@ -86,6 +96,8 @@ export class HomepagePage implements OnInit {
         if(res != null) {
           console.log(res);
           this.covid_datas$ = res;
+          this.covid = this.covid_datas$[this.covid_datas$.length - 1];
+          console.log(this.covid);
         }
       }
     );

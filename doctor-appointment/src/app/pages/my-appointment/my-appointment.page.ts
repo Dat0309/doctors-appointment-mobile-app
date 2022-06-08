@@ -5,6 +5,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Appointment, AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { Company } from 'src/app/services/company/company.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
@@ -22,7 +23,8 @@ export class MyAppointmentPage implements OnInit, OnChanges {
     private appointmentService: AppointmentService,
     private router: Router,
     private customerService: CustomerService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private toastController: ToastController
   ) { }
 
   appointments$: any[] = [];
@@ -36,6 +38,14 @@ export class MyAppointmentPage implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   public async getMyAppointment(id: string) {
@@ -67,11 +77,13 @@ export class MyAppointmentPage implements OnInit, OnChanges {
   public update(id: string) {
     this.appointmentService.update(id);
     window.location.reload();
+    this.presentToast('Đánh dấU hoàn thành!');
   }
 
   public delete(id: string) {
     this.appointmentService.delete(id);
     window.location.reload();
+    this.presentToast('Xoá thành công');
   }
 
   public detailAppointment(id: string){

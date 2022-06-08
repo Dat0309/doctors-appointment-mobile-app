@@ -9,7 +9,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
-import { IonDatetime } from '@ionic/angular';
+import { IonDatetime, ToastController } from '@ionic/angular';
 import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
 import { AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
@@ -56,12 +56,22 @@ export class BookAppointmentPage implements OnInit {
     private storageService: StorageService,
     private customerService: CustomerService,
     private appointmentService: AppointmentService,
-    private router: Router)
+    private router: Router,
+    private toastController: ToastController
+    )
     {}
 
   ngOnInit() {
     this.getDoctorInfo();
     this.getCustomerByUserId();
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   public async getDoctorInfo(){
@@ -161,10 +171,11 @@ export class BookAppointmentPage implements OnInit {
     .then(
       (res: any)=>{
         if(res !== null){
+          this.presentToast('Đặt lịch hẹn thành công!');
           this.router.navigateByUrl(`/appointment-detail/${res}`);
         }
         else{
-          console.log('failed create appointment');
+          this.presentToast('Đã xảy ra lỗi!');
         }
       }
     );

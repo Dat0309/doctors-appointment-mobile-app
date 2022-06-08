@@ -63,24 +63,13 @@ doctorRoute.get(
 // doctor REVIEW
 doctorRoute.post(
     "/:id/review",
-    protect,
     asyncHandler(async (req, res) => {
-        const { rating, comment } = req.body;
+        const { rating } = req.body;
         const doctor = await Doctor.findById(req.params.id);
 
         if (doctor) {
-            const alreadyReviewed = doctor.reviews.find(
-                (r) => r.user.toString() === req.user._id.toString()
-            );
-            if (alreadyReviewed) {
-                res.status(400);
-                throw new Error("doctor already Reviewed");
-            }
             const review = {
-                name: req.user.name,
                 rating: Number(rating),
-                comment,
-                user: req.user._id,
             };
 
             doctor.reviews.push(review);
@@ -126,6 +115,17 @@ doctorRoute.get(
     })
 );
 
+// Get doctor with high rating
+doctorRoute.get(
+    "/highRating/:rate",
+    asyncHandler(async (req, res) => {
+        const rating = req.params.rate;
+        const doctors = await Doctor.find({ "rating": rating })
+            .sort({ _id: -1 });
+        res.json({ doctors });
+    })
+);
+
 // Get doctor by user_id
 doctorRoute.get(
     "/users/:id",
@@ -144,7 +144,7 @@ doctorRoute.post(
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
             province, district, ward, street,
-            level_of_education, specializations } = req.body;
+            level_of_education, specializations, latitute, longtitute } = req.body;
         const doctorExist = await Doctor.findOne({ user_id });
         if (doctorExist) {
             res.status(400);
@@ -165,6 +165,8 @@ doctorRoute.post(
                 street,
                 level_of_education,
                 specializations,
+                latitute,
+                longtitute
             });
             if (doctor) {
                 const createddoctor = await doctor.save();
@@ -180,14 +182,10 @@ doctorRoute.post(
 // UPDATE doctor
 doctorRoute.put(
     "/:id",
-    protect,
-    admin,
     asyncHandler(async (req, res) => {
         const { user_id, first_name, last_name, date_of_birth, genre,
             description, telephone, avatar_url,
-            province, district, ward, street,
-            level_of_education, specializations, company_id,
-            facebook_id, zalo_id } = req.body;
+            province, district, ward, street } = req.body;
         const doctor = await Doctor.findById(req.params.id);
         if (doctor) {
             doctor.user_id = user_id || doctor.user_id;
@@ -202,13 +200,6 @@ doctorRoute.put(
             doctor.district = district || doctor.district;
             doctor.ward = ward || doctor.ward;
             doctor.street = street || doctor.street;
-            doctor.level_of_education = level_of_education || doctor.level_of_education;
-            doctor.rating = rating || doctor.rating;
-            doctor.numReviews = numReviews || doctor.numReviews;
-            doctor.specializations = specializations || doctor.specializations;
-            doctor.company_id = company_id || doctor.company_id;
-            doctor.facebook_id = facebook_id || doctor.facebook_id;
-            doctor.zalo_id = zalo_id || doctor.zalo_id;
 
             const updateddoctor = await doctor.save();
             res.json(updateddoctor);

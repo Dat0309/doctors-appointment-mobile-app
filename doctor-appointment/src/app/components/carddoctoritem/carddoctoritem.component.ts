@@ -27,6 +27,7 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
 
   nameSpecial: string = "";
   nameCompanny: string ="";
+  reviews: [];
 
   ngOnInit() {
     // setTimeout(() => { console.log(this.specialization$) }, 5000)
@@ -75,10 +76,4 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
     return nameCompany;
 
   }
-
-
-
-
-
-
 }

@@ -65,6 +65,20 @@ export class CustomerService {
     return check;
   }
 
+  async updateByHTTP(id, customer: any): Promise<boolean> {
+    let check = true;
+    await this.http.put(`${this.apiUrl}/customers/${id}`, JSON.stringify(customer), this.httpOptions).subscribe(
+      (res: any) => {
+        if(res.status === 200){
+          console.log('updated customer');
+        }else{
+          check = false;
+        }
+      }
+    );
+    return check;
+  }
+
   findByUserId(user_id: string): Observable<Customer[]> {
     return this.http.get<Customer[]>(`${this.apiUrl}/customers/users/${user_id}`)
     .pipe(

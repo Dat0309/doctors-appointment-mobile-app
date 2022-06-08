@@ -10,13 +10,15 @@ import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 import { MapComponent } from './map/map.component';
 import { CardappointmentComponent } from './cardappointment/cardappointment.component';
+import { CardmapComponent } from './cardmap/cardmap/cardmap.component';
 
 const COMPONENTS = [
     CarddoctoritemComponent,
     CardcategoryitemComponent,
     CardcategorylistComponent,
     CardappointmentComponent,
-    MapComponent
+    MapComponent,
+    CardmapComponent,
   ];
 
   @NgModule({

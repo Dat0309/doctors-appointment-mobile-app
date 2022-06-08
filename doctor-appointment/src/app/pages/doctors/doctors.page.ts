@@ -5,6 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
 
@@ -34,6 +35,8 @@ export class DoctorsPage implements OnInit {
       id: ''
     },
     description: '',
+    latitute:'11.945033088055524',
+    longtitute: '108.43339741261677'
   };
 
   constructor(
@@ -41,12 +44,21 @@ export class DoctorsPage implements OnInit {
     private router: Router,
     private dotorService: DoctorService,
     private specializationService: SpecializationService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private toastController: ToastController
   ) {
     this.getSpecializations();
   }
 
   ngOnInit() {
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   get getId() {
@@ -166,14 +178,15 @@ export class DoctorsPage implements OnInit {
       this.dotorService.createByHTTP(this.postData).then(
         (res: any) => {
           if (res) {
+            this.presentToast('Đăng ký thành công');
             this.router.navigate([`/login-form`]);
           }
           else {
-            console.log('Fail');
+            this.presentToast('Đã xảy ra lỗi!');
           }
         },
         (error: any) => {
-          console.log('Net work Issue.');
+          this.presentToast('Lỗi mạng');
         }
       );
     }

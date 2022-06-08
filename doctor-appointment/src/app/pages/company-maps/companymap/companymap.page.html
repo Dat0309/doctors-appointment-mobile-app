@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-back-button auto-hide="false"></ion-back-button>
     </ion-buttons>
-    <ion-title class="text">Vị Trí</ion-title>
+    <ion-title class="text">Vị trí</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,15 +14,13 @@
         <div class="map-container">
             <!-- <ion-img src="../assets/1.jpg"></ion-img> -->
             <map-component 
-            [latitudeEvent]="latitudeEvent"
-            [longitudeEvent]="longitudeEvent" >
+            [latitudeEvent]="longitudeEvent"
+            [longitudeEvent]="latitudeEvent" >
             </map-component>
         </div>
         <ion-slides #slides (ionSlideDidChange)="changeEvent($event)" class="info-doctor" [options]="slideOpts">
-            <ion-slide *ngFor="let doctor of doctors$">
-                <app-carddoctoritem [doctorObj]="doctor" 
-                [specialization$]=specializations$
-                [company$]=company$ (click)="testClick(doctor)"></app-carddoctoritem>
+            <ion-slide *ngFor="let company of companies$">
+                <app-cardmap [companyObj]="company" (click)="testClick(company)"></app-cardmap>
             </ion-slide>
         </ion-slides>
     </div>

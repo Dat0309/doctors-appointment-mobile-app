@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable prefer-const */
@@ -15,7 +16,7 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { element } from 'protractor';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -29,17 +30,27 @@ export class AppointmentDetailPage implements OnInit {
     private route: Router,
     private customerService: CustomerService,
     private doctorService: DoctorService,
-    private storageService: StorageService,
     private activatedRoute: ActivatedRoute,
-    private alertCtrl: AlertController,
+    private toastController: ToastController
   ) { }
 
   appointment: Appointment;
   nameCustomer: string = '';
   nameDoctor: string = '';
+  postdata = {
+    rating: 0
+  };
 
   ngOnInit() {
     this.getAppointment(this.activatedRoute.snapshot.paramMap.get('id'));
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   public getAppointment(id: string) {
@@ -76,5 +87,18 @@ export class AppointmentDetailPage implements OnInit {
     );
   }
 
-  
+  public onRateChange($event){
+    this.postdata.rating = $event;
+    this.onChange = $event;
+  }
+
+  public rating(rating: any){
+    this.doctorService.rate(this.appointment.doctor._id, rating).subscribe(
+      (res: any) => {
+          this.presentToast('Đánh giá thành công');
+      }
+    );
+  }
+
+  onChange: (value: any) => {};
 }
