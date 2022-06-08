@@ -24,7 +24,7 @@ export class Doctor {
   province: string;
   district: string;
   ward: string;
-  rating: 0;
+  rating: number;
   street: string;
   level_of_education: string;
   specializations: Specialization[];

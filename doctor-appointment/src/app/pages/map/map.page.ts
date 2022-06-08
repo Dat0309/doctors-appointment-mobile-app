@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/member-ordering */
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
@@ -13,7 +13,7 @@ import { Specialization, SpecializationService } from 'src/app/services/speciali
   templateUrl: './map.page.html',
   styleUrls: ['./map.page.scss'],
 })
-export class MapPage implements OnInit {
+export class MapPage implements OnInit, OnChanges {
 
   slideOpts: any;
   longitudeEvent: string;
@@ -43,6 +43,12 @@ export class MapPage implements OnInit {
     // this.latitudeEvent = this.doctors$[0].latitute;
   }
 
+  ngOnChanges() {
+    this.getAllDoctors();
+    this.getAllSpcializations();
+    this.getAllCompany();
+  }
+
   doctors$: Doctor[] = [];
   specializations$: Specialization[] = [];
   company$: Company[] = [];
@@ -61,10 +67,10 @@ export class MapPage implements OnInit {
   public getAllDoctors() {
     this.doctorService.getAll().subscribe(
       (res: any) => {
-        if (res.doctors) {
-          console.log(res.doctors);
+        if (res) {
+          console.log(res);
 
-          this.doctors$ = res.doctors;
+          this.doctors$ = res;
           // this.doctors$.forEach(element => {
           //   console.log(element);
           // });

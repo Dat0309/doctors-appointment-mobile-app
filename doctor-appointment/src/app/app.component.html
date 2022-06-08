@@ -1,6 +1,6 @@
 <ion-app>
   <ion-split-pane contentId="main-content" *ngIf="role === 'Bác sĩ'">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu auto-hide="true" contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-label class="menu-tittle">
@@ -107,7 +107,7 @@
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
   <ion-split-pane contentId="main-content" *ngIf="role === 'Bệnh nhân'">
-    <ion-menu contentId="main-content" type="overlay">
+    <ion-menu auto-hide="true" contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
           <ion-label class="menu-tittle">
