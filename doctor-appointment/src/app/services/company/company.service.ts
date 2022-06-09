@@ -15,6 +15,10 @@ export class Company {
   longtitude: string;
   latitude: string;
   street: string;
+  open_time: string;
+  close_time: string;
+  email: string;
+  phone: string;
 }
 
 @Injectable({

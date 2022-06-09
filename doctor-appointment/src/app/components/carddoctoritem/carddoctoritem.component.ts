@@ -41,10 +41,7 @@ export class CarddoctoritemComponent implements OnInit, OnChanges {
   }
 
   public onChangesSpacailizations(){
-    this.doctorObj.specializations.forEach(special => {
-      this.nameSpecial = this.getNameSpcailizations(special.id);
-
-    });
+      this.nameSpecial = this.getNameSpcailizations(this.doctorObj.specializations);
   }
 
   public onChangesCompanys(){

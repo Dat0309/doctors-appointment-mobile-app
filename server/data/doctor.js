@@ -12,11 +12,7 @@ const doctors = [
         ward: "Phường 8",
         street: "68 Đường Trần Khánh Dư",
         level_of_education: "Tiến Sỹ Y Khoa",
-        specializations: [
-            {
-                id: "6278dd7963f52e91c16f1585",
-            }
-        ],
+        specializations:"6278dd7963f52e91c16f1585",
         company_id: "6278df3063f52e91c16f1595",
         user_id: "6278db9d63f52e91c16f156b",
     },

@@ -109,7 +109,7 @@ doctorRoute.get(
     "/specialization/:id",
     asyncHandler(async (req, res) => {
         const specialization_id = req.params.id;
-        const doctors = await Doctor.find({ "specializations.id": specialization_id })
+        const doctors = await Doctor.find({ "specializations": specialization_id })
             .sort({ _id: -1 });
         res.json({ doctors });
     })

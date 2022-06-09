@@ -28,7 +28,6 @@ export class CardiologistPage implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
     this.getDoctorByIdSpecail(this.id);
     this.getAllSpcializations();
     this.getAllCompany();
@@ -39,17 +38,6 @@ export class CardiologistPage implements OnInit {
         if (res.doctors) {
           console.log(res.doctors);
           this.doctors$ = res.doctors;
-        }
-      }
-    );
-  }
-  public async getAllSpcializations() {
-    await this.specializationService.getAll().subscribe(
-      (res: any) => {
-        if (res != null) {
-          console.log(res.specialization);
-          this.specializations$ = res.specialization;
-          this.nameSpecial = this.getNameSpcailizations(this.id);
         }
       }
     );
@@ -65,6 +53,19 @@ export class CardiologistPage implements OnInit {
       }
     );
   }
+
+  public async getAllSpcializations() {
+    await this.specializationService.getAll().subscribe(
+      (res: any) => {
+        if (res != null) {
+          console.log(res.specialization);
+          this.specializations$ = res.specialization;
+          this.nameSpecial = this.getNameSpcailizations(this.id);
+        }
+      }
+    );
+  }
+
 
   public getNameSpcailizations(id: string) {
     let nameSpcailizations = '';

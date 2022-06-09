@@ -1,0 +1,20 @@
+ion-card {
+    border-radius: 15px;
+    background-color: brown;
+    ion-card-content {
+        display: flex;
+        padding: 10px;
+
+        .info {
+            margin-left: 10px;
+
+            .schedule {
+                font-family: 'Quicksand', sans-serif;
+                font-size: 15px;
+                font-weight: 700;
+                color: #fff;
+
+            }
+        }
+    }
+}

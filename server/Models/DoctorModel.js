@@ -100,9 +100,10 @@ const doctorSchema = mongoose.Schema(
             required: true,
             default: 0,
         },
-        specializations: [
-            specialization_id
-        ],
+        specializations: {
+            type: String,
+            ref: "Specialization",
+        },
         reviews: [reviewSchema],
         company_id: {
             type: mongoose.Schema.Types.ObjectId,

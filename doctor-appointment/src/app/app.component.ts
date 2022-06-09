@@ -20,6 +20,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   name_user: string = '';
+  id_user: string = '';
   role: string = '';
   public appPages = [
     {
@@ -91,7 +92,9 @@ export class AppComponent implements OnInit {
       this.doctorService.findByUserId(user.data._id).subscribe(
         (res: any) => {
           if (res.doctor !== null) {
-            this.name_user = res.doctor[0].last_name + ' ' + res.doctor[0].first_name;
+            this.name_user = res.doctor[0]?.last_name + ' ' + res.doctor[0]?.first_name;
+            this.id_user = user.data._id;
+            console.log(this.id_user);
           }
         }
       );
@@ -113,5 +116,9 @@ export class AppComponent implements OnInit {
         window.location.reload();
       }
     );
+  }
+
+  gotoDoctorSchedule(){
+    this.router.navigateByUrl(`/appointment-schedule/${this.id_user}`);
   }
 }

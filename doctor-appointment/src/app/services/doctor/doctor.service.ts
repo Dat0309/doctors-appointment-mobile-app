@@ -27,7 +27,7 @@ export class Doctor {
   rating: number;
   street: string;
   level_of_education: string;
-  specializations: Specialization[];
+  specializations: string;
   company_id: string;
   longtitute: string;
   latitute: string;

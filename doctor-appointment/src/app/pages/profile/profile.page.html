@@ -11,10 +11,10 @@
   <div id="header">
     <!-- <h1>Đăng ký</h1> -->
     <div *ngIf="role === 'Bác sĩ'">
-      <img src="{{doctor?.avatar_url}}" />
+      <img class="doctor_avt" src="{{doctor?.avatar_url}}" />
     </div>
     <div *ngIf="role === 'Bệnh nhân'">
-      <img src="{{customer?.avatar_url}}" />
+      <img class="customer_avt" src="{{customer?.avatar_url}}" />
     </div>
   </div>
   <div class="form-sec">

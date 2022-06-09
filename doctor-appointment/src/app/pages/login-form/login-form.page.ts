@@ -81,7 +81,7 @@ export class LoginFormPage implements OnInit {
             let user = await this.storageService.get('USER');
             if(user.data.role === 'Bác sĩ'){
               this.presentToast('Đăng nhập thành công!');
-              this.router.navigate([`appointment-schedule/${user.data._id}`]).then(
+              this.router.navigate([`/homepage`]).then(
                 () => {
                   window.location.reload();
                 }

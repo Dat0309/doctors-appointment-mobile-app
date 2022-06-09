@@ -7,8 +7,32 @@
             <img src="assets/icon/Icon-doctor.png" />
             <ion-list-header>{{ name_user }}</ion-list-header>
             <a [routerLink]="['/profile']">
-              <ion-note>Complete Your Profile</ion-note>
+              <ion-note>Chào mừng</ion-note>
             </a>
+          </ion-label>
+
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a [routerLink]="['/homepage']"
+                ><i class="fa fa-home" aria-hidden="true"></i
+              ></a>
+              <label>Trang chủ</label>
+              <a [routerLink]="['/homepage']">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
+          </ion-label>
+
+          <ion-label class="menu-icon">
+            <ion-row>
+              <a href="#"
+                ><i class="fa fa-calendar-check-o" aria-hidden="true"></i
+              ></a>
+              <label> Quản lý lịch hẹn</label>
+              <a (click)="gotoDoctorSchedule()">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+            </ion-row>
           </ion-label>
 
           <ion-label class="menu-icon">
@@ -36,8 +60,7 @@
           <ion-label class="menu-icon">
             <ion-row>
               <a href="#"
-                ><i class="fa fa-calendar-check-o" aria-hidden="true"></i
-              ></a>
+                ><i class="fa fa-user-md" aria-hidden="true"></i></a>
               <label>Thông tin tài khoản</label>
               <a [routerLink]="['/profile']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -47,28 +70,17 @@
 
           <ion-label class="menu-icon">
             <ion-row>
-              <a [routerLink]="['/appointment-schedule']"
-                ><i class="fa fa-address-book" aria-hidden="true"></i
-              ></a>
-              <label> Quản lý lịch hẹn</label>
-              <a [routerLink]="['/appointment-schedule/12345']">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-              </a>
-            </ion-row>
-          </ion-label>
-          <ion-label class="menu-icon">
-            <ion-row>
               <a [routerLink]="['/lab-test']"
                 ><i class="fa fa-flask" aria-hidden="true"></i
               ></a>
               <label>Phòng khám</label>
-              <a [routerLink]="['/lab-map']">
+              <a [routerLink]="['/companymap']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
           </ion-label>
 
-          <ion-label class="menu-icon">
+          <!-- <ion-label class="menu-icon">
             <ion-row>
               <a [routerLink]="['/chat']"
                 ><i class="fa fa-comments-o" aria-hidden="true"></i
@@ -78,7 +90,7 @@
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
-          </ion-label>
+          </ion-label> -->
           <ion-label class="menu-icon">
             <ion-row>
               <a [routerLink]="['/login-form']"
@@ -153,8 +165,7 @@
           <ion-label class="menu-icon">
             <ion-row>
               <a href="#"
-                ><i class="fa fa-calendar-check-o" aria-hidden="true"></i
-              ></a>
+                ><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
               <label>Thông tin tài khoản</label>
               <a [routerLink]="['/profile']">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
@@ -197,7 +208,7 @@
             </ion-row>
           </ion-label>
 
-          <ion-label class="menu-icon">
+          <!-- <ion-label class="menu-icon">
             <ion-row>
               <a [routerLink]="['/chat']"
                 ><i class="fa fa-comments-o" aria-hidden="true"></i
@@ -207,7 +218,7 @@
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </ion-row>
-          </ion-label>
+          </ion-label> -->
           <ion-label class="menu-icon">
             <ion-row>
               <a [routerLink]="['/login-form']"

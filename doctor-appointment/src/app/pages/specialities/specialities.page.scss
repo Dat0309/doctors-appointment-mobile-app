@@ -16,7 +16,7 @@ ion-header ion-toolbar {
 }
 
 ion-header {
-  position: absolute;
+  
 
   ion-toolbar {
     padding-left: 14px;
@@ -38,6 +38,9 @@ ion-header {
 }
 
 ion-content {
+  display: flex;
+  padding: 10px;
+
   .specialize {
     border-radius: 10px;
     box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.16);
@@ -52,10 +55,20 @@ ion-content {
 
     .thumb {
       border-radius: 10px 0 0 10px;
-      object-fit: fill;
-      width: 130px;
-      height: 130px;
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      object-fit: cover;
+      margin: 5px;
     }
+
+    // .thumb {
+    //   border-radius: 10px 0 0 10px;
+    //   object-fit: fill;
+    //   width: 130px;
+    //   height: 130px;
+    // }
 
     .info {
       padding: 10px;
@@ -95,13 +108,14 @@ ion-content {
           }
         }
 
-        .additional-info{
+        .additional-info {
           display: flex;
 
-          .attendees{
+          .attendees {
             display: flex;
             align-items: center;
-            img{
+
+            img {
               width: 20px;
               height: 20px;
             }

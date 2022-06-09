@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonDatetime, ToastController } from '@ionic/angular';
 import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
-import { AppointmentService } from 'src/app/services/appointment/appointment.service';
+import { Appointment, AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
@@ -28,6 +28,8 @@ export class BookAppointmentPage implements OnInit {
   company = new Company();
   customer_id: string = '';
   date_temp: string = '';
+  invalid_dates: any[] = [];
+  appointments: Appointment[] = [];
 
   postData = {
     name: '',
@@ -57,13 +59,14 @@ export class BookAppointmentPage implements OnInit {
     private customerService: CustomerService,
     private appointmentService: AppointmentService,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
     )
     {}
 
   ngOnInit() {
     this.getDoctorInfo();
     this.getCustomerByUserId();
+    this.getInvalidDate();
   }
 
   async presentToast(mess: string){
@@ -81,7 +84,7 @@ export class BookAppointmentPage implements OnInit {
         if(res !== null){
           this.doctor = res;
           this.getCompany(this.doctor.company_id);
-          this.getSpecialization(this.doctor.specializations[0].id);
+          this.getSpecialization(this.doctor.specializations);
           console.log(this.doctor);
         }
       }
@@ -200,5 +203,18 @@ export class BookAppointmentPage implements OnInit {
       return false;
     }
     return true;
+  }
+
+  getInvalidDate(){
+    this.appointmentService.getAllByDoctorId(this.activateRoute.snapshot.params['id']).subscribe(
+    (res: any) => {
+      this.appointments = res.appointment;
+      console.log(this.appointments);
+      this.appointments.map((e)=>{
+        let time = e.start_time + ' Đến ' + e.end_time;
+        this.invalid_dates.push(time);
+        console.log(this.invalid_dates.length);
+      });
+    });
   }
 }

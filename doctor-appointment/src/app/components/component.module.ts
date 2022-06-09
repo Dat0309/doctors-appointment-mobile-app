@@ -11,6 +11,9 @@ import { IonicModule } from "@ionic/angular";
 import { MapComponent } from './map/map.component';
 import { CardappointmentComponent } from './cardappointment/cardappointment.component';
 import { CardmapComponent } from './cardmap/cardmap/cardmap.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
+import { MbscModule } from '@mobiscroll/angular';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 const COMPONENTS = [
     CarddoctoritemComponent,
@@ -19,6 +22,7 @@ const COMPONENTS = [
     CardappointmentComponent,
     MapComponent,
     CardmapComponent,
+    ScheduleComponent,
   ];
 
   @NgModule({
@@ -27,7 +31,7 @@ const COMPONENTS = [
     imports: [
       CommonModule,
       IonicModule,
-      FormsModule
+      FormsModule,
     ]
   })
   export class ComponentsModule { }

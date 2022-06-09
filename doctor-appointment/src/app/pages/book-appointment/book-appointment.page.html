@@ -20,15 +20,9 @@
           <ion-card-content class="doctor-name-card">
             <ion-card-title>{{doctor.last_name}} {{doctor.first_name}}</ion-card-title>
             <ion-card-subtitle>Chuyên môn: {{specialization.name}}</ion-card-subtitle>
-            <ion-card-subtitle>{{company.name}}</ion-card-subtitle>
-            <ion-card-subtitle>9:00 am - 17:00 pm</ion-card-subtitle>
-            <p class="star">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-            </p>
+            <ion-card-subtitle>{{company?.name}}</ion-card-subtitle>
+            <ion-card-subtitle>{{company?.open_time}} - {{company?.close_time}}</ion-card-subtitle>
+
           </ion-card-content>
         </ion-col>
       </ion-row>
@@ -57,6 +51,11 @@
           <ng-container *ngIf="number.hasError(error.type) && (number.dirty || number.touched)">
             <small class="error-message">{{error.message}}</small>
           </ng-container>
+        </div>
+
+        <div class="schedule">
+          <ion-label style="font-weight: bold; margin-left: 15px;">Lịch trình Bác sĩ: </ion-label>
+          <app-schedule *ngFor="let date of invalid_dates" [date]="date"></app-schedule>
         </div>
         <div class="date">
           <ion-item button="true" id="open-date-input">

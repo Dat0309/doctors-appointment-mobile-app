@@ -1,9 +1,12 @@
+/* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/dot-notation */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
 
 @Component({
   selector: 'app-doctor-info',
@@ -21,18 +24,35 @@ export class DoctorInfoPage implements OnInit {
   idCompany: string;
   idSpecialization: string;
   nameSpecialization: string;
+  role: string;
 
   constructor(private doctorService: DoctorService,
     private activateRoute: ActivatedRoute,
     private router: Router,
     private specializationService: SpecializationService,
-    private companyService: CompanyService) { }
+    private companyService: CompanyService,
+    private storageService: StorageService,
+    private toastController: ToastController,) { }
 
   ngOnInit() {
+    this.checkRole();
     this.getAllDoctors();
     this.getAllCompanies();
     this.getAllSpecializations();
     this.getRoute(this.activateRoute.snapshot.params['id']);
+  }
+
+  async presentToast(mess: string){
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000,
+    });
+    toast.present();
+  }
+
+  public async checkRole(){
+    let user = await this.storageService.get('USER');
+    this.role = user.data.role;
   }
 
   public getAllDoctors(){
@@ -74,7 +94,7 @@ export class DoctorInfoPage implements OnInit {
       this.idCompany = this.doctor.company_id;
       this.getCompany(this.idCompany);
 
-      this.idSpecialization = this.doctor.specializations[0].id;
+      this.idSpecialization = this.doctor.specializations;
       this.getSpecialization(this.idSpecialization);
       console.log(this.idSpecialization);
     });
@@ -93,7 +113,12 @@ export class DoctorInfoPage implements OnInit {
   }
 
   bookDoctor(id: string){
-    this.router.navigateByUrl(`/book-appointment/${id}`);
+    if(this.role === 'Bác sĩ'){
+      this.presentToast('Bạn đang đăng nhập với quyền Bác sĩ!');
+    }
+    else if(this.role === 'Bệnh nhân'){
+      this.router.navigateByUrl(`/book-appointment/${id}`);
+    }
   }
 
   goToLabMap(id: string) {

@@ -20,13 +20,6 @@
 	</ion-slides>
 	<div class="lab-info">
 		<h1 class="lab-name">{{company.name}}</h1>
-		<p class="star">
-			<ion-icon name="star"></ion-icon>
-			<ion-icon name="star"></ion-icon>
-			<ion-icon name="star"></ion-icon>
-			<ion-icon name="star"></ion-icon>
-			<ion-icon name="star"></ion-icon>
-		</p>
 		<span>Bệnh viện</span>
 	</div>
 	<div class="info-contact">
@@ -45,7 +38,7 @@
 				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/schedule_gm_blue_24dp.png">
 			</div>
 			<div class="rogA2c">
-				<span>Đang mở cửa</span>
+				<span>{{company?.open_time}} - {{company?.close_time}}</span>
 			</div>
 		</div>
 
@@ -54,7 +47,7 @@
 				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/email_gm_blue_24dp.png">
 			</div>
 			<div class="rogA2c">
-				<span>phongkham@gmail.com</span>
+				<span>{{company?.email}}}</span>
 			</div>
 		</div>
 
@@ -63,7 +56,7 @@
 				<img src="https://www.gstatic.com/images/icons/material/system_gm/2x/phone_gm_blue_24dp.png">
 			</div>
 			<div class="rogA2c">
-				<span>0995878545</span>
+				<span>{{company?.phone}}</span>
 			</div>
 		</div>
 	</div>

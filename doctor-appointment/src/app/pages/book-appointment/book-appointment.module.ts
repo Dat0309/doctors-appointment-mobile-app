@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BookAppointmentPageRoutingModule } from './book-appointment-routing.module';
 
 import { BookAppointmentPage } from './book-appointment.page';
+import { ComponentsModule } from 'src/app/components/component.module';
+import { MbscModule } from '@mobiscroll/angular';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { BookAppointmentPage } from './book-appointment.page';
     IonicModule,
     BookAppointmentPageRoutingModule,
     ReactiveFormsModule,
+    ComponentsModule,
   ],
   declarations: [BookAppointmentPage]
 })

@@ -51,10 +51,10 @@ export class MedicalShopPage implements OnInit {
   public getAllDoctors() {
     this.doctorService.getAll().subscribe(
       (res: any) => {
-        if (res.doctors) {
-          console.log(res.doctors);
+        if (res) {
+          console.log(res);
 
-          this.doctors$ = res.doctors;
+          this.doctors$ = res;
           // this.doctors$.forEach(element => {
           //   console.log(element);
           // });

@@ -16,7 +16,6 @@ ion-header ion-toolbar {
   }
   
   ion-header {
-    position: absolute;
   
     ion-toolbar {
       padding-left: 14px;
@@ -52,9 +51,12 @@ ion-header ion-toolbar {
   
       .thumb {
         border-radius: 10px 0 0 10px;
-        object-fit: fill;
-        width: 130px;
-        height: 130px;
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        object-fit: cover;
+        margin: 5px;
       }
   
       .info {

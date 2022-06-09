@@ -33,7 +33,6 @@ export class CardappointmentComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    // console.log(this.doctorObj.specializations);
     this.onChangesCompanys();
   }
 
