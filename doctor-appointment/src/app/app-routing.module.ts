@@ -186,12 +186,11 @@ const routes: Routes = [
   {
     path: 'diseaseinfo/:id',
     loadChildren: () => import('./pages/disease-info/diseaseinfo/diseaseinfo.module').then( m => m.DiseaseinfoPageModule)
-  },  {
+  },
+  {
     path: 'companymap',
     loadChildren: () => import('./pages/company-maps/companymap/companymap.module').then( m => m.CompanymapPageModule)
   },
-
-
 
 ];
 

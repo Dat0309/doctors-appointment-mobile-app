@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable @typescript-eslint/dot-notation */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
@@ -26,7 +28,7 @@ export class LabInfoPage implements OnInit {
 
   ngOnInit() {
     this.getAllCompanies();
-    this.getRoute(this.activateRoute.snapshot.params['id'])
+    this.getRoute(this.activateRoute.snapshot.params['id']);
   }
 
   public async getAllCompanies() {
@@ -47,7 +49,7 @@ export class LabInfoPage implements OnInit {
       this.company = res;
       this.thumbs = this.company.image.split(',');
 
-      console.log(this.thumbs)
-    })
+      console.log(this.thumbs);
+    });
   }
 }
