@@ -31,17 +31,20 @@ export class AppointmentDetailPage implements OnInit {
     private customerService: CustomerService,
     private doctorService: DoctorService,
     private activatedRoute: ActivatedRoute,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private storageService: StorageService
   ) { }
 
   appointment: Appointment;
   nameCustomer: string = '';
   nameDoctor: string = '';
+  role: string = '';
   postdata = {
     rating: 0
   };
 
   ngOnInit() {
+    this.checkRole();
     this.getAppointment(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
@@ -51,6 +54,11 @@ export class AppointmentDetailPage implements OnInit {
       duration: 2000,
     });
     toast.present();
+  }
+
+  public async checkRole(){
+    let user = await this.storageService.get('USER');
+    this.role = user.data.role;
   }
 
   public getAppointment(id: string) {

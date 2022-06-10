@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { Appointment, AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { Company } from 'src/app/services/company/company.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
@@ -24,13 +24,15 @@ export class MyAppointmentPage implements OnInit, OnChanges {
     private router: Router,
     private customerService: CustomerService,
     private storageService: StorageService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private loadingController: LoadingController
   ) { }
 
   appointments$: any[] = [];
   customer_id: string;
 
   ngOnInit() {
+    this.presentLoading();
     this.getCustomerByUserId();
     setTimeout(()=>{
       this.getMyAppointment(this.customer_id);
@@ -46,6 +48,18 @@ export class MyAppointmentPage implements OnInit, OnChanges {
       duration: 2000,
     });
     toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Đang tải dữ liệu...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
   public async getMyAppointment(id: string) {

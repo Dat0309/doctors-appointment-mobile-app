@@ -45,7 +45,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-card>
+  <ion-card *ngIf="role === 'Bệnh nhân'">
     <ion-card-content class="rating">
         <ion-label position="stacked">Đánh giá</ion-label>
         <br>

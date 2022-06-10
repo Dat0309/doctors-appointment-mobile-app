@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 import { Doctor, DoctorService } from 'src/app/services/doctor/doctor.service';
@@ -23,7 +23,8 @@ export class MapPage implements OnInit, OnChanges {
 
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
-    private companyService: CompanyService) {
+    private companyService: CompanyService,
+    private router: Router) {
     this.slideOpts = {
       slidesPerView: 1,
       centeredSlide: true,
@@ -122,4 +123,8 @@ export class MapPage implements OnInit, OnChanges {
     this.longitudeEvent = doctor?.longtitute;
     this.latitudeEvent = doctor?.latitute;
   }
+
+  gotoDoctorInfo(id: string) {
+    this.router.navigateByUrl(`/doctor-info/${id}`);
+   }
 }

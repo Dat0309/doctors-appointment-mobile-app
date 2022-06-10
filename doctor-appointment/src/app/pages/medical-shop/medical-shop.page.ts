@@ -8,6 +8,7 @@ import { CarddoctoritemComponent } from 'src/app/components/carddoctoritem/cardd
 import { Specialization, SpecializationService } from 'src/app/services/specialization/specialization.service';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-medical-shop',
   templateUrl: './medical-shop.page.html',
@@ -18,7 +19,8 @@ export class MedicalShopPage implements OnInit {
   constructor(private doctorService: DoctorService,
     private specializationService: SpecializationService,
     private companyService: CompanyService,
-    private router: Router) { }
+    private router: Router,
+    private loadingController: LoadingController) { }
 
   doctors$: Doctor[] = [];
   doctor = new Doctor;
@@ -27,6 +29,7 @@ export class MedicalShopPage implements OnInit {
   search = "";
 
   ngOnInit() {
+    this.presentLoading();
     this.getAllDoctors();
     this.getAllSpcializations();
     this.getAllCompany();
@@ -34,6 +37,18 @@ export class MedicalShopPage implements OnInit {
 
   onChangeTime() {
     this.getDoctorByName(this.search);
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Đang tải dữ liệu...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
   public getDoctorByName(search: string)

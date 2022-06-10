@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 @Component({
@@ -22,7 +22,8 @@ export class LoginFormPage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private storageService: StorageService,
-    private toastController: ToastController) { }
+    private toastController: ToastController,
+    private loadingController: LoadingController) { }
   ngOnInit() {
   }
   async presentToast(mess: string){
@@ -31,6 +32,18 @@ export class LoginFormPage implements OnInit {
       duration: 2000,
     });
     toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Đăng nhập...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
   get email() {
@@ -75,6 +88,7 @@ export class LoginFormPage implements OnInit {
     this.postData.username = this.loginForm.get('email').value;
     this.postData.password = this.loginForm.get('password').value;
     if(this.validationInputs()){
+      this.presentLoading();
       this.authService.login(this.loginForm.value).then(
         async (res: any) => {
           if(res){

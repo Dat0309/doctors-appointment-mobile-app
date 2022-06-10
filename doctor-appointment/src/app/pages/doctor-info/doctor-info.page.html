@@ -79,7 +79,7 @@
         {{company.province}}</span><br /><span>9:00 am - 5:00pm</span> -->
   </div>
   <div class="thumbnail">
-    <img src="{{company.image}}" />
+    <img (click)="gotoLabInfo(company?._id)" src="{{company?.image?.split(',')[0]}}" />
   </div>
   <ion-button expand="block" (click)="bookDoctor(doctor._id)">BOOK</ion-button>
 </ion-content>

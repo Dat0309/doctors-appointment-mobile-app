@@ -5,7 +5,7 @@
 /* eslint-disable no-underscore-dangle */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { AppointmentService } from 'src/app/services/appointment/appointment.service';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
@@ -18,15 +18,18 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 export class AppointmentSchedulePage implements OnInit {
   appointments$: any[] = [];
   doctor_id: string = '';
+  role: string = '';
 
   constructor(
     private appointmentService: AppointmentService,
     private router: Router,
     private doctorService: DoctorService,
     private activateRoute: ActivatedRoute,
-    private toastController: ToastController) { }
+    private toastController: ToastController,
+    private loadingController: LoadingController) { }
 
   ngOnInit() {
+    this.presentLoading();
     this.getCustomerByUserId();
     setTimeout(() => {
       this.getMyAppointment(this.doctor_id);
@@ -41,11 +44,26 @@ export class AppointmentSchedulePage implements OnInit {
     toast.present();
   }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Đang tải dữ liệu...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
+
   public async getMyAppointment(id: string) {
     this.appointmentService.getAllByDoctorId(id).subscribe(
       async (res: any) => {
         if (res != null) {
           this.appointments$ = res.appointment;
+          if(this.appointments$.length === 0){
+            this.presentToast('Bạn hiện không có lịch hẹn nào!');
+          }
         } else {
           console.log('Fail to load appoinment');
         }

@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 import { Company, CompanyService } from 'src/app/services/company/company.service';
 
@@ -19,7 +19,8 @@ export class CompanymapPage implements OnInit, OnChanges {
   @ViewChild('slides', { static: false }) slides: IonSlides;
 
   constructor(
-    private companyService: CompanyService) {
+    private companyService: CompanyService,
+    private router: Router) {
     this.slideOpts = {
       slidesPerView: 1,
       centeredSlide: true,
@@ -68,6 +69,10 @@ export class CompanymapPage implements OnInit, OnChanges {
   testClick(company) {
     this.longitudeEvent = company?.longtitude;
     this.latitudeEvent = company?.latitude;
+  }
+
+  gotoLabInfo(id: string){
+    this.router.navigateByUrl(`/lab-info/${id}`);
   }
 
 }

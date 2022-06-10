@@ -20,7 +20,7 @@
         </div>
         <ion-slides #slides (ionSlideDidChange)="changeEvent($event)" class="info-doctor" [options]="slideOpts">
             <ion-slide *ngFor="let company of companies$">
-                <app-cardmap [companyObj]="company" (click)="testClick(company)"></app-cardmap>
+                <app-cardmap [companyObj]="company" (click)="gotoLabInfo(company._id)"></app-cardmap>
             </ion-slide>
         </ion-slides>
     </div>

@@ -22,7 +22,7 @@
             <ion-slide *ngFor="let doctor of doctors$">
                 <app-carddoctoritem [doctorObj]="doctor" 
                 [specialization$]=specializations$
-                [company$]=company$ (click)="testClick(doctor)"></app-carddoctoritem>
+                [company$]=company$ (click)="gotoDoctorInfo(doctor._id)"></app-carddoctoritem>
             </ion-slide>
         </ion-slides>
     </div>
